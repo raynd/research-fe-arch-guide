@@ -217,6 +217,12 @@ Additional quality scripts:
 
 Husky runs lint-staged in `pre-commit`, commitlint in `commit-msg`, and `pnpm run validate` in `pre-push`. `commitlint.config.mjs` extends the conventional configuration. New messages follow `type(scope): description`; historical messages are not rewritten. These are local hooks, not server-side enforcement; CI and branch protection are not configured. There is no permanent test or link-check script.
 
+**Lightweight trunk-based workflow:** `main` is the primary and normally active branch. Small research notes, literature/reference updates, hypothesis refinements, findings, evidence assessments, guidelines and translations may be committed directly, preserving paired content and research IDs. Short-lived `feature/...`, `experiment/...`, `refactor/...` or `fix/...` branches and PRs targeting `main` are used when larger technical work, architectural changes, components/navigation, substantial refactoring or experiments benefit from review or isolation. No permanent `develop`/`release` branches or blanket PR requirement are introduced.
+
+The existing hooks apply equally to direct commits and temporary branches. Synchronize clean work with `git pull --ff-only origin main`, stage relevant files explicitly, fix validation failures and never force-push shared `main`. Delete temporary branches after merging. See README for the authoring commands and Conventional Commit examples. This is a documented workflow, not an additional branch-checking hook.
+
+Repository inspection on 2026-11-04 found only local/remote `main`, GitHub's default branch set to `main`, no classic branch protection, no effective rules for `main`, and no GitHub Actions workflow. These remote settings were inspected read-only and were not changed. CI remains an optional future safety net, not an implemented or required PR gate.
+
 ### 1.10 Dependencies
 
 | Package                           | Version         | Kind          | Role                                        |
@@ -548,7 +554,7 @@ flowchart TB
 
 The initial commit is **`899d7c9` — `Initial commit: bilingual research workspace`**, on branch `main`. It was pushed to the now-public repository [raynd/research-fe-arch-guide](https://github.com/raynd/research-fe-arch-guide); the local `origin/main` reference matches it.
 
-The pnpm consolidation was committed as **`ca53748`**, technical stabilization as **`39d3071`**, and the sidebar/README updates as **`ae16982`**. Local `main` and `origin/main` match `ae16982`. The quality-tooling configuration and mechanical formatting baseline are uncommitted. `.notes/` remains ignored and untouched. The earlier implementation phases in [`PROJECT_CHANGELOG.md`](PROJECT_CHANGELOG.md) were reconstructed from work history because all of them preceded the first commit.
+The pnpm consolidation was committed as **`ca53748`**, technical stabilization as **`39d3071`**, sidebar/README updates as **`ae16982`**, and quality tooling/dependency updates as **`c2e8bbe`**. At the workflow review, local `main` and `origin/main` match `c2e8bbe`. Only the trunk-based workflow documentation and agent instructions are new, uncommitted changes. `.notes/` remains ignored and untouched. The earlier implementation phases in [`PROJECT_CHANGELOG.md`](PROJECT_CHANGELOG.md) were reconstructed from work history because all of them preceded the first commit.
 
 ---
 

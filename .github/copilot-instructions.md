@@ -23,6 +23,12 @@ The documentation is bilingual: English is under `src/content/docs/en/` and Germ
 - For frontend UI, HTML, CSS, accessibility, performance, or client-side JavaScript work, consult the project skill `.github/skills/modern-web-guidance/SKILL.md` before implementation.
 - Do not install or add the deferred Python research toolchain unless explicitly requested.
 
+## Git workflow
+
+- Use lightweight trunk-based development: `main` is the primary and normally active branch. Small, coherent research-content and translation changes may go directly to `main`; do not require a branch or PR for every content edit.
+- Use short-lived `feature/...`, `experiment/...`, `refactor/...` or `fix/...` branches and PRs targeting `main` for larger architectural changes, new components/navigation, substantial refactoring, experimental tooling or changes benefiting from review. Do not introduce permanent `develop` or `release` branches.
+- Preserve the existing pnpm/Husky quality gates on every branch. Use Conventional Commits, stage relevant files only, preserve bilingual research traceability, and never force-push shared `main`.
+
 ## Validation
 
 Use Conventional Commits for new commit messages. Run `pnpm run validate` for Biome, Prettier, Astro/TypeScript diagnostics and production-build validation. Biome owns JS/TS, JSON and CSS formatting; Prettier owns Astro, Markdown/Markdoc and YAML. Do not format the vendored Google skill or generated files. Report any checks that could not be run.

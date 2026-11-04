@@ -8,14 +8,14 @@ Summary of changes since project initialization.
 
 ## Current working tree (Git view)
 
-| Status                            | Paths                                                                                                       |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| Initial commit                    | `899d7c9` (`Initial commit: bilingual research workspace`)                                                  |
-| Current commit                    | `ae16982` (`Extend sidebar hierarchy and consolidate project README`); local `main` and `origin/main` match |
-| Modified (tracked, not committed) | Quality-tooling scripts/configuration, documentation and mechanical formatting baseline                     |
-| Deleted (tracked, not committed)  | none                                                                                                        |
-| Untracked (`??`)                  | `.husky/`, `biome.json`, `commitlint.config.mjs`, `.prettierrc.json`, `.prettierignore`                     |
-| Ignored                           | `node_modules/`, `dist/`, `.astro/`, `.notes/`, `*.log`, `.DS_Store`                                        |
+| Status                            | Paths                                                                                                                         |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Initial commit                    | `899d7c9` (`Initial commit: bilingual research workspace`)                                                                    |
+| Current commit                    | `c2e8bbe` (`chore(tooling): add quality hooks and update compatible dependencies`); local `main` and `origin/main` match      |
+| Modified (tracked, not committed) | `README.md`, `.github/copilot-instructions.md`, `PROJECT_MAP.md`, `PROJECT_CHANGELOG.md` (trunk-based workflow documentation) |
+| Deleted (tracked, not committed)  | none                                                                                                                          |
+| Untracked (`??`)                  | none                                                                                                                          |
+| Ignored                           | `node_modules/`, `dist/`, `.astro/`, `.notes/`, `*.log`, `.DS_Store`                                                          |
 
 ---
 
@@ -224,9 +224,19 @@ Committed as `39d3071`.
 - Refreshed transitive resolution within declared ranges using `pnpm update --depth Infinity`; no dependency overrides or policy exceptions were introduced.
 - Final strict-peer installation and frozen-lockfile installation passed. `pnpm run validate` passed Biome, Prettier, Astro/TypeScript (0 errors, warnings or hints) and the 129-page production build. pnpm audit reported no known vulnerabilities. Existing 404-entry and unset-site build warnings are unchanged.
 
+## Lightweight trunk-based workflow — 2026-11-04
+
+- Reviewed branches, repository configuration, pinned pnpm dependencies/lockfile, Husky hooks, lint-staged, commitlint, Biome, Prettier, validation scripts, ignore rules and documentation. `README.de.md` was previously removed; the single English README remains authoritative for repository instructions.
+- Confirmed `main` as the only local/remote branch and GitHub default. GitHub reports no classic branch protection or effective rules on `main`; no Actions workflow exists. Remote configuration was not changed.
+- Documented direct commits on `main` for small, coherent research-content, evidence, reference, guideline and translation updates. Larger architecture/components/navigation, substantial refactoring, experimental tooling and work benefiting from review use short-lived branches and PRs to `main`.
+- Documented temporary `feature/...`, `experiment/...`, `refactor/...` and `fix/...` naming, fast-forward synchronization, Conventional Commits, paired EN/DE traceability, no force-push to shared `main`, and cleanup after merge. No permanent branches or mandatory PRs for routine content edits.
+- Preserved all dependencies, scripts and hooks unchanged. No duplicate gate, branch-enforcement hook or CI workflow was added.
+- Verified in an isolated temporary Git repository: valid direct commits on `main`; lint-staged ignores invalid unstaged files; partial staging preserves unstaged content while formatting the index; invalid commit messages and staged syntax errors are rejected; pre-push rejects invalid source.
+- Frozen-lockfile installation succeeded. The actual pre-push hook passed Biome, Prettier, Astro/TypeScript (0 errors, warnings or hints) and the 129-page build. Existing build warnings remain: no custom 404 content entry, and sitemap skipped without `SITE_URL`. Temporary test repositories and scripts were removed.
+
 ## Known open items
 
-- Quality-tooling changes and their formatting baseline are uncommitted; previous work through `ae16982` is pushed.
+- Trunk-based workflow documentation is uncommitted; quality tooling and dependency updates through `c2e8bbe` are pushed.
 - `SITE_URL` (production origin) is not configured.
 - The built-in 404 emits canonical/alternate targets that do not correspond to generated routes.
 - The researcher still needs to review the status legend wording.
