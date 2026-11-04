@@ -36,7 +36,7 @@ Das Literaturregister und die Evidenzmatrix bleiben leer, bis Quellen oder Ergeb
 4. Für deutsche Markdoc-Badges `value="Proposed"` und `level="D"` beibehalten, aber mit `label="Vorgeschlagen"` beziehungsweise `label="Evidenz-Level D"` lokalisieren.
 5. Interne Links mit dem Sprachpräfix der jeweiligen Seite versehen (`/en/...` beziehungsweise `/de/...`) und `pnpm run check` sowie `pnpm run build` ausführen.
 
-Es gibt eine gemeinsame `markdoc.config.mjs` mit sprachunabhängigen Validierungsschemas. Die Sidebar wird je Abschnitt automatisch aus den lokalisierten Seitentiteln erzeugt; Gruppenbezeichnungen und Starlight-Oberflächentexte sind übersetzt.
+Es gibt eine gemeinsame `markdoc.config.mjs` mit sprachunabhängigen Validierungsschemas. Die Sidebar verwendet lokalisierte Seitentitel und übersetzte Gruppenbezeichnungen. Direkte Seiten in den Abschnitten 03 und 07 stehen in `sectionItems` in `astro.config.mjs`; neue direkte Seiten dort ebenfalls eintragen. Andere Abschnitte und die Inhalte der Untergruppen werden automatisch ergänzt.
 
 ## Agent-Skill für moderne Frontend-Entwicklung
 

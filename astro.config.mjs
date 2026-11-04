@@ -12,6 +12,25 @@ const sections = [
   ['07-guidelines', '07 — Frontend Architecture Guidelines', '07 — Frontend-Architektur-Leitlinien'],
 ];
 
+const sectionItems = {
+  '03-notes': [
+    'index', 'architecture-observations', 'ideas-questions', 'meeting-notes',
+    'paper-notes', 'research-journal', 'technical-notes',
+  ],
+  '07-guidelines': [
+    'index', 'accessibility', 'content-architecture', 'entities', 'extractability',
+    'performance', 'rendering', 'semantics-dom', 'structured-data', 'validation',
+  ],
+};
+
+const subgroups = {
+  '03-notes': [
+    ['research-journal', 'Research Journal', 'Forschungstagebuch'],
+    ['templates', 'Templates', 'Vorlagen'],
+  ],
+  '07-guidelines': [['templates', 'Templates', 'Vorlagen']],
+};
+
 export default defineConfig({
   site: process.env.SITE_URL,
   redirects: {
@@ -49,7 +68,18 @@ export default defineConfig({
         ...sections.map(([directory, label, germanLabel]) => ({
           label,
           translations: { de: germanLabel },
-          items: [{ autogenerate: { directory } }],
+          items: sectionItems[directory]
+            ? [
+                ...sectionItems[directory].map((page) => ({
+                  slug: page === 'index' ? directory : `${directory}/${page}`,
+                })),
+                ...subgroups[directory].map(([subdirectory, label, germanLabel]) => ({
+                  label,
+                  translations: { de: germanLabel },
+                  items: [{ autogenerate: { directory: `${directory}/${subdirectory}` } }],
+                })),
+              ]
+            : [{ autogenerate: { directory } }],
         })),
       ],
     }),
