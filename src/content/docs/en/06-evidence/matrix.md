@@ -3,7 +3,7 @@ title: Evidence Matrix
 description: Traceability table linking research questions, evidence, and guidelines.
 ---
 
-No evaluated studies or experiment results are currently available. Populate one row per evidence item; retain multiple rows where evidence conflicts or methods differ.
+No claim-level evidence assessments or project experiment results are registered here. [PAPER-001](/en/03-notes/paper-notes/htmlrag/) is a source appraisal, not an automatically accepted project finding. Populate one row per assessed evidence item; retain multiple rows where evidence conflicts or methods differ.
 
 | Claim / RQ                              | Source ID and source type | Measured stage, system, date | Design, sample, comparator | Outcome and effect/uncertainty | Evidence level and rationale | Bias, limitations, directness | Related hypothesis | Related finding / guideline |
 | --------------------------------------- | ------------------------- | ---------------------------- | -------------------------- | ------------------------------ | ---------------------------- | ----------------------------- | ------------------ | --------------------------- |

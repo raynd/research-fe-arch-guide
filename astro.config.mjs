@@ -14,6 +14,7 @@ const sections = [
     '07 — Frontend Architecture Guidelines',
     '07 — Frontend-Architektur-Leitlinien',
   ],
+  ['13-reference', '13 — Reference', '13 — Referenz'],
 ];
 
 const sectionItems = {
@@ -24,9 +25,18 @@ const sectionItems = {
       translations: { de: 'Architektur' },
       items: ['03-notes/architecture-observations', '03-notes/technical-notes'],
     },
+    {
+      label: 'AI Content Discovery',
+      translations: { de: 'KI-Inhaltserschließung' },
+      items: ['03-notes/crawlers-content-acquisition', '03-notes/ai-search-provider-access'],
+    },
+    {
+      label: 'Paper Notes',
+      translations: { de: 'Paper-Notizen' },
+      items: ['03-notes/paper-notes', '03-notes/paper-notes/htmlrag'],
+    },
     'ideas-questions',
     'meeting-notes',
-    'paper-notes',
     'research-journal',
   ],
   '07-guidelines': [

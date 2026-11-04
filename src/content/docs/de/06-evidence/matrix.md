@@ -3,7 +3,7 @@ title: Evidenzmatrix
 description: Rückverfolgbarkeit von Forschungsfragen über Evidenz bis zu Leitlinien.
 ---
 
-Derzeit liegen keine bewerteten Studien oder Experimentergebnisse vor. Pro Evidenzpunkt eine Zeile ergänzen; widersprüchliche oder methodisch unterschiedliche Evidenz in getrennten Zeilen aufführen.
+Hier sind noch keine aussagenspezifischen Evidenzbewertungen oder Projektexperimentergebnisse registriert. [PAPER-001](/de/03-notes/paper-notes/htmlrag/) ist eine Quellenbewertung, kein automatisch übernommenes Projekt-Finding. Pro bewertetem Evidenzpunkt eine Zeile ergänzen; widersprüchliche oder methodisch unterschiedliche Evidenz in getrennten Zeilen aufführen.
 
 | Aussage / Forschungsfrage                        | Quellen-ID und Quellentyp | Gemessene Stufe, System, Datum | Design, Stichprobe, Vergleich | Ergebnis und Effekt/Unsicherheit | Evidenz-Level und Begründung | Verzerrung, Einschränkungen, Direktheit | Zugehörige Hypothese | Zugehörige Erkenntnis / Guideline |
 | ------------------------------------------------ | ------------------------- | ------------------------------ | ----------------------------- | -------------------------------- | ---------------------------- | --------------------------------------- | -------------------- | --------------------------------- |

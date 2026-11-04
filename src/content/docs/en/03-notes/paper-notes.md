@@ -3,7 +3,13 @@ title: Paper Notes
 description: Guide and template for source-by-source literature appraisal.
 ---
 
-No paper notes have been added. Create one note per verified source using this template:
+## Paper register
+
+- [PAPER-001 — HtmlRAG](/en/03-notes/paper-notes/htmlrag/) — HTML representation, cleaning, and block-tree pruning in RAG; includes mixed results and limits on frontend/GEO transfer.
+
+## Paper note template
+
+Create one note per verified source using this template. Paper appraisals are not automatically project findings or evidence-level assignments.
 
 ```markdown
 ---

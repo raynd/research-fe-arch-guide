@@ -3,7 +3,13 @@ title: Paper-Notizen
 description: Vorlage und Anleitung für die quellenbezogene Literaturbewertung.
 ---
 
-Es wurden noch keine Paper-Notizen angelegt. Pro verifizierter Quelle eine Notiz nach dieser Vorlage erstellen:
+## Paper-Register
+
+- [PAPER-001 — HtmlRAG](/de/03-notes/paper-notes/htmlrag/) — HTML-Repräsentation, Bereinigung und Block-Tree-Pruning in RAG; mit gemischten Ergebnissen und Grenzen der Frontend-/GEO-Übertragung.
+
+## Vorlage für Paper-Notizen
+
+Pro verifizierter Quelle eine Notiz nach dieser Vorlage erstellen. Paper-Bewertungen sind nicht automatisch Projekt-Findings oder Evidenz-Level-Zuweisungen.
 
 ```markdown
 ---

@@ -6,16 +6,36 @@ Summary of changes since project initialization.
 
 ---
 
-## Current working tree (Git view)
+## HtmlRAG, HTML processing, and AI content discovery — 2026-11-04
 
-| Status                            | Paths                                                                                                                         |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| Initial commit                    | `899d7c9` (`Initial commit: bilingual research workspace`)                                                                    |
-| Current commit                    | `c2e8bbe` (`chore(tooling): add quality hooks and update compatible dependencies`); local `main` and `origin/main` match      |
-| Modified (tracked, not committed) | `README.md`, `.github/copilot-instructions.md`, `PROJECT_MAP.md`, `PROJECT_CHANGELOG.md` (trunk-based workflow documentation) |
-| Deleted (tracked, not committed)  | none                                                                                                                          |
-| Untracked (`??`)                  | none                                                                                                                          |
-| Ignored                           | `node_modules/`, `dist/`, `.astro/`, `.notes/`, `*.log`, `.DS_Store`                                                          |
+- Inspected actual `main` at `27bfa28` and preserved the uncommitted glossary/navigation/terminology/report work. `pnpm-lock.yaml` is present and tracked; no lockfile discrepancy, removal, restoration, or dependency change.
+- Added five Markdown research pages per locale: `02-literature/html-content-processing.md`, `02-literature/html-vs-plain-text.md`, `03-notes/crawlers-content-acquisition.md`, `03-notes/ai-search-provider-access.md`, and `03-notes/paper-notes/htmlrag.md`.
+- Checked that `PAPER-001` was unused, then registered HtmlRAG in both literature registers and Paper Notes indexes. Verified bibliographic metadata against publisher-deposited Crossref data and arXiv; appraised full-text arXiv v2 methods/results, including table-level counterexamples to blanket superiority. Kept published results, project interpretation, transfer limits, and open questions separate.
+- Added native localized AI Content Discovery and Paper Notes sidebar groups, at no more than three levels. Preserved existing Architecture, Journal, Templates, Reference, URLs, and research IDs; the existing Paper Notes URL remains the template/index.
+- Used official provider documentation for purpose-specific bots, Google-Extended, search tools, external search APIs, attribution, and an authorized connected-source example. Recorded review date and unknown internals; llms.txt remains a proposal, not an implemented recommendation.
+- Updated research-note indexes, dashboards, and evidence-matrix introductions to reflect a targeted source appraisal without claiming systematic synthesis, new project findings, completed experiments, supported hypotheses, or validated guidelines.
+- Project map now lists 70 pages per locale, 140 source pages (116 Markdown, 24 Markdoc). No schema, UI component, custom JavaScript, README, lockfile, or hook change.
+- Validation: `pnpm run validate` passed Biome, Prettier, Astro/TypeScript (0 errors, warnings, hints), and the production build (141 reported pages; 142 HTML files including the redirect). All 140 documentation sidebars contain 70 unique locale-specific links, exactly one correct active link, correct localized research groups, and no more than three levels. All 12,888 internal documentation/fragment references resolve; both Paper Notes indexes link PAPER-001. All eight cited HtmlRAG section/table fragments exist in the primary-source HTML, and the five EN/DE page pairs share source links, research IDs, and section counts. Existing documentation paths and hypothesis/experiment files remain unchanged. Existing build warnings remain: no custom 404 content entry and sitemap skipped without `SITE_URL`.
+
+## Glossary addition — 2026-11-04
+
+- Added one bilingual `13-reference/glossary.md` page with 40 essential entries across seven categories. Entry headings use English technical terms in both locales; definitions, explanations, relevance, German equivalents, and field labels are localized. Each entry links related terms and reference sources.
+- Added the native localized `13 — Reference` / `13 — Referenz` sidebar group. Existing URLs and research IDs remain unchanged; templates, technical notes, and the literature register are linked rather than duplicated into empty reference pages.
+- Made the glossary the central technical reference; existing foundation terminology pages retain measurement/evidence vocabulary and link to it.
+- Distinguished training crawlers, search crawlers, user-triggered access, and Google-Extended's product control token using official provider documentation checked on 2026-11-04. Marked llms.txt as a proposal and GEO/AEO language as scoped terminology, not evidence of efficacy.
+- Updated the project map to 65 pages per locale, 130 source pages (106 Markdown, 24 Markdoc). No dependency, schema, component, hook, or research-status changes.
+- Validation: `pnpm run validate` passed Biome, Prettier, Astro/TypeScript (0 errors, warnings, hints), and the production build (131 reported pages; 132 HTML files including the root redirect). Both glossaries have 40 unique matching English term headings and rendered fragment IDs, all six entry fields, and localized Reference navigation. All 226 internal documentation/fragment links in the glossaries and foundation terminology pages resolve. Existing warnings remain: no custom 404 content entry and sitemap skipped without `SITE_URL`.
+
+## Pre-glossary baseline (Git view)
+
+| Status                            | Paths                                                                                                                                   |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Initial commit                    | `899d7c9` (`Initial commit: bilingual research workspace`)                                                                              |
+| Baseline commit                   | `27bfa28` (`docs(workflow): document lightweight trunk-based development`); local `main` and `origin/main` matched before glossary work |
+| Modified (tracked, not committed) | none at the start of glossary work                                                                                                      |
+| Deleted (tracked, not committed)  | none                                                                                                                                    |
+| Untracked (`??`)                  | none                                                                                                                                    |
+| Ignored                           | `node_modules/`, `dist/`, `.astro/`, `.notes/`, `*.log`, `.DS_Store`                                                                    |
 
 ---
 
@@ -236,7 +256,7 @@ Committed as `39d3071`.
 
 ## Known open items
 
-- Trunk-based workflow documentation is uncommitted; quality tooling and dependency updates through `c2e8bbe` are pushed.
+- Trunk-based workflow documentation is committed and pushed as `27bfa28`; the glossary addition is subsequent work.
 - `SITE_URL` (production origin) is not configured.
 - The built-in 404 emits canonical/alternate targets that do not correspond to generated routes.
 - The researcher still needs to review the status legend wording.

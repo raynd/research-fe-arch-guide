@@ -13,6 +13,7 @@ description: Index of free-form Markdown notes and structured Markdoc research r
 - [Paper Notes](/en/03-notes/paper-notes/)
 - [Technical Notes](/en/03-notes/technical-notes/)
 - [Architecture Observations](/en/03-notes/architecture-observations/)
+- AI Content Discovery: [crawlers and content acquisition](/en/03-notes/crawlers-content-acquisition/), [provider access comparison](/en/03-notes/ai-search-provider-access/)
 - [Research Journal](/en/03-notes/research-journal/)
 - [Ideas & Questions](/en/03-notes/ideas-questions/)
 - [Meeting Notes](/en/03-notes/meeting-notes/)

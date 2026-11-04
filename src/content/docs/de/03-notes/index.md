@@ -13,6 +13,7 @@ description: Übersicht freier Markdown-Notizen und strukturierter Markdoc-Forsc
 - [Paper-Notizen](/de/03-notes/paper-notes/)
 - [Technische Notizen](/de/03-notes/technical-notes/)
 - [Architekturbeobachtungen](/de/03-notes/architecture-observations/)
+- KI-Inhaltserschließung: [Crawler und Inhaltsbeschaffung](/de/03-notes/crawlers-content-acquisition/), [Anbietervergleich](/de/03-notes/ai-search-provider-access/)
 - [Forschungstagebuch](/de/03-notes/research-journal/)
 - [Ideen und Fragen](/de/03-notes/ideas-questions/)
 - [Besprechungsnotizen](/de/03-notes/meeting-notes/)
