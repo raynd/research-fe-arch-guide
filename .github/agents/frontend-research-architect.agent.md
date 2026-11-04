@@ -34,4 +34,4 @@ For HTML, CSS, UI, accessibility, browser APIs, performance, or client-side Java
 
 ## Completion
 
-Run `npm run check` and, for changes affecting content or site output, `npm run build`. Summarize changed files and validation; clearly identify research protocols or experiments that remain unexecuted.
+Run `pnpm run check` and, for changes affecting content or site output, `pnpm run build`. Summarize changed files and validation; clearly identify research protocols or experiments that remain unexecuted.

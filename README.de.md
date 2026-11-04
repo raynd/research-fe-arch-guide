@@ -4,18 +4,20 @@ Ein lokal verfügbarer, zweisprachiger Forschungsbereich (Englisch/Deutsch) zur 
 
 ## Lokal starten
 
-Voraussetzung ist Node.js `>=22.23.4`.
+Voraussetzungen sind Node.js `>=22.23.4` und pnpm `11.25.0` (in `package.json` festgelegt).
+
+Ausschließlich pnpm verwenden; `pnpm-lock.yaml` ist die maßgebliche Lockdatei.
 
 ```sh
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
 Produktionsbuild und Vorschau:
 
 ```sh
-npm run build
-npm run preview
+pnpm run build
+pnpm run preview
 ```
 
 ## Forschungsablauf und Lokalisierung
@@ -32,7 +34,7 @@ Das Literaturregister und die Evidenzmatrix bleiben leer, bis Quellen oder Ergeb
 2. Inhalt in natürliches, technisch präzises Deutsch übersetzen und unter demselben relativen Pfad in `src/content/docs/de/` ablegen.
 3. Forschungs-IDs wie `PAPER-###`, `HYP-###`, `EXP-###`, `FIND-###` und `FE-###` in beiden Sprachfassungen identisch halten; bestehende IDs unverändert beibehalten.
 4. Für deutsche Markdoc-Badges `value="Proposed"` und `level="D"` beibehalten, aber mit `label="Vorgeschlagen"` beziehungsweise `label="Evidenz-Level D"` lokalisieren.
-5. Interne Links mit dem Sprachpräfix der jeweiligen Seite versehen (`/en/...` beziehungsweise `/de/...`) und `npm run check` sowie `npm run build` ausführen.
+5. Interne Links mit dem Sprachpräfix der jeweiligen Seite versehen (`/en/...` beziehungsweise `/de/...`) und `pnpm run check` sowie `pnpm run build` ausführen.
 
 Es gibt eine gemeinsame `markdoc.config.mjs` mit sprachunabhängigen Validierungsschemas. Die Sidebar wird je Abschnitt automatisch aus den lokalisierten Seitentiteln erzeugt; Gruppenbezeichnungen und Starlight-Oberflächentexte sind übersetzt.
 
@@ -47,7 +49,7 @@ Die CLI kann anonyme Nutzungsdaten – darunter Guide-IDs und generierte Suchanf
 Beim Produktionsbuild `SITE_URL` auf den kanonischen Ursprung setzen, zum Beispiel:
 
 ```sh
-SITE_URL=https://research.example.org npm run build
+SITE_URL=https://research.example.org pnpm run build
 ```
 
 Starlight erstellt dann absolute kanonische URLs und `hreflang`-Alternativen; die Sitemap verwendet denselben Astro-`site`-Wert. Für lokale Entwicklung wird kein Deployment-Hostname vorgegeben.

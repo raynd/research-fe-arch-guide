@@ -2,7 +2,7 @@
 
 Summary of changes since project initialization.
 
-> **Source of this changelog.** Git is initialized (branch `main`), but **no commit exists**, so every file is untracked and there is no initial commit to diff against. This changelog is reconstructed from the documented work history of the project sessions and checked against the current working tree. It does not reset or modify Git history.
+> **Source of this changelog.** Phases 1–7 below preceded the initial commit and were reconstructed from documented work history. The initial commit is now `899d7c9` (`Initial commit: bilingual research workspace`) on `main`, pushed to [raynd/research-fe-arch-guide](https://github.com/raynd/research-fe-arch-guide). Subsequent local changes can be compared against that baseline. No Git history was rewritten.
 
 ---
 
@@ -10,8 +10,10 @@ Summary of changes since project initialization.
 
 | Status | Paths |
 |---|---|
-| Untracked (`??`) | `.github/`, `.gitignore`, `README.md`, `README.de.md`, `astro.config.mjs`, `markdoc.config.mjs`, `package.json`, `package-lock.json`, `pnpm-lock.yaml`, `public/`, `src/`, `tsconfig.json` |
-| Modified / deleted (tracked) | none, because nothing is tracked yet |
+| Baseline | `899d7c9` on `main`; local `origin/main` matches the initial commit |
+| Modified (tracked, not committed) | `.github/agents/frontend-research-architect.agent.md`, `.github/copilot-instructions.md`, `PROJECT_MAP.md`, `PROJECT_CHANGELOG.md`, `README.md`, `README.de.md`, `package.json` |
+| Deleted (tracked, not committed) | `package-lock.json` |
+| Untracked (`??`) | `.notes/` (not part of these changes; left untouched) |
 | Ignored | `node_modules/`, `dist/`, `.astro/`, `*.log`, `.DS_Store` |
 
 ---
@@ -85,7 +87,7 @@ Summary of changes since project initialization.
 - `.github/agents/frontend-research-architect.agent.md`: selectable custom agent.
 - README sections (EN/DE) on the skill, telemetry opt-out and agent setup.
 
-No npm dependency was added; the skill's CLI is fetched on demand via `npx`.
+No project dependency was added; the skill's CLI is fetched on demand. Current project instructions use `pnpm dlx`.
 
 ## Phase 5 — Reusable grid/subgrid research cards
 
@@ -155,11 +157,20 @@ There were **no new dependencies after initialization**. The dependency set is t
 - `@astrojs/starlight-markdoc`
 - dev: `@astrojs/check`, `typescript`
 
-`package-lock.json` and `pnpm-lock.yaml` coexist; see `PROJECT_MAP.md` §5.1.
+Initially, `package-lock.json` and `pnpm-lock.yaml` coexisted. The consolidation below resolves this.
+
+## Package manager consolidation
+
+These changes are local and have not yet been committed or pushed.
+
+- Removed `package-lock.json`; retained `pnpm-lock.yaml` as the only dependency lockfile.
+- Pinned pnpm `11.25.0` via `packageManager` in `package.json`.
+- Updated English/German setup instructions, architecture documentation and agent instructions to use pnpm.
+- Preserved the vendored Google skill unchanged; project instructions select `pnpm dlx` for on-demand CLIs.
 
 ## Known open items
 
-- No initial Git commit, so future changes are not yet traceable.
+- The pnpm consolidation and documentation updates have not yet been committed or pushed.
 - `SITE_URL` (production origin) is not configured.
 - `de/04-hypotheses/h-001.mdoc` merges two template sections that are separate in English.
 - Sidebar sub-groups `research-journal` and `templates` are not localized.

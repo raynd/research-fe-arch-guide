@@ -15,6 +15,8 @@ The documentation is bilingual: English is under `src/content/docs/en/` and Germ
 
 ## Implementation conventions
 
+- Use pnpm exclusively. Keep `pnpm-lock.yaml` as the only dependency lockfile; use `pnpm dlx` for on-demand CLIs.
+
 - Extend the existing Astro, Starlight, and Markdoc architecture; avoid unnecessary dependencies and unrelated refactors.
 - Use Markdown for free-form notes and Markdoc for validated research objects. Keep shared Markdoc schemas language-independent.
 - Keep internal links locale-prefixed (`/en/...` or `/de/...`) and update both language versions for user-facing documentation changes.
@@ -23,4 +25,4 @@ The documentation is bilingual: English is under `src/content/docs/en/` and Germ
 
 ## Validation
 
-Run `npm run check` for Astro and TypeScript diagnostics and `npm run build` for production-build validation when changes affect source or configuration. Report any checks that could not be run.
+Run `pnpm run check` for Astro and TypeScript diagnostics and `pnpm run build` for production-build validation when changes affect source or configuration. Report any checks that could not be run.

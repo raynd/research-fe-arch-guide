@@ -4,7 +4,7 @@ Technical overview of the current implementation, for architecture review and kn
 
 - **Inspected:** 2026-11-04
 - **Scope:** repository state as found in the working tree. Nothing was changed for this report.
-- **Toolchain observed:** Node.js 24.21.0, npm 11.19.0
+- **Toolchain:** Node.js 24.21.0; pnpm 11.25.0 is the selected package manager.
 
 > **Summary.** This is a **static documentation site**. All content lives as Markdown/Markdoc files in the repository, Astro + Starlight compile it to plain HTML/CSS/JS at build time, and any static file host can serve the `dist/` folder. There is **no backend server, no database, no API and no CMS**.
 
@@ -171,7 +171,7 @@ CSS is token-driven and ordered with cascade layers:
 
 ### 1.9 Scripts
 
-| npm script | Command | Purpose |
+| Package script | Command | Purpose |
 |---|---|---|
 | `dev` | `astro dev` | Local dev server with hot reload (default port 4321) |
 | `build` | `astro build` | Static production build into `dist/` |
@@ -202,7 +202,7 @@ Important transitive packages (not declared directly) include:
 - The build target is static HTML (`dist/`).
 - There is **no deployment configuration**: no CI workflow, host config, adapter, Dockerfile, or `_redirects`/`vercel.json`/`netlify.toml`.
 - `SITE_URL` is the only build-time environment variable.
-- Both `package-lock.json` (npm) and `pnpm-lock.yaml` exist, while `node_modules` uses the pnpm layout. One package manager should be chosen (see §6).
+- pnpm is the sole package manager, pinned to `11.25.0` in `package.json`. `pnpm-lock.yaml` is the only dependency lockfile.
 
 ---
 
@@ -342,7 +342,7 @@ flowchart TB
 
 - **Enabled:** Starlight automatically adds `@astrojs/sitemap` when Astro's `site` option is set. No separate sitemap package is installed or needed.
 - **Default build (no `SITE_URL`):** the build logs `The Sitemap integration requires the site astro.config option. Skipping.` and produces no sitemap. Pages contain **no** `<link rel="canonical">` and **no** `hreflang` alternates.
-- **Verified with a placeholder origin** (`SITE_URL=https://research.example.org npm run build`, used for testing only):
+- **Verified with a placeholder origin** (`SITE_URL=https://research.example.org pnpm run build`, used for testing only):
   - `sitemap-index.xml` and `sitemap-0.xml` are generated, with 128 `<loc>` entries (all EN and DE pages; no 404, no redirect).
   - The sitemap has 256 `xhtml:link` language alternates.
   - Every page has a self-referencing canonical plus `hreflang="en"`, `hreflang="de"` and `hreflang="x-default"` (pointing to English).
@@ -501,7 +501,9 @@ flowchart TB
 
 ## 4. Project changes
 
-Git is initialized on branch `main`, but **there are no commits yet**. All files are untracked, so no Git diff against an initial commit is possible. [`PROJECT_CHANGELOG.md`](PROJECT_CHANGELOG.md) reconstructs the changes from the work history. A first commit is recommended so that future changes become traceable.
+The initial commit is **`899d7c9` — `Initial commit: bilingual research workspace`**, on branch `main`. It was pushed to the now-public repository [raynd/research-fe-arch-guide](https://github.com/raynd/research-fe-arch-guide); the local `origin/main` reference matches it.
+
+The pnpm consolidation and documentation updates are currently local, uncommitted changes. They can be compared with the initial commit using `git diff 899d7c9`. The earlier implementation phases in [`PROJECT_CHANGELOG.md`](PROJECT_CHANGELOG.md) were reconstructed from work history because all of them preceded this first commit.
 
 ---
 
@@ -511,9 +513,9 @@ Results from 2026-11-04:
 
 | Check | Command / method | Result |
 |---|---|---|
-| Type and Astro diagnostics | `npm run check` | **0 errors, 0 warnings, 0 hints** (9 files) |
-| Production build | `npm run build` | **Complete.** 129 pages. One warning when `site` is unset: the sitemap is skipped. |
-| Production build with origin | `SITE_URL=<placeholder> npm run build` | **Complete.** Sitemap generated with 128 URLs. |
+| Type and Astro diagnostics | `pnpm run check` | **0 errors, 0 warnings, 0 hints** (9 files) |
+| Production build | `pnpm run build` | **Complete.** 129 pages. One warning when `site` is unset: the sitemap is skipped. |
+| Production build with origin | `SITE_URL=<placeholder> pnpm run build` | **Complete.** Sitemap generated with 128 URLs. |
 | Content warning | build log | `Entry docs → 404 was not found`. Non-fatal; the built-in 404 is used. |
 | Internal links | Ad-hoc Node script over `dist/**/*.html`, not added to the project | **0 broken** out of 9,822 internal `href`/`src` references; **0 broken** `#fragment` anchors |
 | Translation coverage | EN/DE file-path comparison | **64/64 paired**, no missing translations, no translation-pending notices in use |
@@ -524,7 +526,7 @@ Results from 2026-11-04:
 ### 5.1 Configuration issues and observations
 
 1. **No production `site`.** Without `SITE_URL`, the build has no canonical URLs, no `hreflang` and no sitemap. This matters for GEO/AEO publication.
-2. **Two lockfiles.** Both `package-lock.json` and `pnpm-lock.yaml` exist, while `node_modules` uses the pnpm layout. Choose one package manager and delete the other lockfile to avoid divergent installs.
+2. **Package manager consolidated.** The original two-lockfile issue is resolved: `package-lock.json` was removed, and pnpm `11.25.0` is pinned in `package.json`.
 3. **Untranslated sidebar sub-groups.** Autogenerated subdirectories show their raw directory names, `research-journal` and `templates`, in both locales. The README states that group labels are translated; that holds only for the seven top-level groups.
 4. **`__collectHeading` attribute leak.** 24 Markdoc-rendered pages contain a `__collectHeading` attribute on headings in the output HTML. This originates in `@astrojs/markdoc`/`starlight-markdoc` heading collection, not in project code. It is harmless to rendering but is invalid HTML noise.
 5. **Root redirect is client-side.** On static hosts, `/` is a meta-refresh page, not an HTTP 301. Configure a host-level redirect at deployment if crawlers matter.
@@ -552,4 +554,4 @@ The site itself is a usable **test subject** for the research questions because 
 - **New English page:** add `src/content/docs/en/<section>/<slug>.md` (or `.mdoc`) with `title`/`description` frontmatter. The sidebar picks it up automatically.
 - **German translation:** add the same relative path under `src/content/docs/de/`. Keep IDs, `value`/`level` attributes and links (with `/de/` prefixes) aligned.
 - **Markdoc research object:** use `{% research-status value="…" label="…" /%}` and `{% evidence level="…" label="…" /%}` with canonical values. New tags belong in `markdoc.config.mjs` with attribute schemas.
-- **Validate:** run `npm run check && npm run build`.
+- **Validate:** run `pnpm run check && pnpm run build`.
