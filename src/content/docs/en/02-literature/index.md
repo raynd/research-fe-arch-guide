@@ -11,9 +11,9 @@ The thematic map is established; no papers have yet been verified or entered. Th
 
 Add one row per verifiable source. Include stable identifiers, publication status, method, findings as reported by the source, limitations, and relevance. Use the linked [paper note template](/en/03-notes/paper-notes/) for detailed appraisal.
 
-| Paper title | Authors | Year | Venue | DOI or URL | Publication status | Research topic | Methodology | Main findings | Limitations | Relevance |
-|---|---|---:|---|---|---|---|---|---|---|---|
-| _No sources recorded yet._ | | | | | | | | | | |
+| Paper title                | Authors | Year | Venue | DOI or URL | Publication status | Research topic | Methodology | Main findings | Limitations | Relevance |
+| -------------------------- | ------- | ---: | ----- | ---------- | ------------------ | -------------- | ----------- | ------------- | ----------- | --------- |
+| _No sources recorded yet._ |         |      |       |            |                    |                |             |               |             |           |
 
 ## Thematic areas
 

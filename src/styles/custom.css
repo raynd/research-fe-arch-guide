@@ -16,7 +16,8 @@
     --research-focus-offset: 2px;
     --research-progress-block-size: 0.5rem;
     --research-popover-max-inline-size: 26rem;
-    --research-shadow-popover: 0 0.75rem 2rem color-mix(in srgb, var(--research-ink) 18%, transparent);
+    --research-shadow-popover: 0 0.75rem 2rem
+      color-mix(in srgb, var(--research-ink) 18%, transparent);
 
     --research-card-min-inline-size: 16rem;
     --research-card-grid-gap: var(--research-space-m);
@@ -47,7 +48,7 @@
     --research-badge-inconclusive-bg: #f0ebf8;
   }
 
-  :root[data-theme='dark'] {
+  :root[data-theme="dark"] {
     --sl-color-accent-low: #183c36;
     --sl-color-accent: #75c4ad;
     --sl-color-accent-high: #c4f1e2;

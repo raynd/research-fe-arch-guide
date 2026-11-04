@@ -16,8 +16,8 @@ Map empirical and theoretical work relevant to whether frontend implementation a
 Select appropriate scholarly indexes, publisher libraries, and standards or system documentation before searching. Search scholarly sources separately from practitioner material and official technical documentation. Record each source in a dated log:
 
 | Search ID | Source/index and coverage | Exact query and fields | Search date | Limits | Export and hit count | Notes |
-|---|---|---|---|---|---|---|
-| Not run | | | | | | |
+| --------- | ------------------------- | ---------------------- | ----------- | ------ | -------------------- | ----- |
+| Not run   |                           |                        |             |        |                      |       |
 
 Build query families around: (1) generative/answer search, (2) semantic HTML and content extraction, (3) JavaScript rendering and crawling, (4) structured data and entities, (5) document parsing, chunking and RAG, and (6) retrieval/answer/citation evaluation. Save the exact query per source; syntax and coverage differ. Use backward and forward citation searching only with a recorded seed source and search date.
 

@@ -1,0 +1,16 @@
+{
+  "plugins": ["prettier-plugin-astro"],
+  "tabWidth": 2,
+  "singleQuote": true,
+  "printWidth": 100,
+  "proseWrap": "preserve",
+  "embeddedLanguageFormatting": "off",
+  "overrides": [
+    {
+      "files": "*.mdoc",
+      "options": {
+        "parser": "markdown"
+      }
+    }
+  ]
+}

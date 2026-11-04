@@ -9,22 +9,22 @@ This is a planning template, not a finalized analysis plan. Each experiment must
 
 ## Protocol fields
 
-| Field | Specify before the run |
-|---|---|
-| Research question and hypothesis | Exact question; confirmatory or exploratory |
-| Treatment/comparator | One declared contrast; variants not part of the contrast are exploratory |
-| Target estimand | Population and outcome contrast the study intends to estimate |
-| Primary outcome | One outcome, definition, direction, unit, and measurement stage |
-| Secondary outcomes | Ordered list; label exploratory outcomes |
-| Unit of assignment and analysis | Page/content item, query, run, system, or annotation; explain clustering |
-| Sampling frame | How pages, facts, queries, systems, and time windows are selected |
-| Randomization/blocking | Run order, matched content/query blocks, seeds, and time blocks |
-| Exclusions and missingness | Objective reasons, denominator, failed runs, and unavailable observations |
-| Annotation | Rubric, blinding, number of annotators, agreement and adjudication |
-| Sample-size rationale | Pilot-based variance/feasibility or simulation; document assumptions and precision goal |
-| Analysis | Per-unit summaries, contrast, uncertainty interval, and sensitivity checks |
-| Multiplicity | How multiple outcomes, queries, and variants will be handled |
-| Stopping rule | Fixed repetitions/window or explicit sequential method; no outcome-driven stopping |
+| Field                            | Specify before the run                                                                  |
+| -------------------------------- | --------------------------------------------------------------------------------------- |
+| Research question and hypothesis | Exact question; confirmatory or exploratory                                             |
+| Treatment/comparator             | One declared contrast; variants not part of the contrast are exploratory                |
+| Target estimand                  | Population and outcome contrast the study intends to estimate                           |
+| Primary outcome                  | One outcome, definition, direction, unit, and measurement stage                         |
+| Secondary outcomes               | Ordered list; label exploratory outcomes                                                |
+| Unit of assignment and analysis  | Page/content item, query, run, system, or annotation; explain clustering                |
+| Sampling frame                   | How pages, facts, queries, systems, and time windows are selected                       |
+| Randomization/blocking           | Run order, matched content/query blocks, seeds, and time blocks                         |
+| Exclusions and missingness       | Objective reasons, denominator, failed runs, and unavailable observations               |
+| Annotation                       | Rubric, blinding, number of annotators, agreement and adjudication                      |
+| Sample-size rationale            | Pilot-based variance/feasibility or simulation; document assumptions and precision goal |
+| Analysis                         | Per-unit summaries, contrast, uncertainty interval, and sensitivity checks              |
+| Multiplicity                     | How multiple outcomes, queries, and variants will be handled                            |
+| Stopping rule                    | Fixed repetitions/window or explicit sequential method; no outcome-driven stopping      |
 
 ## Interpretation safeguards
 

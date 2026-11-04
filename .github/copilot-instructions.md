@@ -25,4 +25,4 @@ The documentation is bilingual: English is under `src/content/docs/en/` and Germ
 
 ## Validation
 
-Run `pnpm run check` for Astro and TypeScript diagnostics and `pnpm run build` for production-build validation when changes affect source or configuration. Report any checks that could not be run.
+Use Conventional Commits for new commit messages. Run `pnpm run validate` for Biome, Prettier, Astro/TypeScript diagnostics and production-build validation. Biome owns JS/TS, JSON and CSS formatting; Prettier owns Astro, Markdown/Markdoc and YAML. Do not format the vendored Google skill or generated files. Report any checks that could not be run.

@@ -8,14 +8,14 @@ Summary of changes since project initialization.
 
 ## Current working tree (Git view)
 
-| Status | Paths |
-|---|---|
-| Initial commit | `899d7c9` (`Initial commit: bilingual research workspace`); local `origin/main` still points here |
-| Current commit | `39d3071` (`Stabilize localization and reconcile architecture documentation`), on `main`; not in local `origin/main` |
-| Modified (tracked, not committed) | `astro.config.mjs`, `PROJECT_MAP.md`, `PROJECT_CHANGELOG.md`; separate pre-existing change: `.gitignore` |
-| Deleted (tracked, not committed) | none |
-| Untracked (`??`) | none |
-| Ignored | `node_modules/`, `dist/`, `.astro/`, `.notes/`, `*.log`, `.DS_Store` |
+| Status                            | Paths                                                                                                       |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Initial commit                    | `899d7c9` (`Initial commit: bilingual research workspace`)                                                  |
+| Current commit                    | `ae16982` (`Extend sidebar hierarchy and consolidate project README`); local `main` and `origin/main` match |
+| Modified (tracked, not committed) | Quality-tooling scripts/configuration, documentation and mechanical formatting baseline                     |
+| Deleted (tracked, not committed)  | none                                                                                                        |
+| Untracked (`??`)                  | `.husky/`, `biome.json`, `commitlint.config.mjs`, `.prettierrc.json`, `.prettierignore`                     |
+| Ignored                           | `node_modules/`, `dist/`, `.astro/`, `.notes/`, `*.log`, `.DS_Store`                                        |
 
 ---
 
@@ -35,7 +35,7 @@ Summary of changes since project initialization.
   - frontend architecture guidelines, including a guideline template
 - Components `StatusBadge.astro`, `EvidenceBadge.astro`, and an initial dashboard component (later removed).
 - `public/favicon.svg`.
-- The literature register and findings matrix are intentionally empty. All hypotheses and experiments are marked *Proposed*, evidence level D.
+- The literature register and findings matrix are intentionally empty. All hypotheses and experiments are marked _Proposed_, evidence level D.
 
 **Dev dependencies:** `@astrojs/check`, `typescript`.
 
@@ -142,15 +142,15 @@ No project dependency was added; the skill's CLI is fetched on demand. Current p
 
 ## Summary of major configuration changes
 
-| File | Change since initialization |
-|---|---|
-| `astro.config.mjs` | `SITE_URL`-driven `site`; `/` → `/en/` redirect; EN/DE locales; localized title and sidebar group labels; layered `customCss` list (7 files) |
-| `markdoc.config.mjs` | `starlightMarkdoc()` preset; document/table node overrides; 12 project tags with attribute validation |
-| `src/content.config.ts` | `docs` + `i18n` collections; i18n schema extended with one project key |
+| File                    | Change since initialization                                                                                                                  |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `astro.config.mjs`      | `SITE_URL`-driven `site`; `/` → `/en/` redirect; EN/DE locales; localized title and sidebar group labels; layered `customCss` list (7 files) |
+| `markdoc.config.mjs`    | `starlightMarkdoc()` preset; document/table node overrides; 12 project tags with attribute validation                                        |
+| `src/content.config.ts` | `docs` + `i18n` collections; i18n schema extended with one project key                                                                       |
 
 ## Dependencies
 
-There were **no new dependencies after initialization**. The dependency set is the initial one:
+The initial dependency set was:
 
 - `astro`
 - `@astrojs/starlight`
@@ -203,9 +203,30 @@ Committed as `39d3071`.
 - Added Shields.io badges for the project start date, research planning phase and workspace development status.
 - Clarified that experiments have not been executed and research recommendations remain provisional.
 
+## Code quality and Conventional Commits — 2026-11-04
+
+- Added pinned dev dependencies: Biome `2.6.4`, Husky `9.1.7`, lint-staged `17.6.0`, commitlint CLI/config-conventional `21.2.4`, Prettier `3.9.10` and prettier-plugin-astro `1.1.2`.
+- Selected Biome 2.6.4 because 2.6.5 was too recent for the active pnpm release-age policy. Removed the automatically generated exceptions and regenerated the tooling lockfile without weakening that policy.
+- Added `biome.json`, `.prettierrc.json`, `.prettierignore`, `commitlint.config.mjs` and Husky hooks. `prepare` installs hooks after dependency installation.
+- Pre-commit uses lint-staged: Biome safely fixes staged JS/TS, JSON and CSS; Prettier formats staged Astro, Markdown/Markdoc and YAML. File ownership does not overlap.
+- Commit-msg requires Conventional Commits. Pre-push runs the complete lint, formatting, Astro/TypeScript and build pipeline (`pnpm run validate`).
+- Applied a mechanical formatting baseline and import organization. All 24 Markdoc source ASTs remain equivalent to HEAD after excluding source locations and list-marker spelling. No hypotheses, statuses, evidence classifications or application behavior intentionally changed.
+- Kept the vendored Google skill, generated artifacts, lockfile formatting and local notes outside formatter ownership. Biome's duplicate-property rule has two line-specific suppressions for existing progressive CSS subgrid fallbacks.
+- Updated README and agent instructions. Hook behavior was exercised in an isolated temporary Git repository, including valid commits, staged TS/Astro formatting and rejection of invalid commit messages and invalid TypeScript.
+- Frozen-lockfile installation and the actual pre-push validation passed: Biome, Prettier, Astro check (0 errors/warnings/hints) and production build (129 pages). A failing lint check also blocked the isolated pre-push test. Existing 404-entry and unset-`SITE_URL` build warnings remain.
+- Hooks are local and bypassable. CI, branch protection and a permanent test suite remain unconfigured.
+
+## Dependency review and updates — 2026-11-04
+
+- Reviewed all 13 direct dependencies against registry latest versions, Node engine requirements and peer ranges; inspected transitive packages with `pnpm outdated --depth Infinity`.
+- Updated TypeScript from 5.9.3 to exact-pinned 6.0.3, the latest supported release. Registry latest 7.0.2 is outside `@astrojs/check`'s `^5.0.0 || ^6.0.0` and Volar's `<7` peer constraints, so it was not forced.
+- Retained Biome 2.6.4: 2.6.5 is newer but still blocked by the active pnpm release-age policy. The other 11 direct dependencies already match their latest registry tags.
+- Refreshed transitive resolution within declared ranges using `pnpm update --depth Infinity`; no dependency overrides or policy exceptions were introduced.
+- Final strict-peer installation and frozen-lockfile installation passed. `pnpm run validate` passed Biome, Prettier, Astro/TypeScript (0 errors, warnings or hints) and the 129-page production build. pnpm audit reported no known vulnerabilities. Existing 404-entry and unset-site build warnings are unchanged.
+
 ## Known open items
 
-- The sidebar changes are uncommitted; `ca53748` and `39d3071` are not present in the local `origin/main` reference.
+- Quality-tooling changes and their formatting baseline are uncommitted; previous work through `ae16982` is pushed.
 - `SITE_URL` (production origin) is not configured.
 - The built-in 404 emits canonical/alternate targets that do not correspond to generated routes.
 - The researcher still needs to review the status legend wording.

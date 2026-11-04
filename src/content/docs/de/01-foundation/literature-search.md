@@ -15,9 +15,9 @@ Empirische und theoretische Arbeiten erfassen, die untersuchen, ob Frontend-Impl
 
 Vor der Recherche geeignete wissenschaftliche Indizes, Verlagsbibliotheken sowie Standards- und Systemdokumentation auswählen. Wissenschaftliche Literatur getrennt von Praxisbeiträgen und offizieller technischer Dokumentation durchsuchen. Jede Quelle in einem datierten Protokoll erfassen:
 
-| Such-ID | Quelle/Index und Abdeckung | Exakte Query und Felder | Suchdatum | Einschränkungen | Export und Trefferzahl | Hinweise |
-|---|---|---|---|---|---|---|
-| Nicht durchgeführt | | | | | | |
+| Such-ID            | Quelle/Index und Abdeckung | Exakte Query und Felder | Suchdatum | Einschränkungen | Export und Trefferzahl | Hinweise |
+| ------------------ | -------------------------- | ----------------------- | --------- | --------------- | ---------------------- | -------- |
+| Nicht durchgeführt |                            |                         |           |                 |                        |          |
 
 Suchgruppen zu folgenden Themen bilden: (1) generative/antwortorientierte Suche, (2) semantisches HTML und Inhaltsextraktion, (3) JavaScript-Rendering und Crawling, (4) strukturierte Daten und Entitäten, (5) Dokument-Parsing, Chunking und RAG sowie (6) Evaluation von Retrieval/Antworten/Zitaten. Die genaue Query pro Quelle speichern, da Syntax und Abdeckung variieren. Rückwärts- und Vorwärtszitationssuche nur mit dokumentierter Ausgangsquelle und Suchdatum durchführen.
 

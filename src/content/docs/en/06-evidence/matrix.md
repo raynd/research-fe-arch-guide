@@ -5,9 +5,9 @@ description: Traceability table linking research questions, evidence, and guidel
 
 No evaluated studies or experiment results are currently available. Populate one row per evidence item; retain multiple rows where evidence conflicts or methods differ.
 
-| Claim / RQ | Source ID and source type | Measured stage, system, date | Design, sample, comparator | Outcome and effect/uncertainty | Evidence level and rationale | Bias, limitations, directness | Related hypothesis | Related finding / guideline |
-|---|---|---|---|---|---|---|---|---|
-| _No evaluated evidence items recorded._ | | | | | | | | |
+| Claim / RQ                              | Source ID and source type | Measured stage, system, date | Design, sample, comparator | Outcome and effect/uncertainty | Evidence level and rationale | Bias, limitations, directness | Related hypothesis | Related finding / guideline |
+| --------------------------------------- | ------------------------- | ---------------------------- | -------------------------- | ------------------------------ | ---------------------------- | ----------------------------- | ------------------ | --------------------------- |
+| _No evaluated evidence items recorded._ |                           |                              |                            |                                |                              |                               |                    |                             |
 
 ## Traceability rules
 

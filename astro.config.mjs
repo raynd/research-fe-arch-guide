@@ -1,6 +1,6 @@
-import { defineConfig } from 'astro/config';
 import markdoc from '@astrojs/markdoc';
 import starlight from '@astrojs/starlight';
+import { defineConfig } from 'astro/config';
 
 const sections = [
   ['01-foundation', '01 — Research Foundation', '01 — Forschungsgrundlagen'],
@@ -9,7 +9,11 @@ const sections = [
   ['04-hypotheses', '04 — Hypotheses', '04 — Hypothesen'],
   ['05-experiments', '05 — Experiments', '05 — Experimente'],
   ['06-evidence', '06 — Findings & Evidence', '06 — Erkenntnisse & Evidenz'],
-  ['07-guidelines', '07 — Frontend Architecture Guidelines', '07 — Frontend-Architektur-Leitlinien'],
+  [
+    '07-guidelines',
+    '07 — Frontend Architecture Guidelines',
+    '07 — Frontend-Architektur-Leitlinien',
+  ],
 ];
 
 const sectionItems = {
@@ -20,11 +24,22 @@ const sectionItems = {
       translations: { de: 'Architektur' },
       items: ['03-notes/architecture-observations', '03-notes/technical-notes'],
     },
-    'ideas-questions', 'meeting-notes', 'paper-notes', 'research-journal',
+    'ideas-questions',
+    'meeting-notes',
+    'paper-notes',
+    'research-journal',
   ],
   '07-guidelines': [
-    'index', 'accessibility', 'content-architecture', 'entities', 'extractability',
-    'performance', 'rendering', 'semantics-dom', 'structured-data', 'validation',
+    'index',
+    'accessibility',
+    'content-architecture',
+    'entities',
+    'extractability',
+    'performance',
+    'rendering',
+    'semantics-dom',
+    'structured-data',
+    'validation',
   ],
 };
 

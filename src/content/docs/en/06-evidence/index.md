@@ -7,12 +7,12 @@ No findings or conclusions have been recorded. Do not assign an evidence level u
 
 ## Evidence levels
 
-| Level | Classification | Use |
-|---|---|---|
-| **A — Strong Evidence** | Multiple high-quality independent studies or robust empirical evidence. | Justify only when quality, independence, replication, and relevance are documented. |
-| **B — Good Evidence** | Empirical evidence with some limitations. | State the limitations and scope of applicability. |
-| **C — Limited or Indirect Evidence** | Related research, limited experiments, or indirect findings. | Identify the inferential gap and avoid overstating transfer. |
-| **D — Hypothesis / Unverified** | Plausible assumptions or research questions without sufficient evidence. | Label as provisional; do not present as a finding. |
+| Level                                | Classification                                                           | Use                                                                                 |
+| ------------------------------------ | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------- |
+| **A — Strong Evidence**              | Multiple high-quality independent studies or robust empirical evidence.  | Justify only when quality, independence, replication, and relevance are documented. |
+| **B — Good Evidence**                | Empirical evidence with some limitations.                                | State the limitations and scope of applicability.                                   |
+| **C — Limited or Indirect Evidence** | Related research, limited experiments, or indirect findings.             | Identify the inferential gap and avoid overstating transfer.                        |
+| **D — Hypothesis / Unverified**      | Plausible assumptions or research questions without sufficient evidence. | Label as provisional; do not present as a finding.                                  |
 
 These are project classifications, not claims about particular sources. Evidence levels are not assigned automatically from publication type or the number of citations.
 

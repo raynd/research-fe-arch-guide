@@ -5,9 +5,9 @@ description: Rückverfolgbarkeit von Forschungsfragen über Evidenz bis zu Leitl
 
 Derzeit liegen keine bewerteten Studien oder Experimentergebnisse vor. Pro Evidenzpunkt eine Zeile ergänzen; widersprüchliche oder methodisch unterschiedliche Evidenz in getrennten Zeilen aufführen.
 
-| Aussage / Forschungsfrage | Quellen-ID und Quellentyp | Gemessene Stufe, System, Datum | Design, Stichprobe, Vergleich | Ergebnis und Effekt/Unsicherheit | Evidenz-Level und Begründung | Verzerrung, Einschränkungen, Direktheit | Zugehörige Hypothese | Zugehörige Erkenntnis / Guideline |
-|---|---|---|---|---|---|---|---|---|
-| _Bisher keine bewerteten Evidenzpunkte erfasst._ | | | | | | | | |
+| Aussage / Forschungsfrage                        | Quellen-ID und Quellentyp | Gemessene Stufe, System, Datum | Design, Stichprobe, Vergleich | Ergebnis und Effekt/Unsicherheit | Evidenz-Level und Begründung | Verzerrung, Einschränkungen, Direktheit | Zugehörige Hypothese | Zugehörige Erkenntnis / Guideline |
+| ------------------------------------------------ | ------------------------- | ------------------------------ | ----------------------------- | -------------------------------- | ---------------------------- | --------------------------------------- | -------------------- | --------------------------------- |
+| _Bisher keine bewerteten Evidenzpunkte erfasst._ |                           |                                |                               |                                  |                              |                                         |                      |                                   |
 
 ## Regeln zur Rückverfolgbarkeit
 

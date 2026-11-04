@@ -5,12 +5,12 @@ description: Vorgeschlagene Versuchsdesigns, gemeinsame Ressourcen und Ergebnisp
 
 Alle vier Ausgangsexperimente haben den Status **Vorgeschlagen** und wurden nicht abgeschlossen. Ergebnisse, Interpretationen und Schlussfolgerungen liegen nicht vor.
 
-| ID | Titel | Kernvergleich | Zugehörige Hypothesen | Status |
-|---|---|---|---|---|
-| EXP-001 | HTML-Struktur | Inhaltsgleicher Vergleich generischer und semantischer Elemente; explorative Varianten getrennt | H-001, H-002 | Vorgeschlagen |
-| EXP-002 | Rendering-Strategie | CSR, SSR, SSG | H-003 | Vorgeschlagen |
-| EXP-003 | Strukturierte Daten | Sichtbares HTML und JSON-LD-Varianten | H-004 | Vorgeschlagen |
-| EXP-004 | Content-Architektur | Quellstruktur, anschließend Retrieval mit eingefrorenen nachgelagerten Einstellungen | H-005, H-006 | Vorgeschlagen |
+| ID      | Titel               | Kernvergleich                                                                                   | Zugehörige Hypothesen | Status        |
+| ------- | ------------------- | ----------------------------------------------------------------------------------------------- | --------------------- | ------------- |
+| EXP-001 | HTML-Struktur       | Inhaltsgleicher Vergleich generischer und semantischer Elemente; explorative Varianten getrennt | H-001, H-002          | Vorgeschlagen |
+| EXP-002 | Rendering-Strategie | CSR, SSR, SSG                                                                                   | H-003                 | Vorgeschlagen |
+| EXP-003 | Strukturierte Daten | Sichtbares HTML und JSON-LD-Varianten                                                           | H-004                 | Vorgeschlagen |
+| EXP-004 | Content-Architektur | Quellstruktur, anschließend Retrieval mit eingefrorenen nachgelagerten Einstellungen            | H-005, H-006          | Vorgeschlagen |
 
 ## Gemeinsame Design-Dokumente
 

@@ -7,12 +7,12 @@ Es wurden noch keine Erkenntnisse oder Schlussfolgerungen dokumentiert. Ein Evid
 
 ## Evidenz-Level
 
-| Level | Einstufung | Verwendung |
-|---|---|---|
-| **A — Starke Evidenz** | Mehrere hochwertige, unabhängige Studien oder robuste empirische Evidenz. | Nur verwenden, wenn Qualität, Unabhängigkeit, Replikation und Relevanz dokumentiert sind. |
-| **B — Gute Evidenz** | Empirische Evidenz mit gewissen Einschränkungen. | Einschränkungen und Anwendungsbereich benennen. |
-| **C — Begrenzte oder indirekte Evidenz** | Verwandte Forschung, begrenzte Experimente oder indirekte Erkenntnisse. | Schlussfolgerungslücke ausweisen und Übertreibungen vermeiden. |
-| **D — Hypothese / ungeprüft** | Plausible Annahmen oder Forschungsfragen ohne hinreichende Evidenz. | Als vorläufig kennzeichnen, nicht als Erkenntnis darstellen. |
+| Level                                    | Einstufung                                                                | Verwendung                                                                                |
+| ---------------------------------------- | ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| **A — Starke Evidenz**                   | Mehrere hochwertige, unabhängige Studien oder robuste empirische Evidenz. | Nur verwenden, wenn Qualität, Unabhängigkeit, Replikation und Relevanz dokumentiert sind. |
+| **B — Gute Evidenz**                     | Empirische Evidenz mit gewissen Einschränkungen.                          | Einschränkungen und Anwendungsbereich benennen.                                           |
+| **C — Begrenzte oder indirekte Evidenz** | Verwandte Forschung, begrenzte Experimente oder indirekte Erkenntnisse.   | Schlussfolgerungslücke ausweisen und Übertreibungen vermeiden.                            |
+| **D — Hypothese / ungeprüft**            | Plausible Annahmen oder Forschungsfragen ohne hinreichende Evidenz.       | Als vorläufig kennzeichnen, nicht als Erkenntnis darstellen.                              |
 
 Dies sind projektbezogene Einstufungen, keine Aussagen über bestimmte Quellen. Evidenz-Level werden nicht automatisch aus Publikationstyp oder Zitierhäufigkeit abgeleitet.
 

@@ -23,13 +23,13 @@ This is the initial framing and may be refined as the literature review and pilo
 
 ## Operationalization and inference boundaries
 
-| Question | Primary contrast or synthesis task | Outcomes to keep separate | Unit / inference boundary |
-|---|---|---|---|
-| RQ1 | Content-equivalent semantic vs. generic markup | Extraction completeness; structural interpretation | Fixture × extraction pipeline. Does not alone imply improved retrieval or answers. |
-| RQ2 | CSR, SSR, and SSG with equivalent content | Initial response; rendered DOM; observed client extraction; retrieval, if directly measurable | Fixture × client/system × time. Crawl access is not proof of indexing. |
-| RQ3 | Visible content only vs. the same visible content plus equivalent JSON-LD | Entity/property extraction; answers; claim-level citation support | Entity/query × system × time. Keep additional facts/relationships out of the format contrast. |
-| RQ4 | Equivalent facts with predeclared source-structure variants in a fixed parser/retriever | Parsing; chunk/context preservation; retrieval; generated answer | Content item × query × pipeline configuration. Local RAG results do not establish external-provider behavior. |
-| RQ5 | Evidence synthesis across reviewed sources and completed experiments | Strength, applicability, trade-offs, and gaps | A synthesis question, not a standalone causal experiment. |
+| Question | Primary contrast or synthesis task                                                      | Outcomes to keep separate                                                                     | Unit / inference boundary                                                                                     |
+| -------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| RQ1      | Content-equivalent semantic vs. generic markup                                          | Extraction completeness; structural interpretation                                            | Fixture × extraction pipeline. Does not alone imply improved retrieval or answers.                            |
+| RQ2      | CSR, SSR, and SSG with equivalent content                                               | Initial response; rendered DOM; observed client extraction; retrieval, if directly measurable | Fixture × client/system × time. Crawl access is not proof of indexing.                                        |
+| RQ3      | Visible content only vs. the same visible content plus equivalent JSON-LD               | Entity/property extraction; answers; claim-level citation support                             | Entity/query × system × time. Keep additional facts/relationships out of the format contrast.                 |
+| RQ4      | Equivalent facts with predeclared source-structure variants in a fixed parser/retriever | Parsing; chunk/context preservation; retrieval; generated answer                              | Content item × query × pipeline configuration. Local RAG results do not establish external-provider behavior. |
+| RQ5      | Evidence synthesis across reviewed sources and completed experiments                    | Strength, applicability, trade-offs, and gaps                                                 | A synthesis question, not a standalone causal experiment.                                                     |
 
 These are operational starting points, not finalized estimands. Confirm exact variables, primary outcomes, sampling, and inference boundaries in the relevant versioned protocol before data collection. The [literature search protocol](/en/01-foundation/literature-search/) defines source discovery; the [analysis plan](/en/05-experiments/analysis-plan/) defines confirmatory comparisons.
 

@@ -2,9 +2,9 @@
   .research-card-grid {
     display: grid;
     grid-template-columns: repeat(
-      auto-fill,
-      minmax(min(100%, var(--research-card-min-inline-size)), 1fr)
-    );
+        auto-fill,
+        minmax(min(100%, var(--research-card-min-inline-size)), 1fr)
+      );
     gap: var(--research-card-grid-gap);
 
     > :not(.research-card) {
@@ -29,6 +29,7 @@
     display: grid;
     /* Same-cascade fallback: ignored when subgrid is supported. */
     grid-template-rows: auto auto 1fr;
+    /* biome-ignore lint/suspicious/noDuplicateProperties: progressive subgrid fallback for older browsers */
     grid-template-rows: subgrid;
     row-gap: var(--research-card-row-gap);
     min-inline-size: 0;
@@ -54,6 +55,7 @@
       grid-row: 1 / span 2;
       display: grid;
       grid-template-rows: auto auto;
+      /* biome-ignore lint/suspicious/noDuplicateProperties: progressive subgrid fallback for older browsers */
       grid-template-rows: subgrid;
 
       > p {

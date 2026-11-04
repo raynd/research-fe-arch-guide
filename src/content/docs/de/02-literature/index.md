@@ -11,9 +11,9 @@ Die thematische Struktur ist angelegt; verifizierte Paper wurden noch nicht erfa
 
 Pro überprüfbarer Quelle eine Zeile eintragen. Bibliografische Angaben, Publikationsstatus, Methode, von der Quelle berichtete Erkenntnisse, Einschränkungen und Relevanz aufführen. Für eine detaillierte Bewertung die [Vorlage für Paper-Notizen](/de/03-notes/paper-notes/) verwenden.
 
-| Titel | Autorinnen und Autoren | Jahr | Publikationsort | DOI oder URL | Publikationsstatus | Thema | Methodik | Hauptergebnisse | Einschränkungen | Relevanz |
-|---|---|---:|---|---|---|---|---|---|---|---|
-| _Bisher keine Quellen erfasst._ | | | | | | | | | | |
+| Titel                           | Autorinnen und Autoren | Jahr | Publikationsort | DOI oder URL | Publikationsstatus | Thema | Methodik | Hauptergebnisse | Einschränkungen | Relevanz |
+| ------------------------------- | ---------------------- | ---: | --------------- | ------------ | ------------------ | ----- | -------- | --------------- | --------------- | -------- |
+| _Bisher keine Quellen erfasst._ |                        |      |                 |              |                    |       |          |                 |                 |          |
 
 ## Themenbereiche
 

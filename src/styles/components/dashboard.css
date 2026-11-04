@@ -4,7 +4,11 @@
     padding: var(--research-space-fluid);
     color: var(--research-ink);
     background:
-      radial-gradient(ellipse at 92% 0%, color-mix(in srgb, var(--sl-color-accent) 15%, transparent), transparent 34rem),
+      radial-gradient(
+        ellipse at 92% 0%,
+        color-mix(in srgb, var(--sl-color-accent) 15%, transparent),
+        transparent 34rem
+      ),
       var(--research-paper);
     border: var(--research-border-width) solid var(--research-line);
     border-radius: var(--research-radius-l);
@@ -31,7 +35,10 @@
 
   :where(.sl-markdown-content) > nav > ul {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--research-link-tile-min-inline-size)), 1fr));
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(min(100%, var(--research-link-tile-min-inline-size)), 1fr)
+      );
     gap: var(--research-space-xs);
     padding: 0;
     list-style: none;

@@ -24,7 +24,10 @@
   .toggletip {
     position-anchor: var(--anchor);
     inline-size: max-content;
-    max-inline-size: min(var(--research-popover-max-inline-size), calc(100vw - 2 * var(--research-space-m)));
+    max-inline-size: min(
+      var(--research-popover-max-inline-size),
+      calc(100vw - 2 * var(--research-space-m))
+    );
     padding: var(--research-space-m);
     color: var(--research-ink);
     background: var(--sl-color-bg);

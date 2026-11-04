@@ -7,6 +7,4 @@ interface Props {
 const { level, label = `Evidence ${level}` } = Astro.props;
 ---
 
-<span class:list={['research-badge', `evidence-${level.toLowerCase()}`]}>
-  {label}
-</span>
+<span class:list={['research-badge', `evidence-${level.toLowerCase()}`]}>{label}</span>

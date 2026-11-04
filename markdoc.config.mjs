@@ -1,4 +1,4 @@
-import { Markdoc, component, defineMarkdocConfig, nodes } from '@astrojs/markdoc/config';
+import { component, defineMarkdocConfig, Markdoc, nodes } from '@astrojs/markdoc/config';
 import starlightMarkdoc from '@astrojs/starlight-markdoc';
 
 const { Tag } = Markdoc;
@@ -19,7 +19,9 @@ const textOf = (node) =>
  */
 function addTableHeaderSemantics(sections) {
   const head = sections.find((section) => Tag.isTag(section) && section.name === 'thead');
-  const labels = (head?.children.find(Tag.isTag)?.children ?? []).map((cell) => textOf(cell).trim());
+  const labels = (head?.children.find(Tag.isTag)?.children ?? []).map((cell) =>
+    textOf(cell).trim(),
+  );
   for (const section of sections) {
     if (!Tag.isTag(section)) continue;
     for (const row of section.children) {
@@ -150,13 +152,7 @@ export default defineMarkdocConfig({
         value: {
           type: String,
           required: true,
-          enum: [
-            'Proposed',
-            'Under Investigation',
-            'Supported',
-            'Rejected',
-            'Inconclusive',
-          ],
+          enum: ['Proposed', 'Under Investigation', 'Supported', 'Rejected', 'Inconclusive'],
         },
         label: { type: String },
       },

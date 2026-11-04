@@ -5,12 +5,12 @@ description: Proposed study designs, shared resources, and result records.
 
 All four initial experiments are **Proposed**, not completed. No results, interpretation, or conclusions are recorded.
 
-| ID | Title | Core comparison | Hypothesis links | Status |
-|---|---|---|---|---|
-| EXP-001 | HTML Structure | Matched generic vs. semantic elements; exploratory arms separate | H-001, H-002 | Proposed |
-| EXP-002 | Rendering Strategy | CSR, SSR, SSG | H-003 | Proposed |
-| EXP-003 | Structured Data | Visible HTML and JSON-LD variants | H-004 | Proposed |
-| EXP-004 | Content Architecture | Source structure, then retrieval under frozen downstream settings | H-005, H-006 | Proposed |
+| ID      | Title                | Core comparison                                                   | Hypothesis links | Status   |
+| ------- | -------------------- | ----------------------------------------------------------------- | ---------------- | -------- |
+| EXP-001 | HTML Structure       | Matched generic vs. semantic elements; exploratory arms separate  | H-001, H-002     | Proposed |
+| EXP-002 | Rendering Strategy   | CSR, SSR, SSG                                                     | H-003            | Proposed |
+| EXP-003 | Structured Data      | Visible HTML and JSON-LD variants                                 | H-004            | Proposed |
+| EXP-004 | Content Architecture | Source structure, then retrieval under frozen downstream settings | H-005, H-006     | Proposed |
 
 ## Shared design records
 

@@ -9,22 +9,22 @@ Dies ist eine Planungsvorlage und kein endgültiger Analyseplan. Jedes Experimen
 
 ## Protokollfelder
 
-| Feld | Vor dem Durchlauf festlegen |
-|---|---|
-| Forschungsfrage und Hypothese | Exakte Frage; bestätigend oder explorativ |
-| Intervention/Vergleich | Ein festgelegter Kontrast; andere Varianten sind explorativ |
-| Zielparameter (Estimand) | Population und Ergebniskontrast, den die Studie schätzen soll |
-| Primärer Endpunkt | Ein Ergebnis, Definition, Richtung, Einheit und Messstufe |
-| Sekundäre Endpunkte | Geordnete Liste; explorative Ergebnisse kennzeichnen |
-| Zuweisungs- und Analyseeinheit | Seite/Inhaltselement, Query, Lauf, System oder Annotation; Gruppierung begründen |
-| Stichprobenrahmen | Auswahl von Seiten, Fakten, Queries, Systemen und Zeitfenstern |
-| Randomisierung/Blockbildung | Reihenfolge, abgestimmte Inhalts-/Query-Blöcke, Seeds und Zeitblöcke |
-| Ausschlüsse und fehlende Werte | Objektive Gründe, Nenner, fehlgeschlagene Läufe und nicht verfügbare Beobachtungen |
-| Annotation | Bewertungsraster, Verblindung, Zahl der Bewertenden, Übereinstimmung und Schlichtung |
-| Begründung der Stichprobengröße | Pilotbasierte Varianz/Machbarkeit oder Simulation; Annahmen und Präzisionsziel dokumentieren |
-| Analyse | Einheitenbezogene Zusammenfassungen, Kontrast, Unsicherheitsintervall und Sensitivitätsprüfungen |
-| Mehrfachtests | Umgang mit mehreren Ergebnissen, Queries und Varianten |
-| Abbruchregel | Feste Zahl von Wiederholungen/Zeitraum oder explizite sequenzielle Methode; kein ergebnisgesteuerter Abbruch |
+| Feld                            | Vor dem Durchlauf festlegen                                                                                  |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| Forschungsfrage und Hypothese   | Exakte Frage; bestätigend oder explorativ                                                                    |
+| Intervention/Vergleich          | Ein festgelegter Kontrast; andere Varianten sind explorativ                                                  |
+| Zielparameter (Estimand)        | Population und Ergebniskontrast, den die Studie schätzen soll                                                |
+| Primärer Endpunkt               | Ein Ergebnis, Definition, Richtung, Einheit und Messstufe                                                    |
+| Sekundäre Endpunkte             | Geordnete Liste; explorative Ergebnisse kennzeichnen                                                         |
+| Zuweisungs- und Analyseeinheit  | Seite/Inhaltselement, Query, Lauf, System oder Annotation; Gruppierung begründen                             |
+| Stichprobenrahmen               | Auswahl von Seiten, Fakten, Queries, Systemen und Zeitfenstern                                               |
+| Randomisierung/Blockbildung     | Reihenfolge, abgestimmte Inhalts-/Query-Blöcke, Seeds und Zeitblöcke                                         |
+| Ausschlüsse und fehlende Werte  | Objektive Gründe, Nenner, fehlgeschlagene Läufe und nicht verfügbare Beobachtungen                           |
+| Annotation                      | Bewertungsraster, Verblindung, Zahl der Bewertenden, Übereinstimmung und Schlichtung                         |
+| Begründung der Stichprobengröße | Pilotbasierte Varianz/Machbarkeit oder Simulation; Annahmen und Präzisionsziel dokumentieren                 |
+| Analyse                         | Einheitenbezogene Zusammenfassungen, Kontrast, Unsicherheitsintervall und Sensitivitätsprüfungen             |
+| Mehrfachtests                   | Umgang mit mehreren Ergebnissen, Queries und Varianten                                                       |
+| Abbruchregel                    | Feste Zahl von Wiederholungen/Zeitraum oder explizite sequenzielle Methode; kein ergebnisgesteuerter Abbruch |
 
 ## Schutzmaßnahmen für die Interpretation
 
