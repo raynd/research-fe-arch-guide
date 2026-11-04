@@ -1,0 +1,191 @@
+---
+title: Frontend-Architektur für GEO & AEO
+description: Forschungs-Dashboard zur Untersuchung des Einflusses von Frontend-Architektur auf generative Suche.
+---
+
+{% hero %}
+
+## Forschungsbereich
+
+Wir untersuchen, wie Frontend-Architektur die maschinelle Lesbarkeit, Inhaltsextraktion, den Informationsabruf, die Beantwortbarkeit und die Zitierfähigkeit von Webinhalten in generativen Such- und Antwortsystemen beeinflusst.
+
+### Forschungsziel
+
+Technologieunabhängige, evidenzbasierte Architektur-Leitlinien entwickeln. Wissenschaftliche Erkenntnisse, empirische Beobachtungen, plausible Empfehlungen und ungeprüfte Annahmen klar voneinander unterscheiden.
+
+{% /hero %}
+
+{% research-cards %}
+
+## Forschungsstand auf einen Blick
+
+{% research-card title="Aktuelle Phase" lead="Grundlagen und Forschungsdesign" %}
+Alle sechs Hypothesen und vier Experimente sind **vorgeschlagen**. Es wurden noch keine Experimente durchgeführt und keine Forschungsergebnisse dokumentiert.
+{% /research-card %}
+
+{% research-card title="Forschungsfortschritt" lead="1 von 5 Forschungsphasen begonnen" %}
+{% progress value=1 max=5 label="Fortschritt im Forschungszyklus" /%} Die Forschungsgrundlage ist angelegt. Literaturauswertung, Durchführung der Experimente, Analyse und Validierung von Leitlinien stehen noch aus.
+{% /research-card %}
+
+{% research-card title="Nächste Schritte" lead="Vor der Datenerhebung" %}
+1. Protokoll für Suche, Screening und Datenextraktion des Scoping Reviews finalisieren und versionieren, bevor die Suche beginnt.
+2. Estimands, primäre Endpunkte, Annotationsregeln, Analysepläne und die pilotbasierte Stichprobenbegründung für Experimente festlegen.
+3. Ein Experiment vollständig pilotieren; Inhaltsparität, Messzuverlässigkeit und Pipeline-Fehler prüfen, bevor skaliert wird.
+4. Tools erst auswählen, wenn Maße und Reproduzierbarkeitsanforderungen feststehen.
+{% /research-card %}
+
+{% research-card title="Offene Forschungsfragen" lead="Methodische Fragen" %}
+- Welche Crawler- und Retrieval-Pipelines lassen sich reproduzierbar untersuchen?
+- Wie lässt sich die Qualität der Inhaltsextraktion von der Antwortgenerierung trennen?
+- Welche Störvariablen müssen beim Vergleich der Rendering-Varianten kontrolliert werden?
+- Wie kann Zitierverhalten unabhängig von der Antwortkorrektheit bewertet werden?
+{% /research-card %}
+
+{% /research-cards %}
+
+{% section %}
+
+## Aktuelle Forschung
+
+Der aktuelle Schwerpunkt liegt auf einer reproduzierbaren Literaturrecherche und kontrollierten Untersuchungen zu Semantik, Rendering, strukturierten Daten und Content-Architektur. Experimentelle Ergebnisse liegen noch nicht vor.
+
+{% /section %}
+
+{% section %}
+
+## Aktive Hypothesen
+
+Die folgenden Hypothesen sind Vorschläge, keine bestätigten Ergebnisse.
+
+{% toggletip id="status-legend" label="Was bedeuten die Status?" %}
+{% terms %}
+{% term name="Vorgeschlagen" %}Zur Prüfung formuliert; bewertete Evidenz ist noch nicht verknüpft.{% /term %}
+{% term name="In Untersuchung" %}Literaturbewertung oder Experiment läuft; eine Schlussfolgerung wurde noch nicht gezogen.{% /term %}
+{% term name="Gestützt" %}Verknüpfte, dokumentierte Evidenz ist innerhalb des angegebenen Geltungsbereichs mit der Hypothese vereinbar.{% /term %}
+{% term name="Widerlegt" %}Verknüpfte, dokumentierte Evidenz widerspricht der Hypothese innerhalb des angegebenen Geltungsbereichs.{% /term %}
+{% term name="Nicht eindeutig" %}Evidenz liegt vor, ist aber unzureichend oder widersprüchlich; sie stützt die Hypothese weder noch widerlegt sie sie.{% /term %}
+{% /terms %}
+{% /toggletip %}
+
+{% table caption="Ausgangshypothesen und ihr aktueller Status" %}
+* ID
+* Hypothese
+* Status
+---
+* H-001
+* [Semantisches HTML und generische DOM-Strukturen](/de/04-hypotheses/h-001/)
+* {% research-status value="Proposed" label="Vorgeschlagen" /%}
+---
+* H-002
+* [DOM-Hierarchie und Inhaltsextraktion](/de/04-hypotheses/h-002/)
+* {% research-status value="Proposed" label="Vorgeschlagen" /%}
+---
+* H-003
+* [Rendering-Strategie und Verfügbarkeit von Inhalten](/de/04-hypotheses/h-003/)
+* {% research-status value="Proposed" label="Vorgeschlagen" /%}
+---
+* H-004
+* [Sichtbares HTML und JSON-LD](/de/04-hypotheses/h-004/)
+* {% research-status value="Proposed" label="Vorgeschlagen" /%}
+---
+* H-005
+* [Content-Architektur und RAG-Chunking](/de/04-hypotheses/h-005/)
+* {% research-status value="Proposed" label="Vorgeschlagen" /%}
+---
+* H-006
+* [Dokumentstruktur und Retrieval-Qualität](/de/04-hypotheses/h-006/)
+* {% research-status value="Proposed" label="Vorgeschlagen" /%}
+{% /table %}
+
+{% /section %}
+
+{% section %}
+
+## Laufende Experimente
+
+Alle nachfolgenden Designs sind vorgeschlagen und wurden noch nicht durchgeführt.
+
+{% table caption="Vorgeschlagene Experimente und die geprüften Hypothesen" %}
+* ID
+* Experiment
+* Hypothesen
+* Status
+---
+* EXP-001
+* [HTML-Struktur](/de/05-experiments/exp-001/)
+* H-001, H-002
+* {% research-status value="Proposed" label="Vorgeschlagen" /%}
+---
+* EXP-002
+* [Rendering-Strategie](/de/05-experiments/exp-002/)
+* H-003
+* {% research-status value="Proposed" label="Vorgeschlagen" /%}
+---
+* EXP-003
+* [Strukturierte Daten](/de/05-experiments/exp-003/)
+* H-004
+* {% research-status value="Proposed" label="Vorgeschlagen" /%}
+---
+* EXP-004
+* [Content-Architektur](/de/05-experiments/exp-004/)
+* H-005, H-006
+* {% research-status value="Proposed" label="Vorgeschlagen" /%}
+{% /table %}
+
+{% /section %}
+
+{% section %}
+
+## Aktuelle Erkenntnisse
+
+Es wurden noch keine Erkenntnisse dokumentiert. Die [Evidenzmatrix](/de/06-evidence/matrix/) dient als Register mit Quellenbezug.
+
+{% /section %}
+
+{% section %}
+
+## Evidenzübersicht
+
+Die Evidenz wurde noch nicht bewertet. Alle Ausgangshypothesen sind vorgeschlagen; kein Evidenz-Level A, B oder C wurde begründet. Die Level werden wie folgt vergeben:
+
+{% terms %}
+{% term name="A — Starke Evidenz" %}Mehrere hochwertige, unabhängige Studien oder robuste empirische Evidenz.{% /term %}
+{% term name="B — Gute Evidenz" %}Empirische Evidenz mit gewissen Einschränkungen.{% /term %}
+{% term name="C — Begrenzte oder indirekte Evidenz" %}Verwandte Forschung, begrenzte Experimente oder indirekte Erkenntnisse.{% /term %}
+{% term name="D — Hypothese / ungeprüft" %}Plausible Annahmen oder Forschungsfragen ohne hinreichende Evidenz.{% /term %}
+{% /terms %}
+
+{% /section %}
+
+{% section %}
+
+## Forschungszeitachse
+
+1. {% time datetime="2026-11-04" %}2026-11-04{% /time %} — Einrichtung des Arbeitsbereichs und erster Forschungsrahmen.
+2. **Als Nächstes** — Literaturprotokoll und Analysepläne einfrieren, dann den dokumentierten Pilotversuch durchführen.
+
+{% /section %}
+
+{% section %}
+
+## Zuletzt aktualisierte Forschungsnotizen
+
+- [Forschungstagebuch](/de/03-notes/research-journal/) — Einrichtung des Arbeitsbereichs und erster Forschungsrahmen.
+- [Ideen und Fragen](/de/03-notes/ideas-questions/) — noch offene Entscheidungen zum Forschungsdesign.
+- [Paper-Notizen](/de/03-notes/paper-notes/) — bereit für die quellenbezogene Auswertung.
+
+{% /section %}
+
+{% nav labelledby="research-areas" %}
+
+## Schnelle Navigation {% #research-areas %}
+
+- [Forschungsgrundlagen](/de/01-foundation/)
+- [Literaturrecherche](/de/02-literature/)
+- [Forschungsnotizen](/de/03-notes/)
+- [Hypothesen](/de/04-hypotheses/)
+- [Experimente](/de/05-experiments/)
+- [Erkenntnisse und Evidenz](/de/06-evidence/)
+- [Frontend-Architektur-Leitlinien](/de/07-guidelines/)
+
+{% /nav %}

@@ -1,0 +1,46 @@
+---
+title: H-001 — Semantisches HTML und generische DOM-Strukturen
+description: Vorläufige Hypothese zu semantischem Markup und Extraktionsergebnissen.
+---
+
+{% research-status value="Proposed" label="Vorgeschlagen" /%} {% evidence level="D" label="Evidenz-Level D" /%}
+
+## Hypothesen-ID und Titel
+
+**H-001 — Semantisches HTML und generische DOM-Strukturen**
+
+## Forschungsfrage
+
+Wie beeinflusst semantisches HTML die Extraktion und Interpretation von Webinhalten im Vergleich zu generischen DOM-Strukturen?
+
+## Hypothese
+
+Bei inhaltlich und visuell gleichwertigen Seiten könnte semantisches HTML5 die Genauigkeit der Inhaltsextraktion oder strukturellen Interpretation gegenüber generischem `div`-Markup verbessern.
+
+## Theoretischer Hintergrund
+
+HTML-Elemente können neben Textinhalten auch Dokumentrollen und Beziehungen ausdrücken. Ob ein bestimmter Extractor oder eine generative Retrieval-Pipeline diese Signale verwendet und ob sie Ergebnisse verändern, ist empirisch zu prüfen.
+
+## Literatur und vorhandene Evidenz
+
+Noch nicht ausgewertet. Das ist eine prüfbare Annahme, kein Forschungsergebnis.
+
+## Erwartetes Ergebnis
+
+Falls die Hypothese im getesteten Aufbau gestützt wird, erzielen semantische Varianten bei vorab festgelegten Metriken für Extraktion und strukturelle Interpretation höhere Werte als die inhaltsgleiche generische Variante.
+
+## Alternative Erklärungen und Gegenargumente
+
+- Extractors könnten hauptsächlich Text, Accessibility-Tree, lernbasierte Parser oder andere Signale verwenden.
+- Semantik könnte in nachgelagerten Parsern verloren gehen.
+- Unterschiede könnten durch DOM-Größe, Verschachtelung, Textreihenfolge, Styling oder ARIA-Attribute statt durch Elementsemantik entstehen.
+- Ein Extraktionsvorteil muss sich nicht auf Retrieval oder generierte Antworten übertragen.
+
+## Validierungsansatz
+
+Die inhaltsgleichen Varianten aus [EXP-001](/de/05-experiments/exp-001/) mit vorab festgelegten Annotationen und Metriken testen, Wiederholungen durchführen und Prozessstufen getrennt ausweisen.
+
+## Zugehörige Experimente und Erkenntnisse
+
+- Vorgeschlagen: [EXP-001 — HTML-Struktur](/de/05-experiments/exp-001/)
+- Erkenntnisse: keine erfasst.

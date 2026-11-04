@@ -1,0 +1,72 @@
+---
+title: EXP-004 — Content Architecture
+description: Proposed comparison of section boundaries, chunking, and retrieval.
+---
+
+{% research-status value="Proposed" /%}
+
+## Experiment ID and title
+
+**EXP-004 — Content Architecture**
+
+## Objective and research question
+
+Compare how source content organization affects parsing, segmentation, chunk context, and retrieval in a declared pipeline. Addresses RQ4 and hypotheses H-005 and H-006.
+
+## Related hypotheses
+
+- H-005 — Content architecture and RAG chunking
+- H-006 — Document structure and retrieval quality
+
+## Background
+
+Downstream parsers may transform or discard source structure. This experiment must observe intermediate representations and cannot generalize beyond its declared pipeline without further evidence.
+
+## Independent variables
+
+**Primary factor:** source document structure, defined before the pilot (e.g. explicit section boundaries and heading-context preservation vs. a matched flatter structure). Do not vary chunk size, overlap, embedding, or retriever in the primary source-structure contrast.
+
+**Separate factor/extension:** chunking policy can be tested in a separate factorial or follow-up study after the parser effect is measured.
+
+## Dependent variables
+
+Parsed content integrity, heading-context preservation, segmentation/chunk characteristics, retrieval relevance, and answer/citation outcomes if measured.
+
+## Control variables
+
+Source facts and wording, corpus size, parser, chunking configuration, embeddings, index/retriever, query set, relevant-unit judgments, and generation settings.
+
+## Experimental setup and test variants
+
+Run two linked but distinct tracks: (1) a parser/segmentation track that compares source structures and archives every intermediate representation; (2) a controlled retrieval track that indexes the resulting chunks with one frozen chunking/embedding/retrieval configuration. Create equivalent content with predeclared structures. A later factorial extension may cross source structure with chunking policy, but must be separately powered and analyzed.
+
+## Test procedure
+
+1. Define source-structure variants, test corpus, queries, gold relevance labels, primary outcome, and analysis plan.
+2. Verify fact parity before parsing; parse each variant and archive source, extracted text, boundaries, and chunks.
+3. Score parser/segmentation outcomes before building a retrieval index.
+4. Index chunks using frozen downstream settings; randomize run order and retain index configuration and query logs.
+5. Score retrieval against the frozen relevance labels and inspect failures by query and chunk context.
+6. Report parsing/segmentation and retrieval as distinct outcomes. Do not attribute a retrieval difference to source structure if the intermediate representation or index configuration is unavailable.
+
+## Tools and metrics
+
+**Tools:** Not selected.
+
+**Primary candidate:** heading/context preservation or target-fact completeness in the parsed/chunk representation. **Retrieval secondary:** preselected Recall@k or nDCG against frozen relevance labels. Choose one primary metric per track after a pilot; answer and citation metrics require a separately preregistered generation stage.
+
+## Results and interpretation
+
+Not run. No results recorded.
+
+## Limitations
+
+Results depend on parser, chunker, corpus, query set, embedding/retrieval setup, and evaluation judgments. A local RAG pipeline is not equivalent to an undisclosed commercial system. If chunking is changed together with source structure, the effects cannot be separated without a factorial or otherwise identified design.
+
+## Reproducibility information
+
+Not yet specified. Freeze source variants, parser/chunker/retriever versions and settings, corpus/query versions, run order, protocol revision, run scripts, and raw outputs. Use the shared [analysis plan](/en/05-experiments/analysis-plan/).
+
+## Related papers and findings
+
+No reviewed papers or findings linked.

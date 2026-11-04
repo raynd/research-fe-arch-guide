@@ -1,0 +1,19 @@
+---
+interface Props {
+  id: string;
+  label: string;
+}
+
+const { id, label } = Astro.props;
+const anchor = `--anchor: --${id}`;
+---
+
+<button type="button" class="toggletip-trigger" popovertarget={id} style={anchor}>
+  {label}
+</button>
+<div id={id} popover class="toggletip" style={anchor}>
+  <slot />
+  <button type="button" class="toggletip-close" popovertarget={id} popovertargetaction="hide">
+    {Astro.locals.t('research.popover.close')}
+  </button>
+</div>

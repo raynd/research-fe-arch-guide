@@ -1,0 +1,69 @@
+---
+title: EXP-003 — Structured Data
+description: Proposed comparison of visible content and JSON-LD entity information.
+---
+
+{% research-status value="Proposed" /%}
+
+## Experiment ID and title
+
+**EXP-003 — Structured Data**
+
+## Objective and research question
+
+Test whether consistent structured data changes entity extraction, answer accuracy, or citation behavior when the corresponding facts are already visible. Addresses RQ3 and H-004.
+
+## Related hypothesis
+
+H-004 — JSON-LD vs. visible semantic HTML.
+
+## Background
+
+Structured data can encode explicit entity properties and relationships. Syntax validity, consumer processing, and answer effects are distinct outcomes.
+
+## Independent variables
+
+**Primary format contrast:** A: visible HTML only; B: identical visible HTML plus JSON-LD encoding only the same facts. **Separate information-content contrast:** C: visible HTML plus JSON-LD encoding additional, explicitly defined entity relationships. A vs. B estimates format/availability differences; B vs. C changes information content and is not evidence for a JSON-LD format effect.
+
+## Dependent variables
+
+Entity/property extraction, relationship identification, answer correctness, and citation support, measured separately with predeclared criteria.
+
+## Control variables
+
+Visible text, entity identifiers and wording, page structure, source URL, query set, system/tool configuration, schema vocabulary and validity, and test date.
+
+## Experimental setup and test variants
+
+Build matched fixtures from a defined entity dataset. Ensure all facts in the primary A/B contrast are equivalent, visible, and encoded consistently. Validate JSON-LD against visible content. Document relationships included only in C, how their truth is independently verified, and treat this as a separate information-content intervention.
+
+## Test procedure
+
+1. Freeze entity/fact ground truth, query set, A/B format contrast, C information-content contrast, primary outcome, and analysis plan.
+2. Validate HTML and JSON-LD syntax, identifiers, and consistency; document external vocabularies and validation versions.
+3. Confirm visible-content parity and annotate expected entity facts and relations before testing.
+4. Randomize run order and execute A/B as the confirmatory contrast. Run B/C separately and label it as the additional-information comparison.
+5. Collect exact extraction outputs, answers, and claim-linked citations; score against the same frozen rubric.
+6. Report extraction, answer, and citation results separately by entity, query, system, and run date.
+
+## Tools and metrics
+
+**Tools:** Not selected.
+
+**Primary candidate:** entity/property extraction F1 for the A/B contrast, selected after pilot and frozen before confirmation. **Secondary:** relationship accuracy, answer correctness/completeness, and claim-level citation support. Analyze B/C as a separate contrast; do not combine it with the format estimate.
+
+## Results and interpretation
+
+Not run. No results recorded.
+
+## Limitations
+
+System support may be unknown; valid markup does not demonstrate consumption. Additional relationships in C alter information quantity, not merely format. Search/index delays, external knowledge, entity popularity, and cache state may confound answer outcomes. Treat the controlled extraction pipeline separately from external-system observations.
+
+## Reproducibility information
+
+Not yet specified. Record schema/context version, validator, data provenance, tool/system versions, randomization, protocol revision, run date, and raw outputs. Use the shared [analysis plan](/en/05-experiments/analysis-plan/).
+
+## Related papers and findings
+
+No reviewed papers or findings linked.

@@ -1,0 +1,191 @@
+---
+title: Frontend Architecture for GEO & AEO
+description: Research dashboard for investigating how frontend architecture affects generative search.
+---
+
+{% hero %}
+
+## Research workspace
+
+Investigating how frontend architecture influences the machine readability, content extractability, retrievability, answerability, and citation potential of web content in generative search and answer systems.
+
+### Research objective
+
+Develop technology-independent, evidence-based frontend architecture guidelines. Keep scientific findings, empirical observations, plausible recommendations, and unverified assumptions clearly distinguished.
+
+{% /hero %}
+
+{% research-cards %}
+
+## Status at a glance
+
+{% research-card title="Current phase" lead="Foundation and research design" %}
+All six hypotheses and four experiments are **proposed**. No experiment results or research findings have been recorded.
+{% /research-card %}
+
+{% research-card title="Progress" lead="1 of 5 lifecycle stages initialized" %}
+{% progress value=1 max=5 label="Research lifecycle progress" /%} Research framing is initialized. Evidence review, experiment execution, analysis, and guideline validation have not started.
+{% /research-card %}
+
+{% research-card title="Next steps" lead="Before data collection" %}
+1. Finalize and version the scoping-review search, screening, and extraction protocol before running searches.
+2. Freeze experiment estimands, primary outcomes, annotation rules, analysis plans, and pilot-based sample-size rationale.
+3. Pilot one experiment end to end; inspect parity, measurement reliability, and pipeline failures before scaling.
+4. Select tools only after the measures and reproducibility requirements are specified.
+{% /research-card %}
+
+{% research-card title="Open research questions" lead="Methodological questions" %}
+- Which crawler and retrieval pipelines can be measured reproducibly?
+- How can content extraction quality be separated from answer-generation quality?
+- Which confounding variables must be controlled across rendering variants?
+- How can source citation behavior be evaluated independently of answer correctness?
+{% /research-card %}
+
+{% /research-cards %}
+
+{% section %}
+
+## Active research
+
+The current focus is to establish a reproducible literature review and controlled studies of semantics, rendering, structured data, and content architecture. No experimental results are available yet.
+
+{% /section %}
+
+{% section %}
+
+## Active hypotheses
+
+The initial hypotheses are proposals, not established results.
+
+{% toggletip id="status-legend" label="What do the statuses mean?" %}
+{% terms %}
+{% term name="Proposed" %}Formulated for testing; no appraised evidence is linked yet.{% /term %}
+{% term name="Under Investigation" %}Literature appraisal or an experiment is in progress; no conclusion has been drawn.{% /term %}
+{% term name="Supported" %}Linked, documented evidence is consistent with the hypothesis within its stated scope.{% /term %}
+{% term name="Rejected" %}Linked, documented evidence contradicts the hypothesis within its stated scope.{% /term %}
+{% term name="Inconclusive" %}Evidence is available but insufficient or mixed; it neither supports nor rejects the hypothesis.{% /term %}
+{% /terms %}
+{% /toggletip %}
+
+{% table caption="Initial hypotheses and their current status" %}
+* ID
+* Hypothesis
+* Status
+---
+* H-001
+* [Semantic HTML vs. generic DOM](/en/04-hypotheses/h-001/)
+* {% research-status value="Proposed" /%}
+---
+* H-002
+* [DOM hierarchy and content extraction](/en/04-hypotheses/h-002/)
+* {% research-status value="Proposed" /%}
+---
+* H-003
+* [Rendering strategy and content availability](/en/04-hypotheses/h-003/)
+* {% research-status value="Proposed" /%}
+---
+* H-004
+* [Visible HTML and JSON-LD](/en/04-hypotheses/h-004/)
+* {% research-status value="Proposed" /%}
+---
+* H-005
+* [Content architecture and RAG chunking](/en/04-hypotheses/h-005/)
+* {% research-status value="Proposed" /%}
+---
+* H-006
+* [Document structure and retrieval quality](/en/04-hypotheses/h-006/)
+* {% research-status value="Proposed" /%}
+{% /table %}
+
+{% /section %}
+
+{% section %}
+
+## Active experiments
+
+All designs below are proposed and have not been executed.
+
+{% table caption="Proposed experiments and the hypotheses they test" %}
+* ID
+* Experiment
+* Hypotheses
+* Status
+---
+* EXP-001
+* [HTML structure](/en/05-experiments/exp-001/)
+* H-001, H-002
+* {% research-status value="Proposed" /%}
+---
+* EXP-002
+* [Rendering strategy](/en/05-experiments/exp-002/)
+* H-003
+* {% research-status value="Proposed" /%}
+---
+* EXP-003
+* [Structured data](/en/05-experiments/exp-003/)
+* H-004
+* {% research-status value="Proposed" /%}
+---
+* EXP-004
+* [Content architecture](/en/05-experiments/exp-004/)
+* H-005, H-006
+* {% research-status value="Proposed" /%}
+{% /table %}
+
+{% /section %}
+
+{% section %}
+
+## Recent findings
+
+No findings have been recorded. See the [evidence matrix](/en/06-evidence/matrix/) for the source-linked findings register.
+
+{% /section %}
+
+{% section %}
+
+## Evidence overview
+
+Evidence has not yet been evaluated. All initial hypotheses remain proposed; no A, B, or C evidence level has been justified. Levels are assigned as follows:
+
+{% terms %}
+{% term name="A — Strong evidence" %}Multiple high-quality independent studies or robust empirical evidence.{% /term %}
+{% term name="B — Good evidence" %}Empirical evidence with some limitations.{% /term %}
+{% term name="C — Limited or indirect evidence" %}Related research, limited experiments, or indirect findings.{% /term %}
+{% term name="D — Hypothesis / unverified" %}Plausible assumptions or research questions without sufficient evidence.{% /term %}
+{% /terms %}
+
+{% /section %}
+
+{% section %}
+
+## Research timeline
+
+1. {% time datetime="2026-11-04" %}2026-11-04{% /time %} — Workspace setup and initial research framing.
+2. **Next** — Freeze the literature protocol and experiment analysis plans; then run the documented pilot.
+
+{% /section %}
+
+{% section %}
+
+## Recently updated research notes
+
+- [Research journal](/en/03-notes/research-journal/) — workspace initialization and initial scope.
+- [Ideas & questions](/en/03-notes/ideas-questions/) — open design decisions to resolve.
+- [Paper notes](/en/03-notes/paper-notes/) — ready for source-by-source review.
+
+{% /section %}
+
+{% nav labelledby="research-areas" %}
+
+## Research areas {% #research-areas %}
+
+- [Research foundation](/en/01-foundation/)
+- [Literature review](/en/02-literature/)
+- [Research notes](/en/03-notes/)
+- [Hypotheses](/en/04-hypotheses/)
+- [Experiments](/en/05-experiments/)
+- [Findings & evidence](/en/06-evidence/)
+- [Frontend architecture guidelines](/en/07-guidelines/)
+
+{% /nav %}

@@ -1,0 +1,72 @@
+---
+title: EXP-001 — HTML-Struktur
+description: Vorgeschlagener inhaltsgleicher Vergleich von Text- und HTML-Strukturen.
+---
+
+{% research-status value="Proposed" label="Vorgeschlagen" /%}
+
+## Experiment-ID und Titel
+
+**EXP-001 — HTML-Struktur**
+
+## Ziel und Forschungsfrage
+
+Prüfen, ob Repräsentation und semantische Struktur inhaltsgleicher Inhalte Inhaltsextraktion, strukturelle Interpretation, Retrieval oder Antwortergebnisse beeinflussen. Bezieht sich auf RQ1 und H-001/H-002.
+
+## Zugehörige Hypothesen
+
+- H-001 — Semantisches HTML und generisches DOM
+- H-002 — DOM-Hierarchie und Inhaltsextraktion
+
+## Hintergrund
+
+Semantisches Markup und Abschnittshierarchie könnten Struktur vermitteln. Getestete Parser und Retrieval-Systeme können diese Signale jedoch ignorieren, transformieren oder nutzen. Das Design prüft Varianten und unterstellt keine Wirkung.
+
+## Unabhängige Variablen
+
+- **Primärer Faktor:** generische Containerelemente vs. entsprechende semantische HTML5-Elemente bei übereinstimmendem Text, Verschachtelungstiefe, Reihenfolge, Sichtbarkeit und Seitenauslieferung.
+- **Getrennte explorative Varianten:** Klartext sowie semantisches HTML5 mit ARIA, sofern native Semantik nicht ausreicht. Diese Varianten nicht in die primäre Schätzung aufnehmen: Übertragungsweg und ARIA führen zusätzliche Faktoren ein.
+- DOM-Hierarchie oder -Komplexität ist ein separater Faktor und benötigt einen eigenen Vergleich.
+
+## Abhängige Variablen
+
+Vorab Messungen zu Zielinhaltsextraktion, struktureller Zuordnung, Retrieval-Relevanz, Antwortqualität und Zitierverhalten definieren. Siehe [Metriken](/de/05-experiments/metrics/).
+
+## Kontrollvariablen
+
+Exakter Inhalt und Faktenbestand, Formulierungen, URLs/Hosting soweit möglich, Styling und Sichtbarkeit, Metadaten, Query-Set, Parser-/Retriever-/Modellkonfiguration, Timing und Wiederholungen. Unvermeidbare Unterschiede, insbesondere der Übertragungsweg bei Klartext, dokumentieren.
+
+## Versuchsaufbau und Varianten
+
+Für den primären Vergleich abgestimmte Fixture-Paare erstellen: (A) generische Container und (B) semantisch entsprechende HTML5-Elemente bei ansonsten gleicher Baumstruktur. Ein Inhaltsmanifest pflegen und Parität von Text/Fakten, Reihenfolge, Sichtbarkeit und HTTP-Auslieferung prüfen. Optionale Varianten (C) ARIA und (D) Klartext getrennt als explorative Vergleiche berichten. Semantische Rollen, die sich strukturell nicht angleichen lassen, als Designunterschied dokumentieren.
+
+## Ablauf
+
+1. Fixture-Paar, Inhaltsmanifest, Testmenge, primären Endpunkt und Analyseplan einfrieren.
+2. Antwort und gerenderte Inhalte, Baumstruktur und Inhaltsparität jeder Fixture prüfen.
+3. Fixture-/Laufreihenfolge innerhalb von Inhaltsblöcken randomisieren; generischen und semantischen Kontrast in derselben festgelegten Pipeline und im selben Zeitfenster ausführen.
+4. Extraktion und Abschnittszuordnung anhand einer eingefrorenen Referenz bewerten; Bewertende verblinden, sofern die Ausgabe dies zulässt.
+5. Klartext, ARIA, Retrieval und generierte Antworten als getrennte explorative oder sekundäre Varianten behandeln; aus Extraktion allein keinen nachgelagerten Nutzen ableiten.
+6. Fehlerläufe sichern und Ergebnisse je Inhaltselement, Pipeline-Stufe und Wiederholung berichten.
+
+## Tools und Metriken
+
+**Tools:** Noch nicht ausgewählt. Namen und Versionen vor Durchführung dokumentieren.
+
+**Primärer Kandidat:** F1 der feldweisen Extraktion oder exakte Faktenerkennung gegenüber einem eingefrorenen Goldstandard; nach Pilotierung auswählen und vor bestätigendem Test festschreiben. **Sekundär:** Genauigkeit der Abschnittszuordnung. Retrieval- und Antwort-/Zitiermetriken benötigen eine separat definierte Pipeline und Analyse.
+
+## Ergebnisse und Interpretation
+
+Nicht durchgeführt. Keine Ergebnisse oder Interpretationen dokumentiert.
+
+## Einschränkungen
+
+Klartext kann sich bei Transport und verfügbaren Metadaten unterscheiden. ARIA kann Signale hinzufügen oder Störungen verursachen; eine pauschale Ergänzung ist nicht angemessen. Der Austausch semantischer Elemente kann außerdem die Accessibility-Semantik des Browsers verändern, die als Schutzkriterium gemessen oder geprüft werden sollte. Ergebnisse hängen von Inhalten, Parsern und Systemen ab.
+
+## Reproduzierbarkeit
+
+Noch nicht spezifiziert. Datensatz, Fixture-Quelle, Tool-Versionen, Laufumgebung, Protokollrevision, Laufreihenfolge und Rohdatenarchiv vor der Durchführung festlegen. Den gemeinsamen [Analyseplan](/de/05-experiments/analysis-plan/) verwenden.
+
+## Zugehörige Paper und Erkenntnisse
+
+Keine geprüften Paper oder Erkenntnisse verknüpft.

@@ -1,0 +1,12 @@
+---
+interface Props {
+  value: 'Proposed' | 'Under Investigation' | 'Supported' | 'Rejected' | 'Inconclusive';
+  label?: string;
+}
+
+const { value, label = value } = Astro.props;
+---
+
+<span class:list={['research-badge', `status-${value.toLowerCase().replaceAll(' ', '-')}`]}>
+  {label}
+</span>

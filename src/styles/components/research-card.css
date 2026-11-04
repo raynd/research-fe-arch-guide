@@ -1,0 +1,85 @@
+@layer research.components {
+  .research-card-grid {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(min(100%, var(--research-card-min-inline-size)), 1fr)
+    );
+    gap: var(--research-card-grid-gap);
+
+    > :not(.research-card) {
+      grid-column: 1 / -1;
+    }
+
+    > * {
+      margin: 0;
+    }
+  }
+
+  /*
+   * Tracks: title (1), lead (2), content (3). Each card spans three shared
+   * rows; subgrid aligns the regions of every card in the same row. An
+   * <hgroup> spans title + lead as a nested subgrid; a card without a lead
+   * leaves track 2 empty so its neighbours still line up.
+   * Do not make the card a size container: containment turns the subgrid
+   * back into an independent grid and breaks row alignment.
+   */
+  .research-card {
+    grid-row: span 3;
+    display: grid;
+    /* Same-cascade fallback: ignored when subgrid is supported. */
+    grid-template-rows: auto auto 1fr;
+    grid-template-rows: subgrid;
+    row-gap: var(--research-card-row-gap);
+    min-inline-size: 0;
+    padding: var(--research-card-padding);
+    color: var(--research-ink);
+    background: var(--research-card-bg);
+    border: var(--research-border-width) solid var(--research-line);
+    border-radius: var(--research-radius-m);
+    overflow-wrap: break-word;
+    hyphens: auto;
+    break-inside: avoid;
+
+    > *,
+    > hgroup > * {
+      margin: 0;
+    }
+
+    > :where(h2, h3, h4) {
+      grid-row: 1;
+    }
+
+    > hgroup {
+      grid-row: 1 / span 2;
+      display: grid;
+      grid-template-rows: auto auto;
+      grid-template-rows: subgrid;
+
+      > p {
+        color: var(--sl-color-white);
+        font-weight: 600;
+        text-wrap: balance;
+      }
+    }
+
+    :where(h2, h3, h4) {
+      font-size: var(--research-card-title-size);
+      line-height: var(--sl-line-height-headings);
+      text-wrap: balance;
+    }
+
+    > :not(hgroup, h2, h3, h4) {
+      grid-row: 3;
+      text-wrap: pretty;
+    }
+
+    progress {
+      display: block;
+      inline-size: 100%;
+      block-size: var(--research-progress-block-size);
+      margin-block-end: var(--research-space-xs);
+      accent-color: var(--sl-color-accent);
+    }
+  }
+}

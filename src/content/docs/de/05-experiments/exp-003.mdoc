@@ -1,0 +1,69 @@
+---
+title: EXP-003 — Strukturierte Daten
+description: Vorgeschlagener Vergleich sichtbarer Inhalte mit JSON-LD-Entitätsinformationen.
+---
+
+{% research-status value="Proposed" label="Vorgeschlagen" /%}
+
+## Experiment-ID und Titel
+
+**EXP-003 — Strukturierte Daten**
+
+## Ziel und Forschungsfrage
+
+Prüfen, ob konsistente strukturierte Daten die Extraktion von Entitäten, Antwortgenauigkeit oder Zitierverhalten verändern, wenn die entsprechenden Fakten bereits sichtbar sind. Bezieht sich auf RQ3 und H-004.
+
+## Zugehörige Hypothese
+
+H-004 — JSON-LD und sichtbares HTML.
+
+## Hintergrund
+
+Strukturierte Daten können Eigenschaften und Beziehungen von Entitäten explizit ausdrücken. Syntaxvalidität, Verarbeitung durch Systeme und Auswirkungen auf Antworten sind unterschiedliche Ergebnisse.
+
+## Unabhängige Variablen
+
+**Primärer Formatvergleich:** A: nur sichtbares HTML; B: identisches sichtbares HTML plus JSON-LD, das ausschließlich dieselben Fakten codiert. **Getrennter Vergleich des Informationsgehalts:** C: sichtbares HTML plus JSON-LD mit zusätzlichen, ausdrücklich definierten Entitätsbeziehungen. A vs. B schätzt Format-/Verfügbarkeitsunterschiede; B vs. C verändert den Informationsgehalt und ist kein Beleg für einen JSON-LD-Formateffekt.
+
+## Abhängige Variablen
+
+Entitäts-/Eigenschaftsextraktion, Erkennung von Beziehungen, Antwortkorrektheit und Zitierbelegkraft; jeweils anhand vorab definierter Kriterien.
+
+## Kontrollvariablen
+
+Sichtbarer Text, Entitätskennungen und Bezeichnungen, Seitenstruktur, Quell-URL, Query-Set, System-/Tool-Konfiguration, Schema-Vokabular und -Validität sowie Testdatum.
+
+## Versuchsaufbau und Varianten
+
+Abgestimmte Fixtures anhand eines definierten Entitätsdatensatzes erstellen. Alle Fakten im primären A/B-Vergleich müssen äquivalent, sichtbar und konsistent codiert sein. JSON-LD mit sichtbaren Inhalten abgleichen. Nur in C enthaltene Beziehungen, deren unabhängige Verifizierung und den separaten Eingriff in den Informationsgehalt dokumentieren.
+
+## Ablauf
+
+1. Ground Truth zu Entitäten/Fakten, Query-Set, A/B-Formatvergleich, C-Informationsvergleich, primären Endpunkt und Analyseplan einfrieren.
+2. HTML- und JSON-LD-Syntax, Kennungen und Konsistenz validieren; externe Vokabulare und Validator-Versionen dokumentieren.
+3. Parität sichtbarer Inhalte bestätigen und erwartete Entitätsfakten/-beziehungen vor dem Test annotieren.
+4. Laufreihenfolge randomisieren und A/B als bestätigenden Vergleich ausführen. B/C separat durchführen und als Vergleich zusätzlicher Informationen kennzeichnen.
+5. Exakte Extraktionsergebnisse, Antworten und aussagenbezogene Zitate erfassen; mit demselben eingefrorenen Raster bewerten.
+6. Extraktion, Antworten und Zitierungen getrennt nach Entität, Query, System und Laufdatum berichten.
+
+## Tools und Metriken
+
+**Tools:** Noch nicht ausgewählt.
+
+**Primärer Kandidat:** F1 der Entitäts-/Eigenschaftsextraktion für A/B; nach Pilotierung auswählen und vor bestätigendem Test festschreiben. **Sekundär:** Genauigkeit von Beziehungen, Korrektheit/Vollständigkeit der Antworten und aussagenbezogener Zitierbeleg. B/C als separaten Vergleich analysieren und nicht mit dem Formateffekt zusammenfassen.
+
+## Ergebnisse und Interpretation
+
+Nicht durchgeführt. Keine Ergebnisse dokumentiert.
+
+## Einschränkungen
+
+Systemunterstützung kann unbekannt sein; valides Markup belegt keine Verarbeitung. Zusätzliche Beziehungen in C verändern den Informationsgehalt, nicht nur das Format. Indexierungsverzögerungen, externes Wissen, Entitätspopularität und Cache-Zustand können Antworten beeinflussen. Kontrollierte Extraktions-Pipeline getrennt von externen Systembeobachtungen behandeln.
+
+## Reproduzierbarkeit
+
+Noch nicht spezifiziert. Schema-/Kontextversion, Validator, Datenherkunft, Tool-/Systemversionen, Randomisierung, Protokollrevision, Laufdatum und Rohdaten dokumentieren. Den gemeinsamen [Analyseplan](/de/05-experiments/analysis-plan/) verwenden.
+
+## Zugehörige Paper und Erkenntnisse
+
+Keine geprüften Paper oder Erkenntnisse verknüpft.

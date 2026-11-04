@@ -1,0 +1,72 @@
+---
+title: EXP-004 — Content-Architektur
+description: Vorgeschlagener Vergleich von Abschnittsgrenzen, Chunking und Retrieval.
+---
+
+{% research-status value="Proposed" label="Vorgeschlagen" /%}
+
+## Experiment-ID und Titel
+
+**EXP-004 — Content-Architektur**
+
+## Ziel und Forschungsfrage
+
+Untersuchen, wie die Organisation von Quellinhalten Parsing, Segmentierung, Chunk-Kontext und Retrieval in einer festgelegten Pipeline beeinflusst. Bezieht sich auf RQ4 sowie H-005 und H-006.
+
+## Zugehörige Hypothesen
+
+- H-005 — Content-Architektur und RAG-Chunking
+- H-006 — Dokumentstruktur und Retrieval-Qualität
+
+## Hintergrund
+
+Nachgelagerte Parser können die Quellstruktur verändern. Dieses Experiment muss Zwischenrepräsentationen untersuchen und darf Ergebnisse ohne weitere Evidenz nicht über die festgelegte Pipeline hinaus verallgemeinern.
+
+## Unabhängige Variablen
+
+**Primärer Faktor:** vor dem Pilotversuch festgelegte Dokumentstruktur (z. B. explizite Abschnittsgrenzen und Erhalt des Überschriftenkontexts vs. eine inhaltsgleiche flachere Struktur). Chunk-Größe, Overlap, Embedding oder Retriever im primären Quellstrukturvergleich nicht variieren.
+
+**Getrennter Faktor/Erweiterung:** Chunking-Strategie kann nach Messung des Parser-Effekts in einer separaten faktoriellen oder Folgestudie getestet werden.
+
+## Abhängige Variablen
+
+Integrität geparster Inhalte, Erhalt von Überschriftenkontext, Segmentierungs-/Chunk-Merkmale, Retrieval-Relevanz sowie gegebenenfalls Antwort- und Zitierergebnisse.
+
+## Kontrollvariablen
+
+Quellfakten und Formulierungen, Korpusgröße, Parser, Chunking-Konfiguration, Embeddings, Index/Retriever, Query-Set, relevante Einheiten und Einstellungen der Generierung.
+
+## Versuchsaufbau und Varianten
+
+Zwei verknüpfte, aber getrennte Untersuchungsstränge durchführen: (1) Parser-/Segmentierungsstrang, der Quellstrukturen vergleicht und alle Zwischenrepräsentationen archiviert; (2) kontrollierter Retrieval-Strang, der entstehende Chunks mit einer eingefrorenen Chunking-/Embedding-/Retrieval-Konfiguration indexiert. Gleichwertige Inhalte mit vorab definierten Strukturen erstellen. Eine spätere faktorielle Erweiterung kann Quellstruktur mit Chunking-Strategie kombinieren, muss aber separat geplant und analysiert werden.
+
+## Ablauf
+
+1. Quellstruktur-Varianten, Testkorpus, Queries, Gold-Labels der Relevanz, primären Endpunkt und Analyseplan definieren.
+2. Faktenparität vor dem Parsing prüfen; jede Variante parsen und Quelle, extrahierten Text, Grenzen und Chunks archivieren.
+3. Parser-/Segmentierungsergebnisse vor dem Aufbau eines Retrieval-Index bewerten.
+4. Chunks mit eingefrorenen nachgelagerten Einstellungen indexieren; Laufreihenfolge randomisieren und Indexkonfiguration sowie Query-Protokolle sichern.
+5. Retrieval anhand der eingefrorenen Relevanz-Labels bewerten und Fehler nach Query und Chunk-Kontext untersuchen.
+6. Parsing/Segmentierung und Retrieval als getrennte Ergebnisse berichten. Eine Retrieval-Differenz nicht der Quellstruktur zuschreiben, wenn Zwischenrepräsentation oder Indexkonfiguration nicht bekannt ist.
+
+## Tools und Metriken
+
+**Tools:** Noch nicht ausgewählt.
+
+**Primärer Kandidat:** Erhalt von Überschriften/Kontext oder Vollständigkeit der Zielfakten in geparster/Chunk-Repräsentation. **Retrieval sekundär:** vorab ausgewähltes Recall@k oder nDCG anhand eingefrorener Relevanz-Labels. Nach Pilotierung eine primäre Metrik pro Strang auswählen; Antwort- und Zitiermetriken benötigen eine separat vorab geplante Generierungsstufe.
+
+## Ergebnisse und Interpretation
+
+Nicht durchgeführt. Keine Ergebnisse dokumentiert.
+
+## Einschränkungen
+
+Ergebnisse hängen von Parser, Chunker, Korpus, Query-Set, Embedding-/Retrieval-Konfiguration und Bewertungsurteilen ab. Eine lokale RAG-Pipeline entspricht keinem undurchsichtigen kommerziellen System. Werden Chunking und Quellstruktur gleichzeitig geändert, lassen sich Effekte ohne faktorielles oder anderweitig identifiziertes Design nicht trennen.
+
+## Reproduzierbarkeit
+
+Noch nicht spezifiziert. Quellvarianten, Parser-/Chunker-/Retriever-Versionen und Einstellungen, Korpus-/Query-Versionen, Laufreihenfolge, Protokollrevision, Skripte und Rohdaten einfrieren. Den gemeinsamen [Analyseplan](/de/05-experiments/analysis-plan/) verwenden.
+
+## Zugehörige Paper und Erkenntnisse
+
+Keine geprüften Paper oder Erkenntnisse verknüpft.

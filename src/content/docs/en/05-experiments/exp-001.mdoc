@@ -1,0 +1,72 @@
+---
+title: EXP-001 — HTML Structure
+description: Proposed content-equivalent comparison of text and HTML structures.
+---
+
+{% research-status value="Proposed" /%}
+
+## Experiment ID and title
+
+**EXP-001 — HTML Structure**
+
+## Objective and research question
+
+Compare whether representation and semantic structure of equivalent content affects content extraction, structural interpretation, retrieval, or answer outcomes. Addresses RQ1 and supports H-001 and H-002.
+
+## Related hypothesis
+
+- H-001 — Semantic HTML vs. generic DOM
+- H-002 — DOM hierarchy and content extraction
+
+## Background
+
+Semantic markup and section hierarchy may expose structure, but the evaluated parsers and retrieval systems may ignore, transform, or use those signals. This design tests variants; it does not presume an effect.
+
+## Independent variables
+
+- **Primary factor:** generic container elements vs. corresponding semantic HTML5 elements, while matching text, nesting depth, order, visibility, and page delivery.
+- **Separate exploratory arms:** plain text and semantic HTML5 with ARIA where native semantics are insufficient. Do not combine these arms into the primary estimate: transport and ARIA introduce additional factors.
+- DOM hierarchy or complexity is a separate factor and requires its own contrast.
+
+## Dependent variables
+
+Predefine measures for target content extraction, section/heading association, retrieval relevance, answer quality, and citation behavior. See [metrics](/en/05-experiments/metrics/).
+
+## Control variables
+
+Exact content and fact set, wording, URLs/hosting where feasible, styling and visibility, metadata, query set, parser/retriever/model configuration, timing, and run count. Record unavoidable differences, especially the plain-text delivery path.
+
+## Experimental setup and test variants
+
+Prepare matched fixture pairs for the primary comparison: (A) generic containers and (B) semantically corresponding HTML5 elements with otherwise matched tree shape. Maintain a content manifest and verify text/fact parity, order, visibility, and HTTP delivery. Optional (C) ARIA and (D) plain-text arms are reported separately as exploratory comparisons. Record any semantic role that cannot be matched structurally as a design difference.
+
+## Test procedure
+
+1. Freeze the fixture pair, content manifest, test set, primary outcome, and analysis plan.
+2. Verify response and rendered content, tree shape, and content parity for every fixture.
+3. Randomize fixture/run order within content blocks; execute the generic-versus-semantic contrast in the same declared pipeline and time window.
+4. Score extraction and section association against a frozen reference; blind annotators to the variant when the output allows it.
+5. Treat plain text, ARIA, retrieval, and generated answers as distinct exploratory or secondary arms; do not infer downstream benefits from extraction alone.
+6. Preserve failures and report results per content item, pipeline stage, and repetition.
+
+## Tools and metrics
+
+**Tools:** Not selected. Document names and versions before execution.
+
+**Primary candidate:** field-level extraction F1 or exact fact recovery against a frozen gold set, selected after a pilot and frozen before confirmation. **Secondary:** section association accuracy. Retrieval and answer/citation metrics require a separately defined pipeline and analysis.
+
+## Results and interpretation
+
+Not run. No results or interpretation recorded.
+
+## Limitations
+
+Plain text may differ in transport and available metadata. ARIA can add signals or introduce noise; it is not appropriate as a blanket addition. Semantic element substitution may also alter browser accessibility semantics, which should be measured or checked as a guardrail. Results are specific to selected content, parsers, and downstream systems.
+
+## Reproducibility information
+
+Not yet specified. Dataset, fixture source, tool versions, run environment, protocol revision, run order, and raw-output archive must be recorded before execution. Use the shared [analysis plan](/en/05-experiments/analysis-plan/).
+
+## Related papers and findings
+
+No reviewed papers or findings linked.

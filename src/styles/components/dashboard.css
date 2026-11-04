@@ -1,0 +1,77 @@
+@layer research.components {
+  .research-hero {
+    margin-inline: calc(-1 * var(--sl-content-pad-x));
+    padding: var(--research-space-fluid);
+    color: var(--research-ink);
+    background:
+      radial-gradient(ellipse at 92% 0%, color-mix(in srgb, var(--sl-color-accent) 15%, transparent), transparent 34rem),
+      var(--research-paper);
+    border: var(--research-border-width) solid var(--research-line);
+    border-radius: var(--research-radius-l);
+
+    > :first-child {
+      margin-block-start: 0;
+    }
+
+    @media (width <= 40rem) {
+      border-radius: var(--research-radius-m);
+    }
+  }
+
+  /* Dashboard sections: <section>, the card grid, and the in-page <nav>. */
+  :where(.sl-markdown-content) > :is(section, nav) {
+    margin-block-start: var(--research-space-xl);
+
+    > .sl-heading-wrapper.level-h2 {
+      margin-block: 0 var(--research-space-m);
+      padding-block-end: var(--research-space-xs);
+      border-block-end: var(--research-border-width) solid var(--research-line);
+    }
+  }
+
+  :where(.sl-markdown-content) > nav > ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--research-link-tile-min-inline-size)), 1fr));
+    gap: var(--research-space-xs);
+    padding: 0;
+    list-style: none;
+
+    > li {
+      margin: 0;
+    }
+
+    a {
+      display: block;
+      padding: var(--research-space-s) var(--research-space-m);
+      border: var(--research-border-width) solid var(--research-line);
+      border-radius: var(--research-radius-m);
+      text-decoration: none;
+
+      &:hover {
+        background: var(--research-highlight);
+      }
+    }
+  }
+
+  .research-terms {
+    display: grid;
+    gap: var(--research-space-2xs) 0;
+    margin: var(--research-space-m) 0 0;
+
+    > dt {
+      margin: 0;
+      font-weight: 650;
+      color: var(--sl-color-white);
+
+      &:not(:first-child) {
+        margin-block-start: var(--research-space-xs);
+      }
+    }
+
+    > dd {
+      margin: 0;
+      padding-inline-start: var(--research-space-m);
+      border-inline-start: var(--research-border-width) solid var(--research-line);
+    }
+  }
+}

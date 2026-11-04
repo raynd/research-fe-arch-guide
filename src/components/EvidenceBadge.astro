@@ -1,0 +1,12 @@
+---
+interface Props {
+  level: 'A' | 'B' | 'C' | 'D';
+  label?: string;
+}
+
+const { level, label = `Evidence ${level}` } = Astro.props;
+---
+
+<span class:list={['research-badge', `evidence-${level.toLowerCase()}`]}>
+  {label}
+</span>

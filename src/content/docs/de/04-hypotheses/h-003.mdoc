@@ -1,0 +1,43 @@
+---
+title: H-003 — Rendering-Strategie
+description: Vorläufige Hypothese zum Vergleich von Client- und Server-Rendering.
+---
+
+{% research-status value="Proposed" label="Vorgeschlagen" /%} {% evidence level="D" label="Evidenz-Level D" /%}
+
+## Hypothesen-ID und Titel
+
+**H-003 — SSR/SSG und Verfügbarkeit von CSR-Inhalten**
+
+## Forschungsfrage
+
+Wie beeinflussen CSR, SSR und SSG die Verfügbarkeit relevanter Inhalte für Crawler und Retrieval-Systeme?
+
+## Hypothese
+
+Wenn äquivalente Inhalte bereits in der initialen HTML-Antwort enthalten sind, könnten SSR und SSG diese für Clients ohne JavaScript-Ausführung zuverlässiger verfügbar machen als eine CSR-Variante, die JavaScript benötigt.
+
+## Theoretischer Hintergrund
+
+Rendering-Strategien unterscheiden sich darin, wann HTML erzeugt wird. Das tatsächliche Crawler-Verhalten hängt von Client, Ausführungsrichtlinien, Timing und Indexierungsprozess ab.
+
+## Literatur und vorhandene Evidenz
+
+Noch nicht ausgewertet; Quellen und Evidenz sind nicht verknüpft.
+
+## Erwartetes Ergebnis
+
+HTML der ersten Antwort und kontrollierte Extraktion ohne JavaScript sollten die Varianten unterscheiden; Crawler- und Retrieval-Ergebnisse sind noch zu untersuchen.
+
+## Alternative Erklärungen und Gegenargumente
+
+Manche Crawler führen JavaScript aus; SSR/SSG-Seiten können dennoch durch Zugriff, Fehler oder Timing scheitern. Hydration, Caching, Netzwerkverhalten und Inhaltparität sind mögliche Störfaktoren.
+
+## Validierungsansatz
+
+Inhaltsparität sicherstellen, Antwort-HTML und gerendertes Ergebnis prüfen, Crawler-Konfiguration dokumentieren und [EXP-002](/de/05-experiments/exp-002/) verwenden.
+
+## Zugehörige Experimente und Erkenntnisse
+
+- Vorgeschlagen: EXP-002.
+- Erkenntnisse: keine erfasst.

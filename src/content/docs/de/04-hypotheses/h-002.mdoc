@@ -1,0 +1,43 @@
+---
+title: H-002 — DOM-Hierarchie und Inhaltsextraktion
+description: Vorläufige Hypothese zu Hierarchie, Grenzen und Inhaltsextraktion.
+---
+
+{% research-status value="Proposed" label="Vorgeschlagen" /%} {% evidence level="D" label="Evidenz-Level D" /%}
+
+## Hypothesen-ID und Titel
+
+**H-002 — DOM-Hierarchie und Inhaltsextraktion**
+
+## Forschungsfrage
+
+Wie wirkt sich die DOM-Hierarchie auf Dokumentsegmentierung und Extraktion von Inhaltsbeziehungen aus?
+
+## Hypothese
+
+Bei identischem Text kann ein DOM mit klaren, konsistenten Abschnitten und Überschriften die Zuordnung von Inhalten zu ihren Abschnitten besser unterstützen als Strukturen mit mehrdeutigen oder übermäßig verschachtelten Grenzen.
+
+## Theoretischer Hintergrund
+
+DOM-Eltern-Kind-Beziehungen und Überschriftenpositionen bilden sichtbare Strukturen ab. Ihre nachgelagerte Nutzung hängt vom Parser ab und ist zu messen, nicht vorauszusetzen.
+
+## Literatur und vorhandene Evidenz
+
+Noch nicht ausgewertet; Quellen und Evidenz sind nicht verknüpft.
+
+## Erwartetes Ergebnis
+
+Bei getesteten Parsern könnten explizit abgegrenzte Abschnitte weniger Zuordnungsfehler verursachen als die festgelegten Vergleichsstrukturen.
+
+## Alternative Erklärungen und Gegenargumente
+
+Textreihenfolge, Überschriftenwortlaut, Parser-Heuristiken, Chunking-Regeln oder Modellverhalten könnten den Effekt dominieren. „Klare“ Hierarchie muss operationalisiert werden.
+
+## Validierungsansatz
+
+Hierarchie-Varianten und Annotationskriterien in [EXP-001](/de/05-experiments/exp-001/) und [EXP-004](/de/05-experiments/exp-004/) festlegen. Text konstant halten und strukturbezogene Ergebnisse vergleichen.
+
+## Zugehörige Experimente und Erkenntnisse
+
+- Vorgeschlagen: EXP-001 und EXP-004.
+- Erkenntnisse: keine erfasst.

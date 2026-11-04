@@ -1,0 +1,2 @@
+/* Cascade order for all project styles. Starlight's own layers stay lowest. */
+@layer starlight, research.tokens, research.base, research.components, research.utilities;

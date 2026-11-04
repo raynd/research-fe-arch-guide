@@ -1,0 +1,43 @@
+---
+title: H-002 — DOM Hierarchy and Content Extraction
+description: Proposed hypothesis about hierarchy, boundaries, and extraction.
+---
+
+{% research-status value="Proposed" /%} {% evidence level="D" /%}
+
+## Hypothesis ID and title
+
+**H-002 — DOM hierarchy and content extraction**
+
+## Research question
+
+How does DOM hierarchy affect document segmentation and extraction of content relationships?
+
+## Hypothesis statement
+
+For equivalent text, a DOM with clear, consistent section and heading containment may support more accurate association of content with its section than a hierarchy with ambiguous or excessively nested boundaries.
+
+## Theoretical background
+
+DOM parent-child relationships and heading placement are inspectable structure. Their downstream use varies by parser and must be measured rather than assumed.
+
+## Supporting literature and existing evidence
+
+Not yet assessed; no evidence or source records are linked.
+
+## Expected outcome
+
+In the tested parsers, explicitly bounded sections may yield fewer section-assignment errors than the selected comparison structures.
+
+## Alternative explanations and potential counterarguments
+
+Text order, heading wording, parser heuristics, chunking policy, or model behavior may dominate the effect. “Clear” hierarchy requires an operational definition.
+
+## Validation approach
+
+Operationalize hierarchy variants and annotation criteria in [EXP-001](/en/05-experiments/exp-001/) and [EXP-004](/en/05-experiments/exp-004/). Keep text constant and compare structure-specific outcomes.
+
+## Related experiments and findings
+
+- Proposed: EXP-001 and EXP-004.
+- Findings: none recorded.

@@ -1,0 +1,69 @@
+---
+title: EXP-002 — Rendering-Strategie
+description: Vorgeschlagener Vergleich clientseitigen, serverseitigen und statischen Renderings.
+---
+
+{% research-status value="Proposed" label="Vorgeschlagen" /%}
+
+## Experiment-ID und Titel
+
+**EXP-002 — Rendering-Strategie**
+
+## Ziel und Forschungsfrage
+
+Verfügbarkeit im initialen HTML und beobachtetes Crawler-/Extraktionsverhalten bei inhaltsgleichen CSR-, SSR- und SSG-Implementierungen vergleichen. Bezieht sich auf RQ2 und H-003.
+
+## Zugehörige Hypothese
+
+H-003 — SSR/SSG und Verfügbarkeit von CSR-Inhalten.
+
+## Hintergrund
+
+Rendering-Modi beschreiben den Zeitpunkt der HTML-Erzeugung; Crawler-Fähigkeiten und nachgelagerte Indexierung sind systemspezifisch. Prüfung der initialen Antwort und Crawler-Ergebnisse getrennt berichten.
+
+## Unabhängige Variable
+
+Rendering-Strategie: CSR, SSR und SSG.
+
+## Abhängige Variablen
+
+**Primärer Kandidat:** Anteil vorab festgelegter Zielfakten, die im initialen Antwort-HTML je Variante verfügbar sind. **Getrennte sekundäre Ergebnisse:** Verfügbarkeit im gerenderten DOM, Extraktion bei aktiviertem/deaktiviertem JavaScript sowie Retrieval nur bei beobachtbaren Ergebnissen. Crawler-Fetch/Rendering getrennt von Suchindexierung oder Antwortnutzung berichten.
+
+## Kontrollvariablen
+
+Inhalts- und Markup-Parität, URLs und Zugriff, JavaScript-Bundle-Verhalten, Seitensichtbarkeit, Metadaten, Netzwerk und Cache, Wartezeiten, Crawler-Identität, Testdatum und Query-Set.
+
+## Versuchsaufbau und Varianten
+
+Äquivalente Seiteninhalte als CSR, SSR und SSG mit angeglichenem semantischem Markup, Text, URL-Pfadstruktur, Metadaten, Zugriffsrichtlinien und clientseitigem Zustand bereitstellen. Hydration dokumentieren und sicherstellen, dass Inhalte unverändert bleiben. Antwort-Header/-Body und gerendertes DOM erfassen. Für deterministische Client-Tests ein kontrolliertes lokales Setup nutzen; externe Crawler nur als eigenständigen Beobachtungsarm testen.
+
+## Ablauf
+
+1. Manifest der Zielfakten, Fixture-Build, Antwortanforderungen, primären Endpunkt und Analyseplan einfrieren.
+2. Sichtbaren Text, Zielfakten, Markup, Metadaten, Antwortcodes und Zugriffsbedingungen auf Äquivalenz prüfen.
+3. Antwort-Header/-Body vor Browserausführung erfassen, anschließend gerenderte DOM-Snapshots unter vorab festgelegter Wartebedingung speichern.
+4. Kontrollierte Clients mit aktiviertem/deaktiviertem JavaScript in randomisierter, geblockter Reihenfolge ausführen; Fehler und Timeouts protokollieren.
+5. Bei Tests externer Crawler Fetch-/Rendering-Beobachtungen und Daten dokumentieren; ohne direkte Evidenz keine Indexierung, Rankings oder Antwortnutzung ableiten.
+6. Initialantwort, gerendertes DOM, Extraktion und Retrieval getrennt vergleichen.
+
+## Tools und Metriken
+
+**Tools:** Noch nicht ausgewählt.
+
+**Primärer Kandidat:** Verfügbarkeitsrate der Zielfakten im initialen HTML (verfügbare Zielfakten / alle vorab festgelegten Zielfakten). **Sekundär:** Verfügbarkeit im gerenderten DOM und Extraktionserfolg. Fehlgeschlagene Anfragen und Timeouts je nach vorab festgelegtem Plan im Nenner berücksichtigen oder als explizit fehlende Ergebnisse ausweisen.
+
+## Ergebnisse und Interpretation
+
+Nicht durchgeführt. Keine Ergebnisse dokumentiert.
+
+## Einschränkungen
+
+Crawler-Fetch-/Rendering-Zugriff beweist weder Indexierung, Ranking, Retrieval noch Antwortnutzung. CSR kann mit variabler Verzögerung rendern; SSR/SSG können ebenfalls unvollständig oder nicht zugänglich sein. Rendering-Strategie ist mit Implementierung verknüpft, wenn Markup, Inhalt und Transport nicht auf Parität geprüft werden. Externe Systeme können sich unangekündigt ändern.
+
+## Reproduzierbarkeit
+
+Noch nicht spezifiziert. Build-Artefakt, Hosting, Antwort-Header/-Bodies, JavaScript-/Netzwerkeinstellungen, Wartebedingung, Crawler-Version, randomisierte Laufreihenfolge, Protokollrevision und Datum dokumentieren. Den gemeinsamen [Analyseplan](/de/05-experiments/analysis-plan/) verwenden.
+
+## Zugehörige Paper und Erkenntnisse
+
+Keine geprüften Paper oder Erkenntnisse verknüpft.

@@ -1,0 +1,50 @@
+---
+title: H-001 — Semantic HTML vs. Generic DOM
+description: Proposed hypothesis about semantic markup and extraction outcomes.
+---
+
+{% research-status value="Proposed" /%} {% evidence level="D" /%}
+
+## Hypothesis ID and title
+
+**H-001 — Semantic HTML vs. Generic DOM structures**
+
+## Research question
+
+How does semantic HTML influence the extraction and interpretation of web content compared to generic DOM structures?
+
+## Hypothesis statement
+
+For equivalent content and presentation, semantic HTML5 may improve the accuracy of content extraction or structural interpretation compared with generic `div`-based markup.
+
+## Theoretical background
+
+HTML elements can express document roles and relationships in addition to containing text. Whether a target extractor or generative retrieval pipeline uses those signals, and whether they change outcomes, is an empirical question.
+
+## Supporting literature
+
+Not yet assessed. Add verified paper IDs from the literature register.
+
+## Existing evidence
+
+No evidence recorded; the statement is a testable proposal, not a finding.
+
+## Expected outcome
+
+If supported in the tested setup, semantic variants will score better on predeclared extraction and structural interpretation measures than the content-equivalent generic variant.
+
+## Alternative explanations and potential counterarguments
+
+- Extractors may rely primarily on text, accessibility trees, learned parsing, or other signals.
+- HTML semantics may not be retained by downstream parsers.
+- Differences may result from DOM size, nesting, text order, styling, or accessibility attributes rather than element semantics.
+- A measured extraction gain may not transfer to retrieval or generated answers.
+
+## Validation approach
+
+Use the content-equivalent variants in [EXP-001](/en/05-experiments/exp-001/), predefine annotations and metrics, repeat runs where applicable, and report each pipeline stage separately.
+
+## Related experiments and findings
+
+- Proposed: [EXP-001 — HTML Structure](/en/05-experiments/exp-001/)
+- Findings: none recorded.

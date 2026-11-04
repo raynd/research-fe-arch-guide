@@ -1,0 +1,69 @@
+---
+title: EXP-002 — Rendering Strategy
+description: Proposed comparison of client-side, server-side, and static rendering.
+---
+
+{% research-status value="Proposed" /%}
+
+## Experiment ID and title
+
+**EXP-002 — Rendering Strategy**
+
+## Objective and research question
+
+Compare initial HTML availability and observed crawler/extraction behavior for CSR, SSR, and SSG implementations with equivalent content. Addresses RQ2 and H-003.
+
+## Related hypothesis
+
+H-003 — SSR/SSG vs. CSR content availability.
+
+## Background
+
+The rendering modes describe when HTML is generated; crawler capabilities and downstream indexing behavior are system-specific. Initial-response inspection and crawler outcomes must be reported separately.
+
+## Independent variables
+
+Rendering strategy: CSR, SSR, SSG.
+
+## Dependent variables
+
+**Primary candidate:** proportion of predeclared target facts available in the initial response HTML, by variant. **Separate secondary outcomes:** fact availability in the rendered DOM, extraction under JavaScript-enabled/disabled clients, and retrieval only in systems with observable retrieval outcomes. Report crawler fetch/render behavior separately from search indexing or answer use.
+
+## Control variables
+
+Content and markup parity, URLs and access rules, JavaScript bundle behavior, page visibility, metadata, network and caching, waits/timeouts, crawler identity, test date, and query set.
+
+## Experimental setup and test variants
+
+Serve equivalent page content via CSR, SSR, and SSG with matched semantic markup, text, URL path structure, metadata, access policy, and client-visible state. Document whether hydration is used and ensure it does not alter content. Capture response headers/body and post-render DOM. Use a controlled local harness for deterministic client tests; test external crawlers only as a distinct observational arm.
+
+## Test procedure
+
+1. Freeze a target-fact manifest, fixture build, response requirements, primary outcome, and analysis plan.
+2. Verify equivalent visible text, target facts, markup, metadata, response codes, and access conditions.
+3. Capture response headers/body before browser execution, then rendered DOM snapshots at a predeclared wait condition.
+4. Run controlled clients with JavaScript enabled/disabled in randomized, blocked order; record errors and timeouts.
+5. If testing external crawlers, record fetch/render observations and dates; do not infer indexing, ranking, or answer use without direct evidence.
+6. Compare the initial-response, rendered-DOM, extraction, and retrieval stages separately.
+
+## Tools and metrics
+
+**Tools:** Not selected.
+
+**Primary candidate:** target-fact availability rate in initial HTML (available target facts / all predeclared target facts). **Secondary:** rendered-DOM availability and extraction success. Report failed requests and timeouts in denominators or as explicit missing outcomes according to the predeclared plan.
+
+## Results and interpretation
+
+Not run. No results recorded.
+
+## Limitations
+
+Crawler fetch/render access does not prove indexing, ranking, retrieval, or answer use. CSR may render after variable delays; SSR/SSG can still be incomplete or inaccessible. Rendering strategy is entangled with implementation unless markup, content, and transport are checked for parity. External systems can change without notice.
+
+## Reproducibility information
+
+Not yet specified; record build artifact, hosting, response headers/bodies, JavaScript/network settings, wait rule, crawler version, randomized run order, protocol revision, and run date. Use the shared [analysis plan](/en/05-experiments/analysis-plan/).
+
+## Related papers and findings
+
+No reviewed papers or findings linked.

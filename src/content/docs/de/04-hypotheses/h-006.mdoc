@@ -1,0 +1,43 @@
+---
+title: H-006 — Dokumentstruktur und Retrieval-Qualität
+description: Vorläufige Hypothese zu Dokumentgrenzen und Retrieval-Ergebnissen.
+---
+
+{% research-status value="Proposed" label="Vorgeschlagen" /%} {% evidence level="D" label="Evidenz-Level D" /%}
+
+## Hypothesen-ID und Titel
+
+**H-006 — Dokumentstruktur und Retrieval-Qualität**
+
+## Forschungsfrage
+
+Wie wirken sich Dokument- und Abschnittsgrenzen beim Abruf relevanter Webinhalte zu einer Query aus?
+
+## Hypothese
+
+Bei festem Korpus und Retrieval-Prozess könnten kohärente, für Queries relevante Abschnitte die Retrieval-Relevanz im Vergleich zu Strukturen verbessern, die notwendigen Kontext trennen oder nicht zusammengehörige Themen bündeln.
+
+## Theoretischer Hintergrund
+
+Retrieval arbeitet auf Repräsentationen und Kandidateneinheiten, die von der Pipeline festgelegt werden. Dokumentgrenzen und Kontext können diese Einheiten beeinflussen; die Ergebnisse hängen jedoch von Query und Implementierung ab.
+
+## Literatur und vorhandene Evidenz
+
+Noch nicht ausgewertet; Quellen und Evidenz sind nicht verknüpft.
+
+## Erwartetes Ergebnis
+
+Die verglichenen Abschnittsgrenzen könnten vorab festgelegte Retrieval-Metriken und menschliche Relevanzurteile in der festgelegten Pipeline beeinflussen.
+
+## Alternative Erklärungen und Gegenargumente
+
+Retrieval-Ergebnisse könnten vor allem durch Begriffe, Embeddings, Indexeinstellungen, Korpusgröße oder Query-Design bestimmt sein. Ergebnisse für ein Query-Set sind möglicherweise nicht übertragbar.
+
+## Validierungsansatz
+
+Test-Queries und Relevanzbewertungen vorab festlegen, Retrieval bei festen Indexeinstellungen vergleichen und Einzelergebnisse pro Query in [EXP-004](/de/05-experiments/exp-004/) ausweisen.
+
+## Zugehörige Experimente und Erkenntnisse
+
+- Vorgeschlagen: EXP-004.
+- Erkenntnisse: keine erfasst.

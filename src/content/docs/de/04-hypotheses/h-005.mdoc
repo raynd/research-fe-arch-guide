@@ -1,0 +1,43 @@
+---
+title: H-005 — Content-Architektur und RAG-Chunking
+description: Vorläufige Hypothese zu Quellstruktur und nachgelagertem Chunking.
+---
+
+{% research-status value="Proposed" label="Vorgeschlagen" /%} {% evidence level="D" label="Evidenz-Level D" /%}
+
+## Hypothesen-ID und Titel
+
+**H-005 — Content-Architektur und RAG-Chunking**
+
+## Forschungsfrage
+
+Wie beeinflusst die ursprüngliche Frontend-Content-Struktur die nachgelagerte Dokumentsegmentierung und das RAG-Retrieval?
+
+## Hypothese
+
+Gut abgegrenzte, eigenständige Abschnitte mit explizitem Überschriftenkontext könnten relevanten Kontext in einer festgelegten Parser- und Chunking-Pipeline besser bewahren als gleichwertige Inhalte ohne klare Grenzen.
+
+## Theoretischer Hintergrund
+
+Quelldokumente können vor dem Retrieval geparst und aufgeteilt werden. Die Zuordnung von Website-DOM zu Chunks hängt von der jeweiligen Pipeline ab und muss untersucht werden.
+
+## Literatur und vorhandene Evidenz
+
+Noch nicht ausgewertet; Quellen und Evidenz sind nicht verknüpft.
+
+## Erwartetes Ergebnis
+
+Bei fester Parsing- und Chunking-Konfiguration könnten manche Strukturvarianten mehr relevanten Überschriftenkontext bewahren und vorab festgelegte Retrieval-Metriken verbessern.
+
+## Alternative Erklärungen und Gegenargumente
+
+Chunk-Größe, Overlap, Parser-Implementierung, Embeddings, Query-Formulierung und Korpuszusammensetzung könnten den Quellstruktur-Effekt überwiegen. Ein Parser kann DOM-Semantik entfernen oder ersetzen.
+
+## Validierungsansatz
+
+Zwischenstände geparster Dokumente und Chunks sichern und gleichwertige Varianten mit festem Retriever in [EXP-004](/de/05-experiments/exp-004/) vergleichen.
+
+## Zugehörige Experimente und Erkenntnisse
+
+- Vorgeschlagen: EXP-004.
+- Erkenntnisse: keine erfasst.

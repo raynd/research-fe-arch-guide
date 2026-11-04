@@ -1,0 +1,43 @@
+---
+title: H-003 — Rendering Strategy
+description: Proposed hypothesis comparing client and server rendering.
+---
+
+{% research-status value="Proposed" /%} {% evidence level="D" /%}
+
+## Hypothesis ID and title
+
+**H-003 — SSR/SSG vs. CSR content availability**
+
+## Research question
+
+How do CSR, SSR, and SSG affect meaningful content availability to crawlers and retrieval systems?
+
+## Hypothesis statement
+
+When equivalent content is present in the initial HTML response, SSR and SSG may make that content available to clients that do not execute page JavaScript more consistently than a CSR variant that requires JavaScript execution.
+
+## Theoretical background
+
+Rendering strategies differ in when HTML content is produced. Actual crawler behavior depends on the client, execution policy, timing, and indexing pipeline.
+
+## Supporting literature and existing evidence
+
+Not yet assessed; no evidence or source records are linked.
+
+## Expected outcome
+
+The initial-response HTML and controlled no-JavaScript extraction measures are expected to distinguish variants; crawler and retrieval outcomes remain to be tested.
+
+## Alternative explanations and potential counterarguments
+
+Some crawlers execute JavaScript; SSR/SSG pages can still fail due to access, errors, or timing. Hydration, caching, network behavior, and content parity can confound results.
+
+## Validation approach
+
+Use content parity checks, inspect response HTML and rendered output, record crawler/tool configurations, and follow [EXP-002](/en/05-experiments/exp-002/).
+
+## Related experiments and findings
+
+- Proposed: EXP-002.
+- Findings: none recorded.

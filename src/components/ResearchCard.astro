@@ -1,0 +1,22 @@
+---
+interface Props {
+  title: string;
+  lead?: string;
+}
+
+const { title, lead } = Astro.props;
+---
+
+<article class="research-card">
+  {
+    lead ? (
+      <hgroup>
+        <h3>{title}</h3>
+        <p>{lead}</p>
+      </hgroup>
+    ) : (
+      <h3>{title}</h3>
+    )
+  }
+  <slot />
+</article>

@@ -1,0 +1,39 @@
+@layer research.components {
+  /* Sections are size containers so their tables can adapt to the space they get. */
+  :where(.sl-markdown-content) > section {
+    container-type: inline-size;
+  }
+
+  @container (inline-size < 32rem) {
+    :where(.sl-markdown-content) table:has(td[data-label]) {
+      display: block;
+      overflow: visible;
+
+      :is(caption, tbody, tr, th, td) {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        margin-block-start: var(--research-space-s);
+        padding: var(--research-space-s) var(--research-space-m);
+        border: var(--research-border-width) solid var(--research-line);
+        border-radius: var(--research-radius-m);
+      }
+
+      :is(th, td) {
+        margin: 0;
+        padding: var(--research-space-2xs) 0;
+        border: 0;
+      }
+
+      td[data-label]::before {
+        content: attr(data-label) ": ";
+        font-weight: 600;
+      }
+    }
+  }
+}

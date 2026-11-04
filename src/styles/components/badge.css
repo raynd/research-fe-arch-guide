@@ -1,0 +1,47 @@
+@layer research.components {
+  .research-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.5rem;
+    padding: 0.12rem 0.55rem;
+    border: 1px solid currentColor;
+    border-radius: var(--research-radius-pill);
+    font-size: 0.78rem;
+    font-weight: 650;
+    line-height: 1.3;
+    white-space: nowrap;
+  }
+
+  .evidence-a,
+  .status-supported {
+    color: var(--research-badge-positive-fg);
+    background: var(--research-badge-positive-bg);
+  }
+
+  .evidence-b {
+    color: var(--research-badge-good-fg);
+    background: var(--research-badge-good-bg);
+  }
+
+  .evidence-c,
+  .status-under-investigation {
+    color: var(--research-badge-caution-fg);
+    background: var(--research-badge-caution-bg);
+  }
+
+  .evidence-d,
+  .status-proposed {
+    color: var(--research-badge-neutral-fg);
+    background: var(--research-badge-neutral-bg);
+  }
+
+  .status-rejected {
+    color: var(--research-badge-negative-fg);
+    background: var(--research-badge-negative-bg);
+  }
+
+  .status-inconclusive {
+    color: var(--research-badge-inconclusive-fg);
+    background: var(--research-badge-inconclusive-bg);
+  }
+}

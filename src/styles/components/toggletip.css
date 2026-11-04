@@ -1,0 +1,60 @@
+@layer research.components {
+  .toggletip-trigger,
+  .toggletip-close {
+    padding: var(--research-space-2xs) var(--research-space-s);
+    border: var(--research-border-width) solid var(--research-line);
+    border-radius: var(--research-radius-pill);
+    background: transparent;
+    color: var(--sl-color-text-accent);
+    font: inherit;
+    font-size: var(--sl-text-sm);
+    cursor: pointer;
+
+    &:hover {
+      background: var(--research-highlight);
+    }
+  }
+
+  .toggletip-trigger {
+    anchor-name: var(--anchor);
+    display: block;
+  }
+
+  /* Without anchor positioning the browser centres the popover (UA default). */
+  .toggletip {
+    position-anchor: var(--anchor);
+    inline-size: max-content;
+    max-inline-size: min(var(--research-popover-max-inline-size), calc(100vw - 2 * var(--research-space-m)));
+    padding: var(--research-space-m);
+    color: var(--research-ink);
+    background: var(--sl-color-bg);
+    border: var(--research-border-width) solid var(--research-line);
+    border-radius: var(--research-radius-m);
+    box-shadow: var(--research-shadow-popover);
+
+    > .research-terms {
+      margin: 0;
+    }
+  }
+
+  @supports (position-area: block-end) {
+    .toggletip {
+      inset: auto;
+      margin: var(--research-space-2xs) 0 0;
+      position-area: block-end span-inline-end;
+      position-try-fallbacks: flip-block, flip-inline;
+    }
+  }
+
+  .toggletip-close {
+    display: block;
+    margin-block-start: var(--research-space-m);
+  }
+
+  @media print {
+    .toggletip-trigger,
+    .toggletip-close {
+      display: none;
+    }
+  }
+}

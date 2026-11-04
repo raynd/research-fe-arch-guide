@@ -1,0 +1,43 @@
+---
+title: H-005 — Content Architecture and RAG Chunking
+description: Proposed hypothesis about source organization and downstream chunking.
+---
+
+{% research-status value="Proposed" /%} {% evidence level="D" /%}
+
+## Hypothesis ID and title
+
+**H-005 — Content architecture and RAG chunking**
+
+## Research question
+
+How does the original frontend content structure influence downstream document segmentation and RAG retrieval?
+
+## Hypothesis statement
+
+Well-defined, self-contained sections with explicit heading context may preserve more useful context through a declared parser and chunking pipeline than equivalent content arranged with less explicit boundaries.
+
+## Theoretical background
+
+A source document may be parsed and split before retrieval. The mapping from web DOM to chunks is pipeline-specific; it must be inspected for the evaluated setup.
+
+## Supporting literature and existing evidence
+
+Not yet assessed; no evidence or source records are linked.
+
+## Expected outcome
+
+Under a fixed parsing and chunking policy, some structural variants may retain more relevant heading context and improve predeclared retrieval measures.
+
+## Alternative explanations and potential counterarguments
+
+Chunk size, overlap, parser implementation, embeddings, query formulation, and corpus composition may outweigh source structure. A parser may flatten or replace DOM semantics.
+
+## Validation approach
+
+Capture intermediate parsed documents and chunks; compare equivalent variants with fixed retriever settings in [EXP-004](/en/05-experiments/exp-004/).
+
+## Related experiments and findings
+
+- Proposed: EXP-004.
+- Findings: none recorded.
