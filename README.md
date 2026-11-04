@@ -1,6 +1,12 @@
 # Frontend Architecture for GEO & AEO
 
-A local-first, bilingual (English/German) research workspace for investigating how frontend architecture relates to machine readability, content extraction, retrieval, answer quality, and citation behavior in generative search systems. See [the German README](README.de.md).
+![Project started: 2026-11-04](https://img.shields.io/badge/started-2026--11--04-blue)
+![Research phase: planning](https://img.shields.io/badge/research-planning-yellow)
+![Workspace status: in development](https://img.shields.io/badge/workspace-in_development-orange)
+
+A local-first, bilingual (English/German) research workspace for investigating how frontend architecture relates to machine readability, content extraction, retrieval, answer quality, and citation behavior in generative search systems.
+
+**Project status:** Started on November 4, 2026. Research is currently in planning, and the workspace is under active development. Experiments have not been executed; hypotheses and architecture guidelines remain provisional, not validated findings. The documentation site remains available in English and German; this repository uses one English README.
 
 ## Run locally
 

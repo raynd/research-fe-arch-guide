@@ -14,8 +14,13 @@ const sections = [
 
 const sectionItems = {
   '03-notes': [
-    'index', 'architecture-observations', 'ideas-questions', 'meeting-notes',
-    'paper-notes', 'research-journal', 'technical-notes',
+    'index',
+    {
+      label: 'Architecture',
+      translations: { de: 'Architektur' },
+      items: ['03-notes/architecture-observations', '03-notes/technical-notes'],
+    },
+    'ideas-questions', 'meeting-notes', 'paper-notes', 'research-journal',
   ],
   '07-guidelines': [
     'index', 'accessibility', 'content-architecture', 'entities', 'extractability',
@@ -70,9 +75,11 @@ export default defineConfig({
           translations: { de: germanLabel },
           items: sectionItems[directory]
             ? [
-                ...sectionItems[directory].map((page) => ({
-                  slug: page === 'index' ? directory : `${directory}/${page}`,
-                })),
+                ...sectionItems[directory].map((page) =>
+                  typeof page === 'string'
+                    ? { slug: page === 'index' ? directory : `${directory}/${page}` }
+                    : page,
+                ),
                 ...subgroups[directory].map(([subdirectory, label, germanLabel]) => ({
                   label,
                   translations: { de: germanLabel },

@@ -11,11 +11,11 @@ Summary of changes since project initialization.
 | Status | Paths |
 |---|---|
 | Initial commit | `899d7c9` (`Initial commit: bilingual research workspace`); local `origin/main` still points here |
-| Current commit | `ca53748` (`Use pnpm exclusively and update project documentation`), on `main`; not in local `origin/main` |
-| Modified (tracked, not committed) | `astro.config.mjs`, `src/content/docs/de/04-hypotheses/h-001.mdoc`, `PROJECT_MAP.md`, `PROJECT_CHANGELOG.md`, `README.md`, `README.de.md` |
+| Current commit | `39d3071` (`Stabilize localization and reconcile architecture documentation`), on `main`; not in local `origin/main` |
+| Modified (tracked, not committed) | `astro.config.mjs`, `PROJECT_MAP.md`, `PROJECT_CHANGELOG.md`; separate pre-existing change: `.gitignore` |
 | Deleted (tracked, not committed) | none |
-| Untracked (`??`) | `.notes/` (not part of these changes; left untouched) |
-| Ignored | `node_modules/`, `dist/`, `.astro/`, `*.log`, `.DS_Store` |
+| Untracked (`??`) | none |
+| Ignored | `node_modules/`, `dist/`, `.astro/`, `.notes/`, `*.log`, `.DS_Store` |
 
 ---
 
@@ -171,6 +171,8 @@ Committed as `ca53748`. The local `origin/main` reference still points to `899d7
 
 ## Technical stabilization review — 2026-11-04
 
+Committed as `39d3071`.
+
 - Inspected both commits and the current working tree. The npm lockfile was already deleted by `ca53748`; inspected its initial-commit version without restoring or deleting any lockfile.
 - Confirmed pnpm `11.25.0` as authoritative (`packageManager`, existing lockfile and documented commands). The historical npm lockfile and pnpm importer declare the same direct dependencies.
 - `pnpm install --frozen-lockfile` succeeded without modifying the lockfile or adding dependencies. This verifies installation consistency in the existing environment, not a clean-room installation.
@@ -183,9 +185,27 @@ Committed as `ca53748`. The local `origin/main` reference still points to `899d7
 - Warnings: the built-in 404 has no content entry; without `SITE_URL`, sitemap generation is skipped. The test-origin build also exposes four unresolved canonical/alternate targets on the built-in 404 page (`/404/`, `/en/404/`, `/de/404/`, with the English alternate repeated for x-default). These are not documentation navigation failures.
 - Rebuilt without `SITE_URL` after verification: no test origin persists in configuration or final output. No Python tooling or additional dependencies were installed.
 
+## Third-level sidebar navigation — 2026-11-04
+
+- Confirmed native Starlight nesting through recursive `items`; existing Journal/Templates already provided three levels.
+- Added Architecture/Architektur under Research Notes/Forschungsnotizen, containing the existing Architecture Observations and Technical Notes pages. The hierarchy is main area → subsection → individual page, shared by both locales.
+- `sectionItems` now accepts group objects alongside section-relative page names. Starlight handles nested lists, disclosures, indentation, active-link highlighting and mobile behavior. No custom navigation component, CSS, JavaScript or dependency was added.
+- No documentation content, source path, URL or stable research ID changed.
+- Changed files: `astro.config.mjs`, `PROJECT_MAP.md`, `PROJECT_CHANGELOG.md`. The separate pending `.gitignore` change was preserved.
+- `pnpm run check`: 0 errors, 0 warnings, 0 hints. `pnpm run build`: succeeded (129 pages); existing warnings about the missing custom 404 content entry and unset `SITE_URL` remain.
+- Verified all 128 generated documentation sidebars: 64 locale-specific links each, no duplicates or missing routes, and exactly one correct `aria-current="page"` link, including dashboard, direct pages and third-level pages.
+- Browser verification using existing external Playwright and system Chrome, against a production preview: EN/DE at 1440, 390 and 320 px passed three-level nesting, translated ancestor labels, increasing indentation, active styling, open active ancestors, Enter/Space disclosure, Tab/Shift+Tab traversal and Enter link navigation. Mobile menu opens with Enter and closes with Escape; no horizontal page overflow.
+- Browser checks cover Chrome desktop and mobile-sized viewports, not physical devices or a screen-reader audit. Preview and temporary test files were removed after verification.
+
+## Repository README consolidation — 2026-11-04
+
+- Removed `README.de.md` and its link from `README.md`; bilingual site documentation remains unchanged.
+- Added Shields.io badges for the project start date, research planning phase and workspace development status.
+- Clarified that experiments have not been executed and research recommendations remain provisional.
+
 ## Known open items
 
-- The stabilization changes are uncommitted; `ca53748` is not present in the local `origin/main` reference.
+- The sidebar changes are uncommitted; `ca53748` and `39d3071` are not present in the local `origin/main` reference.
 - `SITE_URL` (production origin) is not configured.
 - The built-in 404 emits canonical/alternate targets that do not correspond to generated routes.
 - The researcher still needs to review the status legend wording.
