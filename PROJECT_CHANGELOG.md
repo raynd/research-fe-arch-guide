@@ -6,6 +6,15 @@ Summary of changes since project initialization.
 
 ---
 
+## HTML semantics and document structure glossary — 2026-11-04
+
+- Extended both existing glossary pages with 47 new terms each: 87 entries across eight categories. Expanded Semantic HTML and Heading Hierarchy without duplicating entries; retained all existing term names and fragments.
+- Added document/landmark distinctions, heading semantics, tabular and other content structures, and native HTML/ARIA relationships. Kept canonical English term headings aligned while localizing descriptions, examples, field labels, and supporting headings.
+- Added an eight-element comparison, a complete illustrative table with caption and row/column `scope`, and the five-stage source HTML → rendered DOM → cleaning → text conversion → retrieval distinction. Linked existing literature, architecture/technical notes, and PAPER-001; explicitly separated established semantics from unverified retrieval, visibility, or citation effects.
+- Checked primary WHATWG and W3C WAI/ARIA references, including contextual header/footer roles, table associations, and accessible naming. No new research pages, navigation/configuration changes, IDs, dependencies, lockfiles, README files, or research-status changes.
+- Updated the project map's glossary description and corrected the earlier additions' Git baseline to pushed commit `afbdea2`. Page counts remain 70 per locale, 140 total.
+- Validation: `pnpm run validate` passed Biome, Prettier, Astro/TypeScript (0 errors, warnings, hints), and the production build. Verified 87 unique matching EN/DE term fragments, all original glossary headings, all requested terminology and entry fields, 25 HTML snippets per language, and the complete table's header scopes. All 13,440 rendered internal documentation/fragment links across 140 pages resolve. All 55 newly introduced source URLs/fragments resolve across 18 primary-source documents; EN/DE source sets match. Existing build warnings remain: no custom 404 content entry and sitemap skipped without `SITE_URL`.
+
 ## HtmlRAG, HTML processing, and AI content discovery — 2026-11-04
 
 - Inspected actual `main` at `27bfa28` and preserved the uncommitted glossary/navigation/terminology/report work. `pnpm-lock.yaml` is present and tracked; no lockfile discrepancy, removal, restoration, or dependency change.

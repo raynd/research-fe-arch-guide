@@ -158,7 +158,9 @@ The Markdoc files are 2 dashboards, 12 hypotheses, 8 experiments and 2 templates
 
 **Glossary / Quick Knowledge**
 
-`13-reference/glossary.md` is one Markdown page per locale containing 40 entries across seven thematic categories. English term headings keep term fragments aligned; explanations and field labels are localized. Each entry supplies a German equivalent, definition, explanation, research relevance, related-term links, and sources; its section supplies the category. Provider purposes are dated documentation summaries, not empirical findings.
+`13-reference/glossary.md` is one Markdown page per locale containing 87 entries across eight thematic categories. The HTML Semantics & Document Structure category expands the existing Semantic HTML, DOM, and Heading Hierarchy context and adds 47 terms covering document regions, headings, tables, lists, and accessibility. English term headings keep term fragments aligned; explanations and field labels are localized. Each entry supplies a German equivalent, definition, explanation, research relevance, related-term links, and sources; its section supplies the category. HTML entries optionally add semantic meaning, accessibility relevance, and code examples. Provider purposes are dated documentation summaries, not empirical findings.
+
+A separate examples/context section compares eight semantic elements, demonstrates a data table with row/column headers and caption, and distinguishes source HTML, rendered DOM, cleaned HTML, converted text, and retrieval input. It links the existing processing/representation literature, architecture/technical notes, and PAPER-001. WHATWG defines element meanings; W3C WAI/ARIA documents accessibility mappings. Neither source semantics nor accessibility roles establish AI-provider behavior, GEO/AEO gains, or citation effects.
 
 The existing `01-foundation/terminology.md` URL remains available for measurement/evidence definitions and links to the central glossary instead of duplicating technical definitions. Templates, technical notes, and the literature register are linked from the glossary; no empty reference pages or parallel bibliography are introduced. No Markdoc schema, component, dependency, custom navigation, or client script is added.
 
@@ -588,7 +590,7 @@ flowchart TB
 
 The initial commit is **`899d7c9` — `Initial commit: bilingual research workspace`**, on branch `main`. It was pushed to the now-public repository [raynd/research-fe-arch-guide](https://github.com/raynd/research-fe-arch-guide).
 
-The pnpm consolidation was committed as **`ca53748`**, technical stabilization as **`39d3071`**, sidebar/README updates as **`ae16982`**, quality tooling/dependency updates as **`c2e8bbe`**, and trunk-based workflow documentation as **`27bfa28`**. The glossary and subsequent HtmlRAG/content-discovery additions are working-tree changes, not committed by these tasks. The tracked lockfile remains `pnpm-lock.yaml`; it was not removed, restored, or changed. `.notes/` remains ignored and untouched. The earlier implementation phases in [`PROJECT_CHANGELOG.md`](PROJECT_CHANGELOG.md) were reconstructed from work history because all of them preceded the first commit.
+The pnpm consolidation was committed as **`ca53748`**, technical stabilization as **`39d3071`**, sidebar/README updates as **`ae16982`**, quality tooling/dependency updates as **`c2e8bbe`**, and trunk-based workflow documentation as **`27bfa28`**. The initial glossary and subsequent HtmlRAG/content-discovery additions were committed and pushed as **`afbdea2`**. The HTML-semantics glossary extension is subsequent working-tree work. The tracked lockfile remains `pnpm-lock.yaml`; it was not removed, restored, or changed. `.notes/` remains ignored and untouched. The earlier implementation phases in [`PROJECT_CHANGELOG.md`](PROJECT_CHANGELOG.md) were reconstructed from work history because all of them preceded the first commit.
 
 ---
 
