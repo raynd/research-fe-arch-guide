@@ -2,8 +2,8 @@
 
 Technical overview of the current implementation, for architecture review and knowledge sharing.
 
-- **Inspected:** 2026-11-04
-- **Scope:** initial architecture inspection, updated after the technical stabilization review on 2026-11-04. Changes are recorded in `PROJECT_CHANGELOG.md`.
+- **Inspected:** 2026-11-20
+- **Scope:** initial architecture inspection, updated after the technical stabilization review and proposed EXP-005 registration. Changes are recorded in `PROJECT_CHANGELOG.md`.
 - **Toolchain:** Node.js 24.21.0; pnpm 11.25.0 is the selected package manager.
 
 > **Summary.** This is a **static documentation site**. All content lives as Markdown/Markdoc files in the repository, Astro + Starlight compile it to plain HTML/CSS/JS at build time, and any static file host can serve the `dist/` folder. There is **no backend server, no database, no API and no CMS**.
@@ -16,8 +16,9 @@ Technical overview of the current implementation, for architecture review and kn
 
 | Path                    | Purpose                                                                                              | Versioned         |
 | ----------------------- | ---------------------------------------------------------------------------------------------------- | ----------------- |
-| `src/content/docs/en/`  | English documentation pages (70 files), the default locale                                           | yes               |
-| `src/content/docs/de/`  | German documentation pages (70 files), mirroring `en/` path by path                                  | yes               |
+| `src/content/docs/en/`  | English documentation pages (71 files), the default locale                                           | yes               |
+| `src/content/docs/de/`  | German documentation pages (71 files), mirroring `en/` path by path                                  | yes               |
+| `src/pages/404.astro`   | Custom static 404 page using Starlight's shared page layout                                          | yes               |
 | `src/content/i18n/`     | Project-specific UI strings (`en.json`, `de.json`)                                                   | yes               |
 | `src/content.config.ts` | Content collection definitions (`docs`, `i18n`)                                                      | yes               |
 | `src/components/`       | Astro components rendered by Markdoc tags                                                            | yes               |
@@ -32,12 +33,13 @@ Technical overview of the current implementation, for architecture review and kn
 
 ### 1.2 Astro configuration (`astro.config.mjs`)
 
-| Setting        | Value                                     | Effect                                                                                                                          |
-| -------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `site`         | `process.env.SITE_URL` (unset by default) | Absolute canonical URLs, `hreflang` and the sitemap are only produced when `SITE_URL` is set.                                   |
-| `output`       | not set, so the default `static`          | Every route is pre-rendered to HTML. No server adapter is configured.                                                           |
-| `redirects`    | `'/' → '/en/'`                            | In the static build this becomes `dist/index.html`, a `<meta http-equiv="refresh">` page with `noindex`. It is not an HTTP 301. |
-| `integrations` | `markdoc()`, `starlight({...})`           | Markdoc must be registered before Starlight.                                                                                    |
+| Setting           | Value                                     | Effect                                                                                                                          |
+| ----------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `site`            | `process.env.SITE_URL` (unset by default) | Absolute canonical URLs, `hreflang` and the sitemap are only produced when `SITE_URL` is set.                                   |
+| `disable404Route` | `true`                                    | Disables Starlight's injected 404 route so the custom `src/pages/404.astro` route is used.                                      |
+| `output`          | not set, so the default `static`          | Every route is pre-rendered to HTML. No server adapter is configured.                                                           |
+| `redirects`       | `'/' → '/en/'`                            | In the static build this becomes `dist/index.html`, a `<meta http-equiv="refresh">` page with `noindex`. It is not an HTTP 301. |
+| `integrations`    | `markdoc()`, `starlight({...})`           | Markdoc must be registered before Starlight.                                                                                    |
 
 ### 1.3 Starlight configuration
 
@@ -56,7 +58,7 @@ Starlight features in use without extra configuration:
 - Language selector and theme selector
 - Right-hand table of contents and mobile TOC
 - Previous/next pagination
-- Built-in 404 page
+- Custom `/404.html` route rendered with Starlight's shared page layout
 - `@astrojs/sitemap`, which Starlight enables automatically when `site` is set
 
 **Three-level sidebar navigation**
@@ -137,7 +139,7 @@ src/content/docs/{en,de}/
 │   └── templates/              journal entry template
 ├── 04-hypotheses/              index + h-001 … h-006 (.mdoc)
 ├── 05-experiments/             design, test cases/data, environments, metrics, analysis plan,
-│                               results, reproducibility, exp-001 … exp-004 (.mdoc)
+│                               results, reproducibility, exp-001 … exp-005 (.mdoc)
 ├── 06-evidence/                key findings, evidence matrix, gaps, contradictions,
 │                               limitations, conclusions
 ├── 07-guidelines/              nine guideline categories
@@ -149,12 +151,12 @@ src/content/docs/{en,de}/
 
 |                         | Count |
 | ----------------------- | ----- |
-| Pages per locale        | 70    |
-| Total source pages      | 140   |
+| Pages per locale        | 71    |
+| Total source pages      | 142   |
 | Markdown (`.md`) files  | 116   |
-| Markdoc (`.mdoc`) files | 24    |
+| Markdoc (`.mdoc`) files | 26    |
 
-The Markdoc files are 2 dashboards, 12 hypotheses, 8 experiments and 2 templates.
+The Markdoc files are 2 dashboards, 12 hypotheses, 10 experiments and 2 templates.
 
 **Glossary / Quick Knowledge**
 
@@ -175,6 +177,7 @@ The paper note records primary-source methods, dataset/metric definitions, selec
 These IDs are identical in both locales:
 
 - Existing records: `H-001`–`H-006` and `EXP-001`–`EXP-004`
+- Proposed record: `EXP-005` — one-page Swiss Life legacy-versus-modern content-extraction case study (paired EN/DE records; no capture or results)
 - Registered literature source: `PAPER-001` — HtmlRAG (same ID in both locales)
 - Reserved formats for new records: `PAPER-###`, `HYP-###`, `EXP-###`, `FIND-###` and `FE-###`
 
@@ -426,7 +429,7 @@ flowchart TB
 
 ### 3.3 Route inventory
 
-140 documentation routes are listed below: 70 English and 70 German, with identical relative paths.
+142 documentation routes are listed below: 71 English and 71 German, with identical relative paths.
 
 **Content types**
 
@@ -435,7 +438,7 @@ flowchart TB
 | Markdown page               | 98    |
 | Section overview (Markdown) | 14    |
 | Hypothesis record (Markdoc) | 12    |
-| Experiment record (Markdoc) | 8     |
+| Experiment record (Markdoc) | 10    |
 | Dashboard (Markdoc)         | 2     |
 | Journal entry (Markdown)    | 2     |
 | Template (Markdown)         | 2     |
@@ -488,6 +491,7 @@ flowchart TB
 | `/en/05-experiments/exp-002/`                | en       | EXP-002 — Rendering Strategy                            | `src/content/docs/en/05-experiments/exp-002.mdoc`              | Experiment record (Markdoc) |
 | `/en/05-experiments/exp-003/`                | en       | EXP-003 — Structured Data                               | `src/content/docs/en/05-experiments/exp-003.mdoc`              | Experiment record (Markdoc) |
 | `/en/05-experiments/exp-004/`                | en       | EXP-004 — Content Architecture                          | `src/content/docs/en/05-experiments/exp-004.mdoc`              | Experiment record (Markdoc) |
+| `/en/05-experiments/exp-005/`                | en       | EXP-005 — Content Extraction Case Study                 | `src/content/docs/en/05-experiments/exp-005.mdoc`              | Experiment record (Markdoc) |
 | `/en/05-experiments/`                        | en       | Experiments                                             | `src/content/docs/en/05-experiments/index.md`                  | Section overview (Markdown) |
 | `/en/05-experiments/metrics/`                | en       | Metrics & Evaluation                                    | `src/content/docs/en/05-experiments/metrics.md`                | Markdown page               |
 | `/en/05-experiments/reproducibility/`        | en       | Reproducibility                                         | `src/content/docs/en/05-experiments/reproducibility.md`        | Markdown page               |
@@ -558,6 +562,7 @@ flowchart TB
 | `/de/05-experiments/exp-002/`                | de       | EXP-002 — Rendering-Strategie                           | `src/content/docs/de/05-experiments/exp-002.mdoc`              | Experiment record (Markdoc) |
 | `/de/05-experiments/exp-003/`                | de       | EXP-003 — Strukturierte Daten                           | `src/content/docs/de/05-experiments/exp-003.mdoc`              | Experiment record (Markdoc) |
 | `/de/05-experiments/exp-004/`                | de       | EXP-004 — Content-Architektur                           | `src/content/docs/de/05-experiments/exp-004.mdoc`              | Experiment record (Markdoc) |
+| `/de/05-experiments/exp-005/`                | de       | EXP-005 — Content-Extraktion                            | `src/content/docs/de/05-experiments/exp-005.mdoc`              | Experiment record (Markdoc) |
 | `/de/05-experiments/`                        | de       | Experimente                                             | `src/content/docs/de/05-experiments/index.md`                  | Section overview (Markdown) |
 | `/de/05-experiments/metrics/`                | de       | Metriken und Evaluation                                 | `src/content/docs/de/05-experiments/metrics.md`                | Markdown page               |
 | `/de/05-experiments/reproducibility/`        | de       | Reproduzierbarkeit                                      | `src/content/docs/de/05-experiments/reproducibility.md`        | Markdown page               |
@@ -624,7 +629,7 @@ Historical stabilization results from 2026-11-04, before the glossary addition (
 5. **Root redirect is client-side.** On static hosts, `/` is a meta-refresh page, not an HTTP 301. Configure a host-level redirect at deployment if crawlers matter.
 6. **No CI, deployment or automated tests.** Link checks, HTML validation and accessibility checks are currently manual.
 7. **Dependency pinning.** All direct packages, including TypeScript 6.0.3, are pinned exactly. TypeScript 7.0.2 is newer but outside `@astrojs/check`'s `^5 || ^6` and Volar's `<7` peer ranges. Biome 2.6.4 is retained because 2.6.5 is too recent for pnpm's active release-age policy; no exceptions were added. Other direct dependencies already match their registry latest tags.
-8. **Built-in 404 metadata.** With `SITE_URL` set, the built-in 404 points its canonical/alternates at `/404/`, `/en/404/` and `/de/404/`, which are not generated (only `/404.html` exists). Four metadata references are unresolved, including the repeated English x-default target. Resolve before publication; normal documentation routes and the sitemap are unaffected.
+8. **Custom 404 metadata.** An origin-enabled test build emits canonical/alternate links for `/404/`, `/en/404/` and `/de/404/` from `dist/404.html`, although those routes are not generated; its `x-default` points to `/en/404/`. The page content now comes from `src/pages/404.astro` and Starlight's shared layout, with Starlight's injected route disabled. Correct the 404 metadata before publication; normal documentation routes and the sitemap are unaffected.
 
 ### 5.2 Controlled evaluation readiness
 

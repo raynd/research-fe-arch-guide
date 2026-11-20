@@ -1,0 +1,223 @@
+---
+title: EXP-005 — Content-Extraktion
+description: Vorgeschlagener Ein-Seiten-Vergleich einer Legacy-Seite von Swiss Life mit einer inhaltsgleichen modernen Rekonstruktion.
+---
+
+{% research-status value="Proposed" label="Vorgeschlagen" /%}
+
+## Experiment-ID und Titel
+
+**EXP-005 — Legacy vs. moderne Frontend-Architektur: Fallstudie zur Content-Extraktion**
+
+## Ziel und Forschungsfragen
+
+Vorbereitung einer begrenzten, reproduzierbaren Fallstudie: Eine freigegebene bestehende Swiss-Life-Seite (Variante A) wird mit einer modernen Rekonstruktion derselben Seite und desselben Inhalts (Variante B) verglichen. Ziele sind die Messung von Extraktions- und Strukturunterschieden sowie eine lehrbare Fallstudie. Das Design ist neutral und nimmt nicht an, dass Variante B besser abschneidet.
+
+1. **RQ1:** Verringert die moderne Implementierung die DOM-Komplexität einschließlich unnötiger Wrapper?
+2. **RQ2:** Verändert sie den Anteil relevanter Inhalte gegenüber extrahiertem Boilerplate?
+3. **RQ3:** Verändert sie Precision, Recall oder F1 der Extraktion anhand einer eingefrorenen Referenz?
+4. **RQ4:** Verändert sie die Erhaltung von Überschriften und anderer Dokumentstruktur?
+5. **RQ5:** Verändert sie die Erhaltung von Beziehungen zwischen Überschriften, Inhaltsblöcken, Listen und Tabellen?
+6. **RQ6:** Sind beobachtete Extraktionsunterschiede über die ausgewählten Tools hinweg konsistent?
+
+Die Fallstudie untersucht vor allem Frontend-Implementierung, ausgeliefertes HTML/gerenderten DOM und Extraktionsergebnisse (Stufen 1–4 im [HtmlRAG-Forschungskontext](/de/03-notes/paper-notes/htmlrag/)). Chunking, Retrieval, Antwortqualität, Suchranking und Zitierungen gehören nicht zu den Ergebnissen dieser Studie.
+
+## Zugehörige Hypothesen und Experimente
+
+- [H-001 — Semantisches HTML und generisches DOM](/de/04-hypotheses/h-001/) und [H-002 — DOM-Hierarchie und Inhaltsextraktion](/de/04-hypotheses/h-002/) sind thematisch verwandt. Dieses Experiment isoliert jedoch **keine** der Hypothesen: Variante B verändert mehrere Architekturmerkmale gleichzeitig.
+- [EXP-001 — HTML-Struktur](/de/05-experiments/exp-001/) ist der kontrollierte Vergleich semantischen Markups. EXP-005 darf nicht genutzt werden, um einen Unterschied der Gesamtarchitektur speziell semantischem HTML zuzuschreiben.
+- [EXP-004 — Content-Architektur](/de/05-experiments/exp-004/) untersucht Quellstruktur und nachgelagertes Chunking/Retrieval, das diese Fallstudie nicht misst.
+- Dieser Vorschlag ändert keinen Hypothesenstatus, kein Evidenzniveau und keine Erkenntnis.
+
+## Hintergrund und frühere Beobachtung
+
+Der berichtete Swiss-Life-Audit-Score von **13** ist nicht verifizierter Hintergrund. Audit-Tool, Datum, Skala, untersuchte Kategorien und Bedeutung des Scores wurden nicht angegeben. Bis zur Dokumentation ist er weder Ergebnis noch Baseline oder Beleg für Inhaltsextraktion, Barrierefreiheit, SEO oder KI-Bereitschaft.
+
+Das [Glossar zu HTML-Semantik und Dokumentstruktur](/de/13-reference/glossary/) sowie [PAPER-001 — HtmlRAG](/de/03-notes/paper-notes/htmlrag/) begründen die getrennte Messung von Repräsentation und Struktur. HtmlRAG untersucht eine bestimmte RAG-Pipeline und belegt nicht, dass eine moderne Website-Architektur Ranking, Sichtbarkeit, Antworten oder Zitierungen verbessert.
+
+## Design und Estimand
+
+**Design:** Gepaarte, deskriptive Ein-Seiten-Fallstudie. Der primäre Vergleich besteht aus demselben freigegebenen Seiteninhalt in der erfassten Legacy-Implementierung und einer modernen Rekonstruktion. Die unabhängige Variable ist die **gesamte Frontend-Implementierung** (A vs. B), nicht eine einzelne HTML-Technik.
+
+Der Estimand ist der beobachtete Unterschied zwischen diesen zwei Implementierungen für die ausgewählte Seite, Erfassungsbedingungen und eingefrorenen Extraktionspipelines. Eine Seite ist keine repräsentative Stichprobe aller Swiss-Life-Seiten oder des öffentlichen Webs. Wiederholungen, extrahierte Blöcke und Tokens sind keine unabhängigen Seiten-Replikationen; deskriptive Vergleiche statt Signifikanzbehauptungen für eine Population verwenden.
+
+**Einheit:** Die freigegebene Seite und ihr Inhaltsmanifest. Extraktionsausgabe, annotierter Block, Tokenvorkommen und Erfassungslauf sind verschachtelte Messeinheiten, keine unabhängigen Seitenstichproben.
+
+## Seitenauswahl und Erfassungsgenehmigung
+
+**Die Seitenauswahl steht noch aus. Es wurde keine Quellseite geöffnet, erfasst oder freigegeben.** Die forschende Person wählt eine öffentliche Informations-, Produkt- oder Dienstleistungsseite der bestehenden Swiss-Life-Website. Bevorzugt eine Seite in einer Sprache mit mehreren aussagekräftigen Strukturen (Überschriften, Absätze, Listen, Tabellen, Abbildungen/Bildunterschriften, Links, Hauptinhalt und ergänzende Informationen). Nicht automatisch die Homepage wählen, wenn sie überwiegend globale Navigation enthält. Keine Konto-, personalisierte, zugangsbeschränkte, transaktionale oder Nutzerdatenseite auswählen.
+
+| Erforderliche Quellenangabe                                             | Status vor Freigabe                                    |
+| ----------------------------------------------------------------------- | ------------------------------------------------------ |
+| Ursprüngliche URL, Seitentitel, Seitentyp, Sprache                      | Auswahl durch Forschende ausstehend                    |
+| Erfassungszeitpunkt und Zeitzone                                        | Ausstehend; ISO 8601 und Offset Europe/Zurich erfassen |
+| Status der ersten Antwort, Antwort-URL, Weiterleitungskette, Inhaltstyp | Noch nicht erfasst                                     |
+| Gerenderter DOM, Screenshot, Browsermetadaten                           | Nicht erfasst                                          |
+| Audit-Score 13: Tool, Skala, Kategorien, Datum, Quelle                  | Unbekannt; aus Evidenz ausschließen                    |
+
+Die Swiss-Life-Datei [`robots.txt`](https://www.swisslife.ch/robots.txt) wurde am **2026-11-20** geprüft. Sie enthält eine `User-agent: *`-Gruppe und pfadbezogene Disallows, darunter Test-, Prototyp- und bestimmte Partnerpfade. Da noch keine Kandidaten-URL vorliegt, ist deren Anwendbarkeit nicht bestimmt. Eine robots-Datei ist keine Autorisierung: Vor jeder Seitenanfrage oder Erfassung aktuelle Nutzungsbedingungen, geltende Zugriffsrichtlinien sowie Client-/Rechtsfreigaben prüfen. Im Rahmen dieses Vorschlags weder die Website crawlen noch Sitemaps durchsuchen, Zugriffssperren umgehen oder wiederholte Anfragen stellen.
+
+## Varianten und Inhaltsparität
+
+- **A — Legacy:** Eine freigegebene Seite, erfasst von der Live-Website von Swiss Life; ursprüngliche HTTP-Antwort und separat serialisierter Browser-DOM bleiben erhalten.
+- **B — Modern:** Eine lokal gehostete moderne semantische Rekonstruktion derselben freigegebenen Seite, die erst nach Genehmigung der Quelle und Rekonstruktionsspezifikation durch Forschende und Content-Verantwortliche erstellt wird.
+
+Keine Texte neu verfassen, Fakten ändern, relevante Informationen ergänzen oder entfernen oder Inhalte umsortieren. Sprache, Seitentyp, Seitenzweck, Titel und Metadaten soweit möglich, sichtbare Texte, Überschriftenebenen/-reihenfolge, Absatz- und Listeninhalte, Tabellenwerte und Kopfzellenbeziehungen, Linktexte/-ziele, Bilder und relevante Alternativtexte, Bildunterschriften sowie Sichtbarkeit angleichen. Relevante globale Navigation und Footertexte soweit zulässig reproduzieren, damit sie keine unkontrollierte Inhaltsabweichung darstellen. Jede unvermeidliche Differenz vor der Extraktion in einem Paritätsmanifest dokumentieren.
+
+Variante B soll visuell mit der Quelle vergleichbar bleiben: gleicher Viewport und vergleichbare Abstände, Dichte, Bildplatzierung und Hierarchie. Kein Rebranding oder Redesign. Visuelle Treue ist eine Prüfbedingung, kein Ergebnisscore.
+
+Variante B kann Wrapper reduzieren oder Elemente, Verschachtelung, Klassennamenskonventionen, Komponentengrenzen, CSS, Auslieferungsorigin, Skripte oder Metadaten ändern. Diese Änderungen sind Teil der gebündelten Behandlung oder unvermeidliche Unterschiede. Die Zwei-Varianten-Fallstudie kann den separaten kausalen Beitrag von semantischem HTML, DOM-Tiefe, CSS, Komponentenarchitektur oder Auslieferungsverhalten nicht bestimmen. Ein späterer kontrollierter Vergleich kann wie in EXP-001 einzelne Faktoren isolieren.
+
+## Variablen und Kontrollen
+
+**Primäre Behandlung:** Legacy-Implementierung vs. moderne Rekonstruktion.
+
+**Getrennt auszuweisende Ergebnisse:** Elementzahlen/-tiefe; generische und semantische Elementzahlen; extrahierte relevante, kontextabhängige und Boilerplate-Inhalte; Token- und Block-Precision/Recall/F1; Content-/Noise-Anteile; Signal-Rausch-Verhältnis; Erhaltung von Überschriften-, Absatz-, Listen-, Tabellen-, Link- und Abschnittsbeziehungen; toolbezogene Ausgaben und Fehler.
+
+**Soweit möglich konstant halten:** Sprache und Zweck, verifiziertes Inhaltsmanifest und Reihenfolge, Viewport, Browser-Engine/-Version, Device Scale, Locale/Zeitzone, Farbschema, Bewegungseinstellungen, Einwilligungszustand, JavaScript-Regeln, Stabilitätskriterium, Erfassungsmethode, Extraktionseingaben, Toolversionen/-konfiguration, Normalisierung, Annotationsrubrik und Analysekode.
+
+**Dokumentieren statt verbergen:** Ursprüngliches vs. lokales Hosting, Antwortstatus/-Header, Cache- und Speicherzustand, dynamische Inhalte, Einwilligungsoberfläche, geladene Ressourcen, Bildersatz, Schriftarten, Metadaten, Skripte, Browserstandards, fehlgeschlagene Anfragen, responsive Unterschiede sowie nicht reproduzierbare Inhalte. Eine Differenz, die Informationen oder Sichtbarkeit verändert, blockiert den primären Vergleich bis zur Klärung.
+
+## Spezifikation der modernen Rekonstruktion
+
+Nach Freigabe der Quellseite eine kleine lokale Seite erstellen, die:
+
+- native `header`, `nav`, `main`, `article`, `section`, `aside` und `footer` nur dann verwendet, wenn ihre Bedeutung passt;
+- Überschriftentexte, -ränge und -reihenfolge der Quelle erhält sowie Absätze und korrekt verschachtelte geordnete/ungeordnete Listen nutzt;
+- echte Datentabellen mit `caption`, `thead`/`tbody`, `th`/`td` und korrektem `scope` oder expliziten Zuordnungen erhält;
+- Abbildungen, Bildunterschriften, Linktexte und -ziele sowie aussagekräftige Bildalternativen erhält;
+- interaktive Elemente bedienbar und zugänglich benannt hält, natives HTML bevorzugt und redundantes ARIA vermeidet;
+- Wrapper nur dann vermeidet, wenn sie unnötig sind, und zugleich sinnvolle Komponentengrenzen und lesbaren Quellcode erhält; und
+- die visuelle Hierarchie der Vorlage reproduziert, ohne proprietären Quellcode oder nicht freigegebene Assets zu kopieren.
+
+Semantische Elementnamen nicht bloß einsetzen, damit eine Seite „AI-ready“ wirkt. Den gerenderten DOM erfassen und seine Struktur prüfen. Accessibility-Prüfungen sind Schutzkriterien, kein Beleg für Extraktions- oder KI-Suchvorteile.
+
+## Erfassungsprotokoll
+
+**Dieses Protokoll erst nach Freigabe der Quellseite, durch Client/Recht und des Protokolls ausführen.** Genau eine freigegebene URL erfassen; kein Website-weites Crawling.
+
+1. Protokollrevision, URL, Sprache, Inhaltsmanifest, Autorisierung, Toolversionen, Browsereinstellungen und Analyseplan einfrieren.
+2. Variante A einmal mit einem sauberen Browserkontext ohne Login, personenbezogene Daten oder gespeicherte Anmeldedaten aufrufen. Zugriffssperren oder Bot-Kontrollen nicht umgehen. Bei gesperrten oder personalisierten Inhalten stoppen und eine andere Seite auswählen.
+3. Navigation/Weiterleitungskette, finale URL, Status und Header des Hauptdokuments, Erfassungszeit, Browser-/OS-Versionen, Viewport, Locale, Zeitzone, JavaScript-Zustand, Cookie-/Einwilligungszustand, Seitenfehler und fehlgeschlagene Netzwerkanfragen aufzeichnen. Anfragenprotokolle bereinigen; keine Zugangsdaten, Cookies oder Personenkennungen speichern.
+4. Bytes der ersten Hauptdokumentantwort als `response.html` speichern; `document.documentElement.outerHTML` nach einem festgelegten, seitenspezifischen Stabilitätskriterium separat als `rendered.html` serialisieren. SHA-256-Prüfsummen erfassen. Beide Repräsentationen nicht verwechseln.
+5. Einen Screenshot bei eingefrorenem CSS-Viewport aufnehmen (Vorschlag: 1440 × 1000, Device Scale Factor 1) und relevante Metadaten speichern. Für Variante B denselben Browser und dieselben Einstellungen verwenden. Falls die Quelle mit diesem Viewport nicht erfassbar ist, Abweichung dokumentieren.
+6. Variante B lokal bereitstellen und HTTP-Antwort sowie gerenderten DOM nach demselben Verfahren erfassen; Fehler und fehlgeschlagene Anfragen sichern. Externe Links auf dieselben Ziele verweisen lassen, sie während der Erfassung jedoch nicht öffnen.
+7. Antwort-HTML, serialisierten DOM, Screenshot, Metadaten und Extraktionsausgaben lokal zugriffsgeschützt speichern. Rohe Seiteninhalte, Screenshots, proprietären Code/Assets, Cookies oder kundensensible Details nicht in dieses öffentliche Repository committen.
+
+Stabiler Inhaltsselektor, Wartebedingung, Timeout, Einwilligungsbehandlung und genaue Browserkonfiguration sind **Protokollfelder, die nach Prüfung der ausgewählten Seite festzulegen sind**. Nicht stillschweigend `networkidle` oder willkürliche Verzögerungen als Nachweis für stabile Seiteninhalte verwenden.
+
+## Extraktionspipeline und Toolkandidaten
+
+Für den primären Offline-Vergleich muss, soweit die dokumentierten APIs dies unterstützen, dasselbe gespeicherte Artefakt an jedes Tool übergeben werden. `response.html` und `rendered.html` als getrennte Eingaben verarbeiten. Toolausgaben und Metadaten getrennt archivieren; Bereinigung, Textkonvertierung und Extraktion nicht zu einer unbenannten Stufe vermischen.
+
+1. **Sichtbarer DOM-Baselinewert (optional):** `document.body.innerText` der gespeicherten gerenderten Seite in der eingefrorenen Browserumgebung auslesen. Dies ist eine einfache Baseline sichtbaren Textes, kein Hauptinhaltsextraktor.
+2. **Crawl4AI (primärer Kandidat):** Die selbst gehostete Bibliothek statt der Cloud-API prüfen, damit Erfassung/Eingabe und Konfiguration nachvollziehbar bleiben. Markdown, bereinigtes HTML und verfügbare Extraktionsmetadaten sichern. LLM-Extraktion und adaptives Mehrseiten-Crawling deaktivieren. Browser, Markdown-Generator/-Filter, Extraktionsstrategie und alle Defaults/Versionen nach einem Pilot mit synthetischen Testdaten einfrieren.
+3. **Trafilatura (unabhängige Baseline):** Soweit unterstützt dieselben gespeicherten HTML-Bytes statt eines separaten Live-Downloads verarbeiten. Version, Extraktionsoptionen und Ausgabeformate einfrieren; Markdown/HTML/Text und verfügbare Metadaten erhalten.
+4. **Machbarkeit von Offline-Eingaben:** Zunächst ausschließlich mit einem synthetischen Fixture prüfen, ob die ausgewählte Crawl4AI-Version beide gespeicherten HTML-Artefakte ohne erneuten Abruf der Swiss-Life-Seite verarbeiten kann. Falls nicht, einen lokalen Server- oder Live-Browserlauf nicht als Offline-Vergleich derselben Eingabe bezeichnen. Einschränkung festhalten und einen URL-basierten Lauf vom primären Snapshot-Vergleich getrennt halten.
+5. Exakte Paket-/Browserversionen, Einstellungen, Eingabeprüfsummen, Ausgaben, Fehler und Zeitstempel erfassen. Vor Freigabe weder Abhängigkeiten installieren noch Live-Extraktion ausführen.
+
+Offizielle Tooldokumentation: [Crawl4AI](https://docs.crawl4ai.com/), [Trafilatura](https://trafilatura.readthedocs.io/en/latest/) und [Playwright](https://playwright.dev/docs/intro). Diese veränderlichen Dokumente beschreiben Toolfunktionen, keine Ergebnisse dieses Experiments. Toolversionen und Optionen sind nicht ausgewählt; es wurden keine Forschungstoolchain oder Captures zum Repository hinzugefügt.
+
+## Ground Truth und Annotation
+
+Ein Inhaltsmanifest aus der von Forschenden und Content-Verantwortlichen geprüften Quellseite erstellen. Überschriften, Absätzen, Listeneinträgen, Tabellen, Zeilen/Zellen, Links, Abbildungen/Bildunterschriften, Bildalternativen und weiteren sinntragenden Blöcken stabile IDs zuweisen. Quelltext, Reihenfolge, Hierarchie/Eltern, Linkziel, Tabellen-Kopfwert-Zuordnungen und zutreffende Metadaten erfassen. Vor der Extraktion prüfen, dass Variante B diesem Manifest entspricht. Dieselbe Referenz für beide Varianten und alle Tools verwenden.
+
+Jeden Referenzblock klassifizieren als:
+
+- **Primär relevante Inhalte:** Informationen, die unmittelbar dem Seitenzweck dienen, z. B. Hauptüberschrift, Leistungsbeschreibung, Vorteile, Fakten, FAQ und direkt relevante Tabellen.
+- **Kontextabhängige Inhalte:** rechtliche/regulatorische Texte, Fußnoten, verwandte Angebote oder ergänzende Navigation, deren Relevanz von der Evaluationsaufgabe abhängt. Nicht automatisch als irrelevant klassifizieren.
+- **Boilerplate/irrelevante Inhalte:** wiederholte Website-Navigation, generische Footerlinks, Einwilligungs-/Oberflächentext, sachfremde Werbung/Empfehlungen oder wiederholte Interaktionsbeschriftungen ohne Bezug zur Seitenaufgabe.
+
+Seitenspezifische Einschlussregeln vor der Annotation festlegen. Soweit möglich, Referenz und verblindete Ausgabenstichprobe durch zwei Prüfende annotieren; Abweichungen und Adjudikation berichten. Ist nur eine Person verfügbar, diese Einschränkung nennen. Extraktionsausgaben können ihre Quelle erkennen lassen; keine Verblindung behaupten, wenn sie nicht wirksam ist. Rubrik, annotierte Referenz, Abweichungen und Adjudikation lokal aufbewahren und nur mit expliziter Erlaubnis teilen.
+
+## Metriken und Bewertungsregeln
+
+Zu jedem Maß Rohzahlen und Nenner berichten. Primärergebnisse nutzen **primär relevante** Inhalte; Precision/Recall/F1 zusätzlich als Sensitivitätsanalyse berechnen, in der primäre und kontextabhängige Inhalte als relevant gelten. Kontext, Boilerplate und nicht zugeordnete/unbekannte extrahierte Inhalte getrennt halten.
+
+**Textnormalisierung:** HTML-Entities dekodieren, Unicode nach NFC normalisieren, Zeilenumbrüche vereinheitlichen und Whitespace zusammenfassen. Groß-/Kleinschreibung, Satzzeichen, Zahlen und Tokenreihenfolge erhalten. Unicode-Whitespace-getrennte Tokenvorkommen verwenden und Normalisierungs-/Tokenizer-Version dokumentieren. Toolausgaben nicht stillschweigend nach Entfernen von Duplikaten oder Satzzeichen vergleichen.
+
+Extrahierte Spans anhand der Annotationsrubrik stabilen Referenzblock-IDs zuordnen. Ein Referenz-Tokenvorkommen höchstens einmal innerhalb seines Blocks zuordnen; ein häufiges Token in einem anderen Abschnitt darf keine korrekte Überschriften-/Inhaltszuordnung begründen. Wiederholte Ausgabevorkommen zählen zum Nenner; doppelte Ausgaben können dasselbe Referenzvorkommen nicht zweimal treffen. Nicht zugeordnete Tokens als unbekannt sichtbar halten, statt sie stillschweigend als irrelevant zu klassifizieren.
+
+Seien `E` alle extrahierten Body-Text-Tokenvorkommen, `TPp` die Vorkommen mit Zuordnung zu primären Referenz-Tokens, `G` alle primären Referenz-Tokenvorkommen und `B` die als Boilerplate annotierten extrahierten Vorkommen:
+
+- **Extraktions-Precision / primäre Content Density:** `TPp / E`.
+- **Extraktions-Recall:** `TPp / G`.
+- **F1:** `2 × Precision × Recall / (Precision + Recall)`.
+- **Noise Share:** `B / E`.
+- **Context Share:** extrahierte kontextabhängige Tokens / `E`.
+- **Unknown Share:** nicht zugeordnete/unbekannte Tokens / `E`.
+- **Signal-Rausch-Verhältnis:** `TPp : B`; zusätzlich Signalanteil `TPp / (TPp + B) × 100` berichten. Wenn `B = 0`, „keine Boilerplate-Tokens beobachtet“ melden und SNR als undefiniert statt als erfundene endliche Zahl angeben. Keine Dezibelwerte berichten.
+
+Content Density und Token-Precision sind bei gemeinsamem Zähler und Nenner mathematisch identisch; als einen Messwert darstellen, nicht als unabhängige Evidenz. Anteile von primärem Signal, Kontext, Boilerplate und unbekannten Inhalten sollen alle extrahierten Tokens abdecken. Block-Exact-/Partial-Recovery zusätzlich getrennt von Tokenwerten ausweisen. Bei Nenner null Metrik als nicht anwendbar kennzeichnen und begründen.
+
+Für **exakte Wiederherstellung auf Blockebene** einen Block als einzelne Überschrift, Absatz, Listeneintrag, Tabellenzelle, Bildunterschrift oder Linkeinheit definieren. Tool-eigene Grenzen nach Möglichkeit erhalten, andernfalls einen festgelegten deterministischen Parser anwenden und die Originalausgabe behalten. Sei `TPb` die Zahl eindeutig zugeordneter extrahierter Blöcke mit exakt normalisiertem Inhalt einer primären Gold-Einheit, `Eb` die Zahl aller extrahierten Blöcke und `Gb` die Zahl aller primären Gold-Blöcke: Block-Precision ist `TPb / Eb`, Block-Recall ist die Zahl eindeutig wiederhergestellter primärer Gold-Blöcke / `Gb`, Block-F1 ihr harmonisches Mittel. Tokenbasierte Teilwiederherstellung separat ausweisen. Lässt sich eine Toolausgabe nicht ohne willkürliche Entscheidungen in vergleichbare Blöcke segmentieren, Blockwerte dafür als nicht verfügbar kennzeichnen, statt Grenzen zu erfinden.
+
+**Strukturerhalt, jeweils mit eigenem Zähler/Nenner:**
+
+- **Überschriften:** exakt erhaltener Überschriftentext / Gold-Überschriften; Text und korrekte Ebene (`h1`–`h6`) erhalten / Gold-Überschriften; erhaltene relative Reihenfolge / Gold-Überschriften; erhaltene Eltern-Kind-Paare / annotierte Gold-Paare. Getrennt berichten.
+- **Überschrift-Inhalts-Zuordnung:** korrekt zugeordnete primäre Referenzblöcke / alle primären Referenzblöcke mit erwarteter Überschriften- oder Abschnittszuordnung. Fehlende oder falsch zugeordnete Blöcke gelten als nicht erhalten.
+- **Absätze:** exakt erhaltene Absätze / Gold-Absätze; teilweise erhaltener Text und Reihenfolge separat berichten.
+- **Listen:** erhaltene Listen/Einträge / Gold-Listen/Einträge sowie Genauigkeit von Eintragsreihenfolge, Listentyp und Verschachtelungstiefe, jeweils mit eigenem Nenner.
+- **Tabellen:** erhaltene Beschriftungen, Zeilen und Zellwerte / entsprechende Gold-Einheiten; erhaltene Kopfzellen / Gold-Kopfzellen; korrekte Kopf-Wert-Zuordnungen / alle annotierten Gold-Zuordnungen. Eine abgeflachte Zellzeichenfolge ist keine erhaltene Zuordnung.
+- **Links und Abbildungen:** Links mit exakt erhaltenem Ankertext und Ziel / Gold-Links; erhaltene Beziehungen zwischen Abbildung/Bildunterschrift und relevantem Alternativtext / annotierte Gold-Beziehungen.
+- **Abschnitte:** primäre Referenzblöcke mit Zuordnung zum erwarteten Abschnitt / alle primären Blöcke mit erwarteter Abschnittszuordnung.
+
+**DOM-Komplexität:** Initial geparstes Dokument und gerenderten DOM von Variante A getrennt messen, ebenso Variante B. Elementgesamtzahl (`document.querySelectorAll("*").length`); maximale und mittlere Elementtiefe (Wurzelkonvention festlegen, etwa `html` mit Tiefe 0); Anzahl `div` und `span`; Anzahl pro vorab festgelegtem semantischem Tag (`header`, `nav`, `main`, `article`, `section`, `aside`, `footer`, `h1`–`h6`, `p`, Listen, `table`, `figure`, `figcaption`, `a`); sichtbare/relevante Inhaltsblöcke; wiederholte Wrapper-Signaturen (wiederholte Tag-/Klassen-Vorfahrenpfade, Wiederholungsregel vorab fixieren). `head`- und `body`-Teilbäume separat berichten, falls ihre Inhalte den Vergleich beeinflussen.
+
+Nicht jeden generischen Wrapper oder jedes `div` mit unnötiger Komplexität gleichsetzen. Für eine separate, durch Prüfende adjudizierte Zählung einen Wrapper nur dann als entfernbar klassifizieren, wenn er weder Semantik/Accessibility-Rolle, Verhalten, notwendige Styling-/Layout-Verankerung noch dokumentierten Komponentenzweck hat und seine Entfernung Inhalt, Beziehungen, Verhalten und visuelle Ausgabe unter den eingefrorenen Bedingungen erhält. Rubrik und Übereinstimmung der Prüfenden dokumentieren; andernfalls nur generische Elemente zählen, ohne sie unnötig zu nennen.
+
+**CSS-/Komponentenbeobachtungen:** Nur Belege aus geprüftem, autorisiertem Markup/Styles dokumentieren: Klassennamensmuster (einschließlich beobachteter BEM-ähnlicher Namen), wiederholte Klassen und Vorfahrenpfade, utility-ähnliche Klassen, Wrapperfolgen, tatsächlich belegbare Komponentengrenzen, Layoutcontainer und relevante CSS. Nicht allein aus gerenderten Klassennamen auf CMS, Atomic Design, BEM-Architektur oder Komponentenmodell schließen. Diese Beobachtungen getrennt von Markup-Semantik und DOM-Metriken ausweisen.
+
+Für vorab festzulegende Entscheidungen gelten die gemeinsamen [Metriken](/de/05-experiments/metrics/) und der [Analyseplan](/de/05-experiments/analysis-plan/). Nach einem Pilot mit synthetischen Daten, aber vor einer bestätigenden Erfassung, ein primäres Extraktionsergebnis und die Analyseeinheit auswählen; Schwellenwerte, Umgang mit Fehlwerten, Laufreihenfolge, Annotationsregeln und Analysekode vor Sichtung der Vergleichsergebnisse einfrieren.
+
+## Analyse, Visualisierung und Interpretation
+
+Gepaarte Tabellen und sachliche Visualisierungen zu DOM-Zahlen/Tiefe; primären, kontextabhängigen, Boilerplate- und unbekannten Ausgaben; Precision/Recall/F1; Überschriften-/Tabellen-/Beziehungserhalt sowie zu jedem Extraktor zeigen. Nenner und fehlende Ausgaben angeben. Ergebnisse nicht zu einem willkürlichen Architektur-Score zusammenfassen. Jedes Ergebnis als **Messwert**, **technische Beobachtung**, **Interpretation** oder **Einschränkung** kennzeichnen.
+
+Bei einer Seite nur den beobachteten Einzelfall und toolbezogene Unterschiede berichten. Wiederholungen messen operative Stabilität, nicht Variation zwischen Seiten. Aus korrelierten Tokens, Blöcken oder wiederholten Ausgaben keine Signifikanz- oder Verallgemeinerungsbehauptungen ableiten. Unterschiede über beide Tools hinweg erhöhen die Evidenz für Robustheit gegenüber diesen ausgewählten Extraktoren, belegen aber kein universelles Crawler- oder Anbieterverhalten.
+
+Beobachtete Extraktionsänderungen belegen nicht, dass allein semantisches HTML die Differenz verursacht, wenn DOM-Verschachtelung, Wrapper, CSS, Darstellung, Skripte, Assets, Host/Origin oder browser-sichtbare Inhalte geändert wurden. Sie belegen weder besseres RAG-Retrieval noch generierte Antworten, Ranking, KI-Sichtbarkeit oder Zitierungen. Dafür sind separate, explizit konzipierte Tests erforderlich.
+
+## Swiss-Life-Audit-Score
+
+Der berichtete Score von 13 bleibt aus Ergebnissen ausgeschlossen, solange Auditquelle/Tool, Datum, Skala und Richtung, untersuchte Kategorien, Bewertungsmethode und gemessenes Konstrukt (Barrierefreiheit, SEO, Maschinenlesbarkeit, Extraktion o. Ä.) unbekannt sind. Selbst bei Verifizierung bleibt er eine separate Kontextbeobachtung; weder erwartetes Ergebnis noch Ersatz für die Ground Truth dieses Experiments.
+
+## Reproduzierbarkeit und vorgeschlagener isolierter Workspace
+
+Bei dieser Dokumentationsaufgabe werden keine Experimenttools und kein Capture-Verzeichnis erstellt. Nach Freigabe könnte ein privater isolierter Workspace so aussehen:
+
+```text
+experiments/content-extraction/
+├── README.md
+├── config/                 # Protokollrevision und nicht geheime Einstellungen
+├── captures/
+│   ├── legacy/
+│   └── modern/
+├── reference/              # Inhaltsmanifest und Annotationen
+├── outputs/
+│   ├── crawl4ai/
+│   ├── trafilatura/
+│   └── dom-baseline/
+├── analysis/
+└── reports/
+```
+
+Rohe/copyrightgeschützte Captures, Screenshots, proprietären Quellcode und kundensensible Inhalte nicht in diesem öffentlichen Repository aufbewahren, außer schriftliche Genehmigung und Veröffentlichungsumfang erlauben dies ausdrücklich. Eine öffentliche Lehrversion muss autorisiertes Material oder ein synthetisches/anonymisiertes Fixture verwenden und klar so gekennzeichnet sein. Quelle/Prüfsumme, Protokollrevision, Browser und OS, Dependency-Lock/Umgebung, Konfiguration, Ein-/Ausgabeprüfsummen, Ausführungszeitpunkt, Fehler, Ausschlüsse, Abweichungen, Annotationsrevisionen und Analyseversion dokumentieren. Die gemeinsame [Reproduzierbarkeitscheckliste](/de/05-experiments/reproducibility/) verwenden.
+
+## Freigaben und offene Fragen
+
+Vor jeder Live-Erfassung einer Seite freigeben:
+
+1. Eine Seiten-URL, Sprache, Seitentyp und ein durch Content-Verantwortliche geprüftes Inhaltsmanifest.
+2. Aktuelle Prüfung von robots/Zugriffsrichtlinien und Nutzungsbedingungen, Client-/Rechtsfreigabe für Zugriff/Erfassung und erlaubte lokale Aufbewahrung.
+3. Rechte zur Reproduktion von Text, Bildern, Beschriftungen, Metadaten, Logos und visuellem Design in der modernen Rekonstruktion; separate Genehmigung für öffentliche Präsentation/Publikation.
+4. Quelle und Methodik des Audit-Scores, falls er über den nicht verifizierten Hintergrund hinaus erwähnt werden soll.
+5. Treue der modernen Implementierung, lokales Hosting und Umgang mit Einwilligungsoberfläche oder dynamischen Inhalten.
+6. Toolchain-/Lizenz-/Sicherheitsprüfung; exakte Playwright-, Browser-, Crawl4AI- und Trafilatura-Versionen sowie Machbarkeit von Offline-Eingaben.
+7. Annotationsrubrik, primäres Ergebnis, Metrik-/Tokenregeln, Analyseplan, Datenzugriff und Aufbewahrung.
+
+Bis zur Freigabe ist die Quell-URL nicht ausgewählt, moderne Seite und Ground Truth werden nicht erstellt und keine Live-Inhalte erhoben. Weitere relevante Dokumente: [Testfälle und Testdaten](/de/05-experiments/test-cases-data/), [Versuchsdesign](/de/05-experiments/design/), [HTML-Inhaltsverarbeitung](/de/02-literature/html-content-processing/), [HTML vs. Plain Text](/de/02-literature/html-vs-plain-text/) und [PAPER-001 — HtmlRAG](/de/03-notes/paper-notes/htmlrag/).
+
+## Ergebnisse und Status
+
+**Vorgeschlagen; nicht durchgeführt.** Es wurde keine Quellseite ausgewählt, keine moderne Seite implementiert, keine Erfassung oder Extraktion ausgeführt und kein Messwert erhoben. Protokoll, Metrikkandidaten und berichteter Audit-Score sind keine Erkenntnisse.

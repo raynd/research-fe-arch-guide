@@ -3,14 +3,17 @@ title: Experimente
 description: Vorgeschlagene Versuchsdesigns, gemeinsame Ressourcen und Ergebnisprotokolle.
 ---
 
-Alle vier Ausgangsexperimente haben den Status **Vorgeschlagen** und wurden nicht abgeschlossen. Ergebnisse, Interpretationen und Schlussfolgerungen liegen nicht vor.
+Alle fünf registrierten Experimente haben den Status **Vorgeschlagen** und wurden nicht abgeschlossen. Ergebnisse, Interpretationen und Schlussfolgerungen liegen nicht vor.
 
-| ID      | Titel               | Kernvergleich                                                                                   | Zugehörige Hypothesen | Status        |
-| ------- | ------------------- | ----------------------------------------------------------------------------------------------- | --------------------- | ------------- |
-| EXP-001 | HTML-Struktur       | Inhaltsgleicher Vergleich generischer und semantischer Elemente; explorative Varianten getrennt | H-001, H-002          | Vorgeschlagen |
-| EXP-002 | Rendering-Strategie | CSR, SSR, SSG                                                                                   | H-003                 | Vorgeschlagen |
-| EXP-003 | Strukturierte Daten | Sichtbares HTML und JSON-LD-Varianten                                                           | H-004                 | Vorgeschlagen |
-| EXP-004 | Content-Architektur | Quellstruktur, anschließend Retrieval mit eingefrorenen nachgelagerten Einstellungen            | H-005, H-006          | Vorgeschlagen |
+| ID      | Titel                                 | Kernvergleich                                                                                             | Zugehörige Hypothesen                   | Status        |
+| ------- | ------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------------- |
+| EXP-001 | HTML-Struktur                         | Inhaltsgleicher Vergleich generischer und semantischer Elemente; explorative Varianten getrennt           | H-001, H-002                            | Vorgeschlagen |
+| EXP-002 | Rendering-Strategie                   | CSR, SSR, SSG                                                                                             | H-003                                   | Vorgeschlagen |
+| EXP-003 | Strukturierte Daten                   | Sichtbares HTML und JSON-LD-Varianten                                                                     | H-004                                   | Vorgeschlagen |
+| EXP-004 | Content-Architektur                   | Quellstruktur, anschließend Retrieval mit eingefrorenen nachgelagerten Einstellungen                      | H-005, H-006                            | Vorgeschlagen |
+| EXP-005 | Legacy vs. moderne Content-Extraktion | Eine freigegebene Swiss-Life-Seite vs. inhaltsgleiche moderne Rekonstruktion; nur Extraktion und Struktur | H-001, H-002 (verwandt; nicht isoliert) | Vorgeschlagen |
+
+EXP-005 ist ein gebündelter Architekturvergleich mit einer Seite, kein Test nur für semantisches HTML. Quell-URL, moderne Rekonstruktion und Toolchain benötigen noch Freigaben durch Forschende/Client. Es wurden weder Seiteninhalte erfasst noch ein Experiment durchgeführt.
 
 ## Gemeinsame Design-Dokumente
 

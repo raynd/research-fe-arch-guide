@@ -6,6 +6,20 @@ Summary of changes since project initialization.
 
 ---
 
+## Build warnings — 2026-11-20
+
+- Replaced Starlight's missing 404 content entry with `src/pages/404.astro`, using `StarlightPage` and `disable404Route` to avoid a duplicate `/404` route. The generated `dist/404.html` contains navigation to both language dashboards.
+- `pnpm run validate` passes without the missing-404 or route-conflict warning. The sitemap warning remains because no canonical deployment URL is configured; a test-only `SITE_URL=https://research.example.org` build generates the sitemap, but no production hostname was inferred or added. The repository has no configured GitHub Pages site, so set the actual deployment origin before publication.
+- An origin-enabled test build confirmed the custom 404's canonical and language-alternate URLs still target ungenerated `/404/` routes; this remains a publication metadata issue and is recorded in `PROJECT_MAP.md`.
+
+## EXP-005 — Legacy vs. modern content extraction case study — 2026-11-20
+
+- Added paired English/German Markdoc records for proposed experiment EXP-005 and listed it in both experiment indexes. Linked the existing EXP-001 records to clarify that EXP-005 is a bundled architecture comparison, not an isolated semantic-HTML test. Related hypotheses H-001/H-002 remain Proposed; no new hypothesis or finding was created.
+- Defined the one-page Variant A/B design, content-parity manifest, modern reconstruction requirements, capture metadata, separate source-HTML/rendered-DOM snapshots, Playwright protocol, Crawl4AI/Trafilatura candidates, visible-DOM baseline, ground-truth labels, token/block/structure/DOM measures, analysis and visualization safeguards, and an isolated private tooling layout for later review.
+- The exact page URL is intentionally pending researcher/client approval. Checked only Swiss Life's public `robots.txt` on 2026-11-20; no page content, sitemap, or other website resources were fetched. The reported audit score of 13 remains unverified background, not evidence. No live crawl, screenshot, implementation, extraction run, dataset, dependency installation, or capture directory was created. Copyright/client approval, access terms, toolchain versions, offline-input feasibility, and audit provenance remain open.
+- Updated the project map to 71 pages per locale (142 total; 116 Markdown and 26 Markdoc). No navigation configuration, lockfile, README, or research status was changed.
+- Validation: `pnpm run validate` passed Biome, Prettier, Astro/TypeScript (0 errors, warnings, hints), and the production build (143 pages; 144 HTML files including redirect). Verified paired 18-section EXP-005 records, six RQs per locale, Proposed status, 142 routes, both experiment-index/sidebar links, and all 13,872 rendered internal documentation/fragment links. Existing warnings remain: no custom 404 content entry and sitemap skipped without `SITE_URL`.
+
 ## HTML semantics and document structure glossary — 2026-11-04
 
 - Extended both existing glossary pages with 47 new terms each: 87 entries across eight categories. Expanded Semantic HTML and Heading Hierarchy without duplicating entries; retained all existing term names and fragments.

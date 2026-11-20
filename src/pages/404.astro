@@ -1,0 +1,19 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+---
+
+<StarlightPage
+  frontmatter={{
+    title: 'Page not found',
+    description: 'The requested page could not be found.',
+    template: 'splash',
+    editUrl: false,
+  }}
+  lang="en"
+>
+  <p>
+    The page may have moved or the URL may be incorrect. Return to the{' '}
+    <a href="/en/">English research dashboard</a> or the{' '}
+    <a href="/de/">German Forschungs-Dashboard</a>.
+  </p>
+</StarlightPage>

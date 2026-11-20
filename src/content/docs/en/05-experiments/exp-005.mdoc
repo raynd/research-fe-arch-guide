@@ -1,0 +1,223 @@
+---
+title: EXP-005 — Content Extraction Case Study
+description: Proposed, single-page comparison of a Swiss Life legacy page and a content-equivalent modern reconstruction.
+---
+
+{% research-status value="Proposed" /%}
+
+## Experiment ID and title
+
+**EXP-005 — Legacy vs. Modern Frontend Architecture: Content Extraction Case Study**
+
+## Objective and research questions
+
+Prepare a bounded, reproducible case study comparing one approved existing Swiss Life page (Variant A) with a modern reconstruction of that same page using the same content (Variant B). The objectives are to measure extraction and structural differences and to create an educational case study. The design is neutral: it does not presume Variant B will perform better.
+
+1. **RQ1:** Does the modern implementation reduce DOM complexity, including unnecessary wrappers?
+2. **RQ2:** Does it change the proportion of relevant content to extracted boilerplate?
+3. **RQ3:** Does it change extraction precision, recall, or F1 against a frozen reference?
+4. **RQ4:** Does it change preservation of headings and other document structure?
+5. **RQ5:** Does it change preservation of relationships among headings, content blocks, lists, and tables?
+6. **RQ6:** Are observed extraction differences consistent across the selected tools?
+
+This case study evaluates primarily frontend implementation, delivered HTML/rendered DOM, and extraction outputs (stages 1–4 in the [HtmlRAG research context](/en/03-notes/paper-notes/htmlrag/)). Chunking, retrieval, answer quality, search ranking, and citations are outside its outcome scope.
+
+## Related hypotheses and experiments
+
+- [H-001 — Semantic HTML vs. Generic DOM](/en/04-hypotheses/h-001/) and [H-002 — DOM Hierarchy and Content Extraction](/en/04-hypotheses/h-002/) are related, but this experiment does **not** isolate either hypothesis: Variant B changes several architectural characteristics at once.
+- [EXP-001 — HTML Structure](/en/05-experiments/exp-001/) is the controlled semantic-markup comparison. EXP-005 must not be used to attribute a composite architecture difference specifically to semantic HTML.
+- [EXP-004 — Content Architecture](/en/05-experiments/exp-004/) addresses source structure and downstream chunking/retrieval, which this case study does not measure.
+- No hypothesis status, evidence level, or finding is changed by this proposal.
+
+## Background and prior observation
+
+The reported Swiss Life audit score of **13** is unverified background only. The audit tool, date, scale, evaluated categories, and score interpretation have not been supplied. Until documented, it is not an outcome, baseline, or evidence about content extraction, accessibility, SEO, or AI readiness.
+
+The [HTML Semantics & Document Structure glossary](/en/13-reference/glossary/) and [PAPER-001 — HtmlRAG](/en/03-notes/paper-notes/htmlrag/) motivate measuring representation and structure separately. HtmlRAG studies a particular RAG pipeline; it does not establish that a modern website architecture improves rankings, visibility, answers, or citations.
+
+## Design and estimand
+
+**Design:** One-page, paired, descriptive case study. The primary comparison is the same approved page content in the captured legacy implementation versus a modern reconstruction. The independent variable is the **whole frontend implementation** (A vs. B), not a single HTML technique.
+
+The estimand is the observed difference between these two implementations for the selected page, capture conditions, and frozen extraction pipelines. One page is not a representative sample of Swiss Life pages or the public web. Repeated runs, extracted blocks, or tokens are not independent website/page replications; use descriptive contrasts, not population-level significance claims.
+
+**Unit:** The approved page and its content manifest. Extraction output, annotated block, token occurrence, and capture run are nested measurement units, not independent page samples.
+
+## Page selection and capture approval
+
+**Page selection is pending. No source page has been opened, captured, or approved.** The researcher must select one public informational, product, or service page on Swiss Life's existing site. Prefer a single-language page containing several useful structures (headings, paragraphs, lists, tables, figures/captions, links, main content, and supplementary information). Do not default to the homepage if it is primarily global navigation, or select an account, personalized, gated, transactional, or user-data page.
+
+| Required source record                                              | State before approval                             |
+| ------------------------------------------------------------------- | ------------------------------------------------- |
+| Original URL, page title, page type, language                       | Pending researcher selection                      |
+| Capture timestamp and timezone                                      | Pending; record ISO 8601 and Europe/Zurich offset |
+| Initial response status, response URL, redirect chain, content type | Pending capture                                   |
+| Rendered DOM, screenshot, browser metadata                          | Not captured                                      |
+| Audit score 13: tool, scale, categories, date, source               | Unknown; exclude from evidence                    |
+
+The Swiss Life [`robots.txt`](https://www.swisslife.ch/robots.txt) was checked on **2026-11-20**. It contains a `User-agent: *` group and path-specific disallows, including test, prototype, and selected partner paths. As no candidate URL was selected, its applicability to the eventual page has not been determined. A robots file is not authorization: review current site terms, applicable access policies, and client/legal approval before any page request or capture. Do not crawl the site, enumerate sitemaps, evade bot/access controls, or make repeated requests as part of this proposal.
+
+## Variants and content parity
+
+- **A — Legacy:** One approved page captured from the live Swiss Life site, preserving the initial HTTP response and a separately serialized browser DOM.
+- **B — Modern:** A locally hosted, modern semantic reconstruction of the same approved page, made only after the researcher and content owner approve the source and reconstruction specification.
+
+Do not write new copy, add or remove relevant information, reorder content, or change facts. Match language, page purpose, title and metadata where feasible, visible text, heading levels/order, paragraph and list content, table values and header relationships, link text/destinations, images and relevant alternative text, captions, and content visibility. Reproduce relevant global navigation and footer text where permission allows so it does not become an uncontrolled content difference. Record every unavoidable difference in a parity manifest before extraction.
+
+Keep the modern page visually comparable to the source: same viewport and comparable spacing, density, image placement, and hierarchy. Do not rebrand or redesign it. Visual fidelity is a review guardrail, not an outcome score.
+
+Variant B may reduce wrappers or change elements, nesting, class conventions, component boundaries, CSS, delivery origin, scripts, or metadata. These changes are part of the bundled treatment or unavoidable differences. This two-arm case study cannot identify the separate causal contribution of semantic HTML, DOM depth, CSS, component architecture, or delivery behavior. A later controlled contrast may isolate one factor as in EXP-001.
+
+## Variables and controls
+
+**Primary treatment:** Legacy implementation vs. modern reconstruction.
+
+**Outcomes, reported separately:** Element counts/depth; generic and semantic element counts; extracted relevant/contextual/boilerplate content; token and block precision/recall/F1; content/noise shares; signal-to-noise ratio; heading, paragraph, list, table, link, and section-relationship preservation; tool-specific outputs and failures.
+
+**Hold constant where feasible:** Page language and purpose, verified content manifest and order, viewport, browser engine/version, device scale, locale/timezone, color scheme, motion settings, consent state, JavaScript policy, page-stability rule, capture procedure, extraction inputs, tool versions/configuration, normalization, annotation rubric, and analysis code.
+
+**Record rather than conceal:** Original vs. local hosting, response status/headers, cache and storage state, dynamic content, consent interface, loaded resources, image substitutions, fonts, metadata, scripts, browser defaults, failed requests, responsive differences, and any content that could not be reproduced. A difference that changes information or visibility blocks the primary comparison until reviewed.
+
+## Modern reconstruction specification
+
+After source-page approval, implement a small local page that:
+
+- uses native `header`, `nav`, `main`, `article`, `section`, `aside`, and `footer` only where their meaning fits;
+- preserves the source's heading text, ranks, and order; uses paragraphs and correctly nested ordered/unordered lists;
+- preserves genuine data tables with `caption`, `thead`/`tbody`, `th`/`td`, and correct `scope` or explicit associations;
+- preserves figures, captions, link text and destinations, and meaningful image alternatives;
+- keeps interactive elements operable and accessibly named, preferring native HTML and avoiding redundant ARIA;
+- avoids wrappers only where they are unnecessary, while keeping useful component boundaries and readable source; and
+- reproduces the original visual hierarchy without copying proprietary source code or unapproved assets.
+
+Semantic element names are not to be added merely to make a page appear “AI-ready.” Record the rendered DOM and test its structure. Accessibility checks are guardrails, not proof of extraction or AI-search benefit.
+
+## Capture protocol
+
+**Do not run this protocol until source-page, legal/client, and protocol/toolchain approvals are recorded.** Capture one approved URL only; no site-wide crawl.
+
+1. Freeze the protocol revision, URL, language, content manifest, authorization, tool versions, browser settings, and analysis plan.
+2. Make a single low-frequency browser visit to Variant A using a clean browser context with no login, personal data, or stored credentials. Do not bypass an access wall or bot control. If content is gated or personalized, stop and select another page.
+3. Record navigation/redirect chain, final URL, main-document status and headers, capture time, browser/OS versions, viewport, locale, timezone, JavaScript state, cookie/consent state, and page errors/network failures. Sanitize request logs; do not retain credentials, cookies, or personal identifiers.
+4. Save the initial main-document response bytes as `response.html`; separately serialize `document.documentElement.outerHTML` after a declared, page-specific stable-content condition as `rendered.html`. Record SHA-256 checksums. Do not treat either representation as the other.
+5. Capture one screenshot at a frozen CSS viewport (proposed: 1440 × 1000, device scale factor 1) and record relevant metadata. Use the same browser and settings for Variant B. If the source cannot be captured at the approved viewport, document the deviation.
+6. Serve Variant B locally, capture its HTTP response and rendered DOM with the same procedure, and retain errors and failed requests. Keep external links pointed to the same destinations; do not follow them during capture.
+7. Preserve response HTML, serialized DOM, screenshot, metadata, and extraction outputs in access-controlled local storage. Do not commit raw page content, screenshots, proprietary code/assets, cookies, or client-sensitive details to this public repository.
+
+The stable-content selector, wait condition, timeout, consent handling, and exact browser configuration are **protocol fields to finalize** after the selected page is reviewed. Do not silently use `networkidle` or arbitrary delays as proof that all page content is stable.
+
+## Extraction pipeline and candidate tools
+
+The same saved input artifact must be passed to each tool for the primary offline comparison wherever the documented APIs support it. Process `response.html` and `rendered.html` as separate inputs. Archive tool output and metadata independently; do not combine cleaning, text conversion, and extraction into one unlabeled stage.
+
+1. **Visible-DOM baseline (optional):** extract `document.body.innerText` from the saved rendered page in the frozen browser environment. This is a simple visible-text baseline, not a main-content extractor.
+2. **Crawl4AI (primary candidate):** test the self-hosted library, not the hosted cloud API, to keep capture/input and configuration inspectable. Preserve Markdown, cleaned HTML, and available extraction metadata. Disable all LLM-based extraction and adaptive multi-page crawling. Freeze the browser, markdown generator/filter, extraction strategy, and all defaults/version after a synthetic-fixture pilot.
+3. **Trafilatura (independent baseline):** process the same saved HTML bytes rather than performing a separate live download where supported. Freeze version, extraction options, and requested output formats; preserve Markdown/HTML/text and available metadata.
+4. **Offline-input feasibility:** first verify, using a synthetic fixture only, whether the chosen Crawl4AI version can consume both saved HTML artifacts without refetching the Swiss Life page. If not, do not label a local-server or live-browser run as the same-input offline comparison. Record the limitation and keep any URL-based run separate from the primary snapshot-based comparison.
+5. Record exact package/browser versions, settings, input checksums, outputs, errors, and timestamps. Do not install dependencies or execute a live extraction before review approval.
+
+Official tool documentation: [Crawl4AI](https://docs.crawl4ai.com/), [Trafilatura](https://trafilatura.readthedocs.io/en/latest/), and [Playwright](https://playwright.dev/docs/intro). These mutable documents describe tool capabilities, not this experiment's results. Tool versions and options remain unselected; no research toolchain or captures have been added to the repository.
+
+## Ground truth and annotation
+
+Create one content manifest from the researcher/content-owner-verified source page. Assign stable IDs to headings, paragraphs, list items, tables, rows/cells, links, figures/captions, image alternatives, and other meaningful blocks. Record source text, order, hierarchy/parent, link destination, table header-value associations, and applicable metadata. Verify that Variant B matches this manifest before extraction. Use this same reference for both variants and every tool.
+
+Annotate each reference block as:
+
+- **Primary relevant content:** information directly answering the page's purpose, such as the main headline, service description, benefits, facts, FAQ, and directly relevant tables.
+- **Context-dependent content:** legal/regulatory text, footnotes, related offerings, or supporting navigation whose relevance depends on the evaluation task. Do not automatically call it irrelevant.
+- **Boilerplate/irrelevant content:** repeated site navigation, generic footer links, consent/interface text, unrelated promotions/recommendations, or repeated interaction labels that do not serve the page task.
+
+Write page-specific inclusion rules before annotating. Have two reviewers label the reference and a blinded sample of outputs where feasible; report disagreements and adjudication. If only one reviewer is available, state this limitation. Extraction outputs can reveal their source; do not claim blinding where it is ineffective. Retain the rubric, annotated reference, disagreements, and adjudication locally; share only with explicit permission.
+
+## Metrics and scoring rules
+
+Report raw counts and denominators with every measure. Primary results use **primary relevant** content; repeat precision/recall/F1 as a sensitivity analysis with primary plus context-dependent content counted as relevant. Keep context, boilerplate, and unaligned/unknown extracted content separate.
+
+**Text normalization:** Decode HTML entities, normalize Unicode to NFC, normalize line endings, and collapse whitespace. Preserve case, punctuation, numbers, and token order. Use Unicode whitespace-delimited token occurrences, with the normalization/tokenizer version recorded. Do not compare tool outputs after silently dropping duplicates or punctuation.
+
+Align extracted spans to stable reference block IDs using the annotation rubric. Match a reference token occurrence at most once within its block; do not allow one common token in a different section to establish a correct heading/content association. Count repeated output occurrences in the denominator; duplicate output cannot match the same reference occurrence twice. Keep unmatched tokens visible as unknown rather than silently labeling them irrelevant.
+
+Let `E` be all extracted body-text token occurrences, `TPp` extracted occurrences aligned to primary-reference tokens, `G` all primary-reference token occurrences, and `B` extracted occurrences annotated as boilerplate:
+
+- **Extraction precision / primary content density:** `TPp / E`.
+- **Extraction recall:** `TPp / G`.
+- **F1:** `2 × precision × recall / (precision + recall)`.
+- **Noise share:** `B / E`.
+- **Context share:** extracted context-dependent tokens / `E`.
+- **Unknown share:** unaligned/unknown tokens / `E`.
+- **Signal-to-noise ratio:** `TPp : B`; also report signal percentage `TPp / (TPp + B) × 100`. If `B = 0`, report “no boilerplate tokens observed” and SNR as undefined, not an invented finite number. Do not report decibels.
+
+Content density and token-level precision are mathematically the same under this shared numerator/denominator; present them as one measured value, not independent evidence. Shares of primary signal, context, boilerplate, and unknown should account for all extracted tokens. Also report block-level exact/partial recovery separately from token scores. If a denominator is zero, mark the metric not applicable and explain why.
+
+For **block-level exact recovery**, define a block as one heading, paragraph, list item, table cell, caption, or link unit. Preserve tool-native boundaries where possible; otherwise apply a pinned deterministic parser and retain the original output. Let `TPb` be uniquely aligned extracted blocks whose normalized content exactly matches a primary gold block, `Eb` all extracted blocks, and `Gb` all primary gold blocks: block precision is `TPb / Eb`, block recall is uniquely recovered primary gold blocks / `Gb`, and block F1 is their harmonic mean. Report token-based partial recovery separately. If a tool's output cannot be segmented into comparable blocks without arbitrary decisions, mark block scores unavailable for that output rather than inventing boundaries.
+
+**Structure, each with its own numerator/denominator:**
+
+- **Headings:** exact heading text retained / gold headings; text and correct level (`h1`–`h6`) retained / gold headings; preserved relative order / gold headings; preserved parent/child heading pairs / annotated gold pairs. Report each separately.
+- **Heading-to-content association:** correctly associated primary reference blocks / all primary reference blocks with an expected heading or section association. Missing or wrongly associated blocks count as not preserved.
+- **Paragraphs:** retained exact paragraphs / gold paragraphs, with partially retained text and order reported separately.
+- **Lists:** retained lists/items / gold lists/items, plus item-order accuracy, list-type accuracy, and nesting-depth accuracy, each with its own denominator.
+- **Tables:** retained captions, rows and cell values / corresponding gold units; retained header cells / gold header cells; correct header-to-value associations / all annotated gold associations. A flattened cell string is not a preserved association.
+- **Links and figures:** links with both exact anchor text and destination retained / gold links; retained figure/caption and relevant alternative-text relationships / annotated gold relationships.
+- **Sections:** primary reference blocks associated with the expected section / all primary blocks with an expected section association.
+
+**DOM complexity:** measure Variant A's initial parsed document and rendered DOM separately, then Variant B in the same way. Record total element count (`document.querySelectorAll("*").length`); maximum and mean element depth (root convention fixed, e.g. `html` depth 0); `div` and `span` counts; counts per predeclared semantic tag (`header`, `nav`, `main`, `article`, `section`, `aside`, `footer`, `h1`–`h6`, `p`, lists, `table`, `figure`, `figcaption`, `a`); visible/relevant content blocks; and repeated wrapper signatures (repeated tag/class ancestor paths, with the repetition rule frozen). Report `head` and `body` subtrees separately if their content changes the comparison.
+
+Do not equate every generic wrapper or `div` with unnecessary complexity. For a separate, reviewer-adjudicated count, classify a wrapper as removable only if it has no semantic/accessibility role, behavior, required styling/layout hook, or documented component purpose, and removing it preserves content, relationships, behavior, and visual output under the frozen conditions. Record the rubric and reviewer agreement; otherwise report generic-element counts without calling them unnecessary.
+
+**CSS/component observations:** record evidence only from inspected, authorized markup/styles: class-name patterns (including any observed BEM-like names), repeated class and ancestor-path patterns, utility-like classes, wrapper sequences, component boundaries that can actually be established, layout containers, and relevant CSS. Do not infer a CMS, Atomic Design, BEM architecture, or component model solely from rendered class names. Keep these observations distinct from semantic markup and DOM metrics.
+
+The shared [metrics](/en/05-experiments/metrics/) and [analysis plan](/en/05-experiments/analysis-plan/) govern pre-run choices. Select one primary extraction outcome and the analysis unit after the synthetic pilot but before any confirmatory capture; freeze thresholds, missingness, run order, annotation rules, and analysis code before looking at comparative results.
+
+## Analysis, visualization, and interpretation
+
+Present paired tables and factual visualizations for DOM counts/depth; primary, context, boilerplate, and unknown output; precision/recall/F1; heading/table/relationship preservation; and each extractor. Show denominators and missing outputs. Do not combine outcomes into an arbitrary architecture score. Label every result as **measured result**, **technical observation**, **interpretation**, or **limitation**.
+
+With one page, report the observed case and tool-specific differences only. Repeated runs estimate operational stability, not variation across pages. Do not make significance or generalization claims from correlated tokens, blocks, or repeated outputs. A difference across both tools increases evidence of robustness to those selected extractors only; it does not establish a universal crawler or provider behavior.
+
+Observed extraction changes cannot establish that semantic HTML alone caused the difference if DOM nesting, wrappers, CSS, presentation, scripts, assets, host/origin, or browser-visible content changed. They cannot establish better RAG retrieval, generated answers, rankings, AI visibility, or citations. Those require separate, explicitly designed tests.
+
+## Swiss Life audit score
+
+The reported score of 13 is excluded from outcomes unless the audit record establishes source/tool, date, scale and direction, evaluated categories, scoring method, and whether it measures accessibility, SEO, machine-readability, extraction, or another construct. Even if verified, it remains a separate contextual observation; it is not the expected result or a substitute for this experiment's ground truth.
+
+## Reproducibility and proposed isolated workspace
+
+No experiment tooling or capture directory is created in this documentation task. After approval, a private, isolated workspace could use:
+
+```text
+experiments/content-extraction/
+├── README.md
+├── config/                 # protocol revision and non-secret settings
+├── captures/
+│   ├── legacy/
+│   └── modern/
+├── reference/              # content manifest and annotations
+├── outputs/
+│   ├── crawl4ai/
+│   ├── trafilatura/
+│   └── dom-baseline/
+├── analysis/
+└── reports/
+```
+
+Keep raw/copyrighted captures, screenshots, proprietary source, and client-sensitive material out of this public repository unless written permission and release scope explicitly allow publication. A public teaching version should use authorized material or a synthetic/anonymized fixture and must be clearly labeled as such. Record source/checksum, protocol revision, browser and OS, dependency lock/environment, configuration, input/output checksums, execution timestamp, failures, exclusions, deviations, annotation revisions, and analysis version. Use the shared [reproducibility checklist](/en/05-experiments/reproducibility/).
+
+## Approval gates and unresolved questions
+
+Before any live page capture, approve:
+
+1. The single page URL, language, page type, and a content-owner-verified content manifest.
+2. Current robots/access-policy and terms review, client/legal permission to access and capture, and allowed local retention.
+3. Rights to reproduce text, images, captions, metadata, logos, and visual design in the modern reconstruction; separate permission for public presentation or publication.
+4. The audit-score source and methodology, if it is to be mentioned beyond unverified motivation.
+5. The modern implementation's fidelity, local-only hosting, and handling of any consent UI or dynamic content.
+6. Toolchain/license/security review; exact Playwright, browser, Crawl4AI, and Trafilatura versions and offline-input feasibility.
+7. Annotation rubric, primary outcome, metric/token rules, analysis plan, data access, and retention.
+
+Until these gates are met, the source URL remains unselected, the modern page and ground truth are not built, and no live content is collected. Relevant shared records: [test cases and data](/en/05-experiments/test-cases-data/), [experiment design](/en/05-experiments/design/), [HTML content processing](/en/02-literature/html-content-processing/), [HTML vs. plain text](/en/02-literature/html-vs-plain-text/), and [PAPER-001 — HtmlRAG](/en/03-notes/paper-notes/htmlrag/).
+
+## Results and status
+
+**Proposed; not executed.** No source page has been selected, no modern page has been implemented, no experiment capture or extraction has been run, and there are no measured results. Do not treat the protocol, candidate metrics, or reported audit score as findings.

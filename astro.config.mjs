@@ -76,6 +76,7 @@ export default defineConfig({
       description:
         'An evidence-led research workspace on frontend architecture and generative search.',
       defaultLocale: 'en',
+      disable404Route: true,
       locales: {
         en: { label: 'English' },
         de: { label: 'Deutsch' },
