@@ -82,7 +82,7 @@ The site separates the lifecycle into the dashboard, research foundation, litera
 
 Pages share the same filenames under `src/content/docs/en/` and `src/content/docs/de/`. This gives Starlight page-level translation pairing and English fallback with a visible untranslated notice if a translation is not yet available. Keep research IDs, statuses, and evidence classifications identical across locales; translate only their displayed labels. The literature register and findings matrix remain empty until sources or results are verified. Initial hypotheses and experiment briefs are proposals, not findings.
 
-Object IDs are shared across languages. Existing IDs (`H-001`–`H-006` and `EXP-001`–`EXP-004`) are preserved; use `PAPER-###`, `HYP-###`, `EXP-###`, `FIND-###`, and `FE-###` for new research objects. Markdoc has one shared configuration; its status and evidence schemas are language-independent, while localized labels are supplied by each content file.
+Object IDs are shared across languages. Existing IDs (`H-001`–`H-006` and `EXP-001`–`EXP-005`) are preserved; use `PAPER-###`, `HYP-###`, `EXP-###`, `FIND-###`, and `FE-###` for new research objects. Markdoc has one shared configuration; its status and evidence schemas are language-independent, while localized labels are supplied by each content file.
 
 ## Adding localized content
 

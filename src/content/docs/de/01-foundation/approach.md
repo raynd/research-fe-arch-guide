@@ -24,6 +24,6 @@ Wird ein Gate nicht erreicht, Arbeit überarbeiten oder als explorativ kennzeich
 
 ## Konventionen für Forschungsobjekte
 
-Bestehende IDs (`H-001`–`H-006`, `EXP-001`–`EXP-004`) beibehalten. Für neue Datensätze `PAPER-###`, `HYP-###`, `EXP-###`, `FIND-###` und `FE-###` verwenden und verwandte Objekte verlinken. Statuswerte ausdrücklich angeben. Ein fehlendes Ergebnis ist kein negatives Ergebnis; eine ungeprüfte Hypothese ist weder bestätigt noch widerlegt.
+Bestehende IDs (`H-001`–`H-006`, `EXP-001`–`EXP-005`) beibehalten. Für neue Datensätze `PAPER-###`, `HYP-###`, `EXP-###`, `FIND-###` und `FE-###` verwenden und verwandte Objekte verlinken. Statuswerte ausdrücklich angeben. Ein fehlendes Ergebnis ist kein negatives Ergebnis; eine ungeprüfte Hypothese ist weder bestätigt noch widerlegt.
 
 Stabile IDs von der Sprache trennen: Beide Sprachfassungen verwenden dieselbe ID und denselben relativen Seitenpfad. Aussagen auf die engste belegte Ebene beschränken (Studie, gemessenes System, Ergebnisstufe und Datum), statt pauschal über „KI-Systeme“ zu schreiben.

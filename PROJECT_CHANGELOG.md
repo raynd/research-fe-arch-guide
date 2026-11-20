@@ -6,6 +6,13 @@ Summary of changes since project initialization.
 
 ---
 
+## EXP-005 protocol refinement — 2026-11-20
+
+- Clarified that the six questions are local to EXP-005 and corrected the framing of HtmlRAG as indirect downstream context, not a source for frontend implementation stages.
+- Specified pending decisions for Variant B's implementation profile, metadata, consent/dynamic states, primary snapshots and output formats, text/block alignment, DOM versus extractor structure, semantic review, and run policy. Defined edge-case reporting for F1 and non-overlapping link/block scoring.
+- Updated the README and both foundation approach pages to include the existing EXP-005 ID. Preserved Proposed status and all page-selection, permission, and execution gates; no page was selected or accessed, and no reconstruction, capture, or extraction was performed.
+- Updated the project map scope. No historical changelog entries, shared experiment methodology, research IDs, findings, or hypothesis statuses were changed.
+
 ## Build warnings — 2026-11-20
 
 - Replaced Starlight's missing 404 content entry with `src/pages/404.astro`, using `StarlightPage` and `disable404Route` to avoid a duplicate `/404` route. The generated `dist/404.html` contains navigation to both language dashboards.

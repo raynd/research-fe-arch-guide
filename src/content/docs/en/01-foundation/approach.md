@@ -24,6 +24,6 @@ Failure at a gate means revise or label the work exploratory; it does not mean d
 
 ## Research object conventions
 
-Preserve existing IDs (`H-001`–`H-006`, `EXP-001`–`EXP-004`). Use `PAPER-###`, `HYP-###`, `EXP-###`, `FIND-###`, and `FE-###` for new records, and link related objects. Keep statuses explicit. A missing result is not a negative result; an untested hypothesis is not supported or rejected.
+Preserve existing IDs (`H-001`–`H-006`, `EXP-001`–`EXP-005`). Use `PAPER-###`, `HYP-###`, `EXP-###`, `FIND-###`, and `FE-###` for new records, and link related objects. Keep statuses explicit. A missing result is not a negative result; an untested hypothesis is not supported or rejected.
 
 Keep stable IDs separate from language: both locale records share the same identifier and relative page path. Record claims at the narrowest level supported (study, measured system, outcome stage, and date), not as unqualified statements about “AI systems.”

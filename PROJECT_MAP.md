@@ -3,7 +3,7 @@
 Technical overview of the current implementation, for architecture review and knowledge sharing.
 
 - **Inspected:** 2026-11-20
-- **Scope:** initial architecture inspection, updated after the technical stabilization review and proposed EXP-005 registration. Changes are recorded in `PROJECT_CHANGELOG.md`.
+- **Scope:** initial architecture inspection, updated after the technical stabilization review, proposed EXP-005 registration, and protocol refinement. Changes are recorded in `PROJECT_CHANGELOG.md`.
 - **Toolchain:** Node.js 24.21.0; pnpm 11.25.0 is the selected package manager.
 
 > **Summary.** This is a **static documentation site**. All content lives as Markdown/Markdoc files in the repository, Astro + Starlight compile it to plain HTML/CSS/JS at build time, and any static file host can serve the `dist/` folder. There is **no backend server, no database, no API and no CMS**.
